@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "It&rsquo;s Always the Little Things"
+title: "It's Always the Little Things"
 old_url: "http://simpable.com/business/it-rsquo-s-always-the-little-things/"
 graffitiID: "242"
 rawDate: "6/1/2009 8:09:09 AM"

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Installing Windows Live &ndash; Welcome Back to the 90&rsquo;s"
+title: "Installing Windows Live &ndash; Welcome Back to the 90's"
 old_url: "http://simpable.com/software/wlw-installer/"
 graffitiID: "127"
 rawDate: "7/17/2008 1:56:33 PM"
