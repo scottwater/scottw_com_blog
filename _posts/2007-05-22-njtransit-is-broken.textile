@@ -9,7 +9,7 @@ tags: [ui, simplicity]
 
 I do not get why you would ever publish something like this.
 
-!http://scottwater.com/images/blog/WindowsLiveWriter/Howtomakesomethingsimpleharder_759A/njtransit.png!:http://www.njtransit.com/sf_tr_schedules.shtml
+!http://scottwater.com/images/sw_Images/blog/WindowsLiveWriter/Howtomakesomethingsimpleharder_759A/njtransit.png!:http://www.njtransit.com/sf_tr_schedules.shtml
 
 # Why not pre-select a day of the week for travel? If I need to change it, I can.
 # Why is the reset button on the left?
