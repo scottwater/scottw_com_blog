@@ -1,0 +1,12 @@
+---
+layout: post
+title: "Disqus"
+old_url: "http://simpable.com/disqus/"
+graffitiID: "143"
+rawDate: "8/12/2008 9:29:00 PM"
+---
+
+
+This is a post
+
+

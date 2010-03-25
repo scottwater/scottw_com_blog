@@ -1,0 +1,16 @@
+---
+layout: post
+title: "Free Graffiti Themes"
+old_url: "http://simpable.com/software/free-graffiti-themes/"
+graffitiID: "142"
+rawDate: "8/11/2008 3:34:00 PM"
+tags: [graffiti, themes]
+---
+
+
+"Dana Coffey":http://crazeegeekchick.com/ has been posting some nice looking "free Graffiti CMS blog themes":http://crazeegeekchick.com/graffiti-cms/free-themes/.
+
+bq.
+I've converted a few free Wordpress themes for use in Graffiti CMS.  I'm offerring them here for download.  Note, that I left the original designer's credit in the footer of each.  Please leave those credits in tact if you use the themes.  I'd love it if you'd place a link back to my site as well in the footer, but I won't yell if you choose not to do so.
+
+

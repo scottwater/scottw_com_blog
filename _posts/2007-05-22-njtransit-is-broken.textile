@@ -1,0 +1,17 @@
+---
+layout: post
+title: "NJTransit: How to make something simple harder"
+old_url: "http://simpable.com/life/njtransit-is-broken/"
+graffitiID: "115"
+rawDate: "5/22/2007 8:40:47 AM"
+tags: [ui, simplicity]
+---
+
+I do not get why you would ever publish something like this.
+
+!http://scottwater.com/images/blog/WindowsLiveWriter/Howtomakesomethingsimpleharder_759A/njtransit.png!:http://www.njtransit.com/sf_tr_schedules.shtml
+
+# Why not pre-select a day of the week for travel? If I need to change it, I can.
+# Why is the reset button on the left?
+# Why is there even a reset button? Is this form really so complicated complicated users will not be able to figure out how to change it?
+

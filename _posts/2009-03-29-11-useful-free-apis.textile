@@ -1,0 +1,17 @@
+---
+layout: post
+title: "11 Useful Free APIs for Developing Apps"
+old_url: "http://simpable.com/software/11-useful-free-apis/"
+graffitiID: "223"
+rawDate: "3/29/2009 2:42:20 PM"
+tags: [twitter, api, services, cloud-computing]
+---
+
+
+I originally saw this great link "11 Useful Free APIs for Developing Twitter Apps":http://www.boxuk.com/blog/apis-for-twitter-apps in a "tweet":http://twitter.com/jongalloway/status/1412986415 by "Jon Galloway":http://twitter.com/jongalloway/.
+
+While there are a couple of them that are focused on just twitter, there are quite a few others that have usage far and beyond twitter.
+
+It really is amazing what you can build today simply by leveraging services provided by others. As the trends in cloud computing continue, I expect you see more of these services becoming available since the costs to run them are shinking day by day. This of course leads to more services and so on and so on.
+
+

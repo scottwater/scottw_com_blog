@@ -1,0 +1,22 @@
+---
+layout: post
+title: "Contact Me"
+old_url: "http://simpable.com/contact/"
+graffitiID: "1"
+rawDate: "9/24/2007 10:24:00 PM"
+---
+
+
+Hello Reader, thanks for taking the time to get in contact with me. Feel free to ask me anything, just be warned that I may not respond if you do not read the items below.
+
+* For questions related to Telligent/Community Server, feel free to ask away. However, for support I recommend you check out the "forums":http://communityserver.org/forums and if you have sales/business questions, ping our "sales team":mailto:sales@telligent.com (feel free to CC me - "scottw@telligent.com":mailto:scottw@telligent.com - and I will help speed things along). Just to be clear, since I work for Telligent leading the development of Community Server, I cannot do side consulting for you (and honestly, you could probably find someone cheaper than me for your small customization anyway. :)
+
+* For questions related to .Text, it has been more than 3 years since I even remotely looked at the code. There are way better solutions freely available now, so I recommend you try one of them out. We will soon be releasing GraffitiCMS (used on this site) which will let you build, run, manage a killer blog. There is also SubText which is a much improved fork of .Text. Seriously, no body anywhere should still be using .Text.
+
+* For job questions, if you are hiring, I am not interested. I love working for "Telligent":http://telligent.com. Of course I am not an idiot and will never say never, but if you are looking for someone to manage your new internal LOB application, save both us the trouble and post an ad on "JobBurner":http://jobburner.com.  However, if you are looking for a job and think you have what it takes to turn the software world on its head, drop me a line at "scottw@telligent.com":mailto:scottw@telligent.com.
+
+If you have made it this far and still have a question, please fire away. Also note, you can use "scottwater@gmail.com":mailto:scottwater@gmail.com as well.
+
+Thanks!
+
+

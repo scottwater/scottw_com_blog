@@ -1,0 +1,22 @@
+---
+layout: post
+title: "Over Thinking The Competition"
+old_url: "http://simpable.com/business/over-thinking-the-competition/"
+graffitiID: "247"
+rawDate: "7/17/2009 11:44:30 AM"
+---
+
+
+A really interesting post on the "Zoho":http://zoho.com "blog":http://blogs.zoho.com/, ""Companies Don't Get Killed by Competition, They Commit Suicide":http://blogs.zoho.com/general/companies-don-t-get-killed-by-competition-they-commit-suicide"
+
+My two favorite quotes.
+
+bq.    _But if there's anything I've learned from my years in the tech world is that&#160; companies don't get killed by competition, they usually find creative ways to commit suicide._
+
+Then:
+
+bq.    _...hating competitors is a good way to lose objectivity and lose focus on customers._
+
+Zoho has the right perspective. They cannot control what Microsoft and Google deliver. But they can control their own user experience and how they interact with their customer.
+
+

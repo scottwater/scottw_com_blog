@@ -1,0 +1,18 @@
+---
+layout: post
+title: "Hugs"
+old_url: "http://simpable.com/code/hugs/"
+graffitiID: "153"
+rawDate: "8/29/2008 8:53:46 AM"
+tags: [funny, video, devshop-project-management]
+---
+
+
+I saw this "video":http://blip.tv/file/1061088 on "CodeSqueeze":http://www.codesqueeze.com/hug-a-developer/ earlier today. Way too good not to share on a Friday.
+
+<embed src="http://blip.tv/play/AcGSagA" type="application/x-shockwave-flash" width="480" height="293" allowscriptaccess="always" allowfullscreen="true"></embed>
+
+
+
+The video was produced by "DevShop":http://devshop.com/, which is a software project tracking application. DevShop looks interesting. Anyone have any experience with it?
+

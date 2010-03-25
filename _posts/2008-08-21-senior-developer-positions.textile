@@ -1,0 +1,57 @@
+---
+layout: post
+title: "Senior Developer Position(s)"
+old_url: "http://simpable.com/code/senior-developer-positions/"
+graffitiID: "149"
+rawDate: "8/21/2008 10:18:44 AM"
+tags: [telligent]
+---
+
+
+I just wrote about a SharePoint opening on the "Telligent":http://telligent.com product team and you might be saying yourself, "Self, I am a great developer, I am just not interested in SharePoint, I wonder if Telligent has anything for me?". Generally, it is not a good idea to talk to yourself, but in this case, it could work out nicely.
+
+In addition to the open SharePoint position, there are quite a few opening on both the "Community Server":http://communityserver.com and Evolution[1] teams.
+
+Here is a list of some of the skills we are looking for (note, you don't need to have experience with all of them, but knowing a couple of them really well is required).
+
+* ASP.Net
+
+* C#
+
+* WCF and MSMQ
+
+* Ajax/Javascript
+
+* Unit Testing
+
+* Flash
+
+* SQL Server (developer expertise)
+
+* Oracle (developer expertise)
+
+* Active Directory, LDAP, and/or SAML
+
+* Microsoft Presence Server
+
+* REST
+
+* Memecache
+
+* CSS, HTML, Photoshop/Fireworks
+
+Ideal candidates will be local to Dallas Texas (or willing to relocate). However, if you are a rock star and like your current dwelling, these positions can all be telecommuted. You must also be a US citizen and/or capable of working in the US without sponsorship. Recruiters need not apply.
+
+If you are interested, please send your resume, summary of skills, and salary requirements to "scottw@telligent.com":mailto:scottw@telligent.com.
+
+
+
+
+
+
+
+
+
+[1] Community Server for the intranet.
+
+

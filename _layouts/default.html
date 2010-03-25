@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : {{ page.title }} </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="{{page.robots}}" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?{{site.time | date: "%Y%m%d%H%M%S"}}" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?{{site.time | date: "%Y%m%d%H%M%S"}}" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk's blog" />
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about">about</a></li>
+          <li><a href="/archive">archives</a></li>
+          <li><a href="/tags">tags</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        <div id="content">
+          {{content}}
+        </div>
+
+        <div id="sidebar">
+
+
+  			<div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw"><img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/></a>
+        </div> 
+      
+        <div class="sidelist"> 
+          {% include aboutme.html %}
+      </div> 
+
+      <div class="sidelist"> 
+        {% include ads.html %}
+      </div>
+
+    </div>
+
+    <div id="footer">
+      <p>
+        &copy; Scott Watermasysk &#8212;
+      </p>
+      <p>Last generated {{site.time | date: "%B %d, %Y at %I:%M %p"}}</p>
+        
+    </div>
+  </body>
+</html>

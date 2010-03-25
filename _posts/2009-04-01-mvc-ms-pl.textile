@@ -1,0 +1,19 @@
+---
+layout: post
+title: "ASP.NET MVC 1.0 Now Available Under MS-PL"
+old_url: "http://simpable.com/code/mvc-ms-pl/"
+graffitiID: "228"
+rawDate: "4/1/2009 10:03:34 PM"
+tags: [aspnet, mvc, mono, oss, ms-pl]
+---
+
+
+Continuing on the theme of I hope this isn't an April fools day joke. :)
+
+bq. _I&rsquo;m excited today to announce that we are also releasing the ASP.NET MVC source code under the Microsoft Public License (MS-PL). The MS-PL is an OSI-approved open source license.  The MS-PL contains no platform restrictions and provides broad rights to modify and redistribute the source code._ ["Scott Guthrie":http://weblogs.asp.net/scottgu/archive/2009/04/01/asp-net-mvc-1-0.aspx]
+
+This is a huge step forward. It will be interesting to see how the community reacts to this in the comming months.
+
+One obvious place you can expect to see this leveraged is by the "Mono":http://www.mono-project.com/Main_Page folks.
+
+

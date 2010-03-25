@@ -1,0 +1,23 @@
+---
+layout: post
+title: "About"
+old_url: "http://simpable.com/about/"
+graffitiID: "2"
+rawDate: "9/24/2007 10:25:00 PM"
+---
+
+Hello! Thanks for stopping by.
+
+Simplable is the personal blog by Scott Watermasysk.
+
+Who is Scott?
+
+# Family man. I am married to a wonderful woman who has blessed me with a great daughter.
+# Employee. I am the Vice President of Product Development for "Telligent":http://telligent.com. In a nutshell, I get to help our customers connect to their own customers and employees in a much more meaningful way.
+# Sports enthusiast.
+# Blogger. See this site. :)
+# Social Contributor. Find me on "Twitter":http://twitter.com and "Posterous":http://crinket.com.
+
+As for the rest of the bio: I currently live in NJ and I am a graduate of Rutgers University. I have held a variety of positions over the years, but software is definitely what I was born to do. I have also been lucky enough to be affiliated with some awesome developer groups: "Microsoft's MVP program":http://microsoft.com/mvp, the "Regional Directors":http://msdn2.microsoft.com/en-us/isv/bb190468.aspx, and  "ASPInsiders":http://aspinsiders.com/.
+
+If you have question or two or just need some more information, please feel free to contact me at "scottw@telligent.com":mailto:scottw@telligent.com?subject=Contact%20Request%20From%20Simplable.com or "scottwater@gmail.com":mailto:scottwater@gmail.com?subject=Contact%20Request%20From%20Simpable.com.

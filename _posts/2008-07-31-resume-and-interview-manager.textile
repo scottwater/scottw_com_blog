@@ -1,0 +1,20 @@
+---
+layout: post
+title: "Resume and Interview Manager"
+old_url: "http://simpable.com/software/resume-and-interview-manager/"
+graffitiID: "139"
+rawDate: "7/31/2008 10:05:21 AM"
+---
+
+I have been searching around for an application which manages resumes and interviews, but I have not been able to find one. Here is what I am looking for.
+
+# Resume is submitted to HR (email, form, etc)
+# Resume and other information is added to the "Application". This generates a Url which represents the candidate.
+# One or more people are selected to interview the candidate. Only the administrator and those selected to interview the candidate can see his/her resume and other information.
+# Interview responses/notes are stored with the other candidate information.
+
+Bonus points if other private (such as salary requests and references) can be stored with the resume information but are only viewable to administrators.
+
+I didn't expect to find 100's of applications to choose from, but I did expect this problem to already be solved.
+
+Anyone have any recommendations?
