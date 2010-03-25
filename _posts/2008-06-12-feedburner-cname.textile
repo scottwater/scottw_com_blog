@@ -12,13 +12,10 @@ There are few things more important to a blog than it's RSS feed. However, there
 
 In case you have been living under a blogging rock, "FeedBurner":http://feedburner.com is a company (recently acquired by Google) who provides the following services free over charge to bloggers:
 
-bq.
-
 # Publicize your content and make it easy for people to subscribe.
 # Optimize distribution so that your content is properly formatted for all of the major directories and can be consumed by subscribers wherever they are.
 # Analyze your traffic to learn how many subscribers you have, where they're coming from and what they like best.
 # Make Moneyitize by participating in the FeedBurner Ad Network. Why not reward yourself for your effort?
-
 
 While not listed above, another service provided by FeedBurner is the hosting of your feed. Since RSS probably accounts for 70% or more of the average blog's traffic, this is a very valuable proposition. However, it comes with a very substantial risk; you are completely giving up control of subscribers to FeedBurner. If anything bad where to ever happen to FeedBurner, you could potentially lose all of your blog's subscribers. Or put another way, imagine a blog like "TechCrunch":http://techcrunch.com having nearly 800K subscribers today and zero tomorrow. I wonder what that would do to revenues and valuations?
 

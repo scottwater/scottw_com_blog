@@ -23,8 +23,7 @@ Looking through the Evernote site, I found an option to email content to my Ever
 
 As a developer, my next thought was, write something simple. But before I fired up Visual Studio, I googled a bit and found this handy tool, "Rss2Email":http://rss2email.infogami.com/.
 
-bq.
-_rss2email is a free tool for delivering news from RSS feeds to your email program that works under Windows and UNIX_.
+bq. _rss2email is a free tool for delivering news from RSS feeds to your email program that works under Windows and UNIX_.
 
 I followed the install steps, created my local account with my Evernote email address and now once an hour the content I find most useful from my list of blogs is pushed into Evernote.
 
