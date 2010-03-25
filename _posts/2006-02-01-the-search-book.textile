@@ -8,7 +8,7 @@ tags: [books]
 ---
 
 
-"John Battelle's":http://battellemedia.com/, "_The Search_":http://scottwater.com/r.ashx?ID=3 is an excellent overview of how "Google":http://google.com came to be.
+"John Battelle's":http://battellemedia.com/, "_The Search_":http://bit.ly/accdQg is an excellent overview of how "Google":http://google.com came to be.
 
 Battelle describes how the search engine market came to be, common pitfalls which tripped up most other competitors, and ultimately how Google was not only able to define a viable and profitable marketplace, but they were able to it "their way".
 

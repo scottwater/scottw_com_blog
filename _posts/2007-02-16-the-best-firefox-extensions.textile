@@ -14,7 +14,7 @@ To me, the most compelling argument for FireFox are the extensions. I use so man
 
 I have never written any extensions for FireFox, but with the sheer number of them and the number of things you can change/enhance it looks like it is not too hard. I know there are some extensions to IE, but no where near the same as FireFox. I wonder if it is harder, less flexible, or something else?
 
-Anyway, on to the reason for the post, my favorite FireFox extensions !http://scottwater.com/images/blog/WindowsLiveWriter/FavoriteFireFoxExtensions_A8C2/ff_ext%5B8%5D.png!
+Anyway, on to the reason for the post, my favorite FireFox extensions.
 
 * "Adsense Notifier":https://addons.mozilla.org/firefox/500/ - There isn't a lot of money displayed in it, but for some reason, I love watching this thing update every 20 minutes
 * "Blog This":http://gallery.live.com/liveItemDetail.aspx?li=8eb2551a-49c1-45f9-b291-9b75241793a6&amp;l=8 - While IE7 may not be my cup of tea, I love Windows Live Writer and this extensions makes it super easy to share links/etc.

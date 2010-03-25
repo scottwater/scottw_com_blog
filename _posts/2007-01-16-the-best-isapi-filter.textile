@@ -8,7 +8,7 @@ tags: [tools, open-source, isapi-filters, seo]
 ---
 
 
-I "mentioned earlier today":http://scottwater.com/blog/archive/the-journalist-and-other-goodies/ how happy I was with "ISAPI_rewrite":http://www.isapirewrite.com/. "Kevin Harder":http://kevinharder.com/ pointed out an open source alternative that I had not heard of before called "Ionic's ISAPI Rewrite Filter":http://cheeso.members.winisp.net/IIRF.aspx (IIRF).
+I mentioned earlier today how happy I was with "ISAPI_rewrite":http://www.isapirewrite.com/. "Kevin Harder":http://kevinharder.com/ pointed out an open source alternative that I had not heard of before called "Ionic's ISAPI Rewrite Filter":http://cheeso.members.winisp.net/IIRF.aspx (IIRF).
 
 IIRF looks pretty robust and doesn't seem to be missing any of the features I am currently using of ISAPI_rewrite (except ReWriteHead which I would not need using IIRF).
 

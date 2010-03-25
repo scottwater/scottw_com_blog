@@ -7,7 +7,7 @@ rawDate: "2/20/2007 9:06:14 AM"
 tags: [aspnet, asp-net-tips]
 ---
 
-The first round of "ASP.Net Quick Tips":http://scottwater.com/blog/archive/quick-tips-for-asp-net-part-one/ was very successful. I have about 30 or so tips jotted down, but I am always looking for more. I am leaning towards doing them by theme/topic with state management/cache, data access, web controls, accessibility/standards, and tips from around the web are in the queue. But as the title suggests, today is all about the web.config.
+The first round of "ASP.Net Quick Tips":http://scottw.com/archive/quick-tips-for-asp-net-part-one/ was very successful. I have about 30 or so tips jotted down, but I am always looking for more. I am leaning towards doing them by theme/topic with state management/cache, data access, web controls, accessibility/standards, and tips from around the web are in the queue. But as the title suggests, today is all about the web.config.
 
 Tip: *(#debug)Set debug = "false" before you go to production. *
 
@@ -64,7 +64,7 @@ Tip: *(#servercontrols)Declare your Custom Server Controls*
 
 Declaring your custom server controls in the web.config allows you to skip the step of adding a _Register_ directive at the top of any page which uses the controls. In addition, it adds a bit of consistency since the _TagPrefix_ is always the same.
 
-!http://scottwater.com/images/blog/WindowsLiveWriter/ASP.NetQuickTipsWeb.config_6CE7/servercontrols_thumb.png!: http://scottwater.com/images/blog/WindowsLiveWriter/ASP.NetQuickTipsWeb.config_6CE7/servercontrols%5B2%5D.png 
+!http://scottwater.com/images/sw_Images/blog/WindowsLiveWriter/ASP.NetQuickTipsWeb.config_6CE7/servercontrols_thumb.png!: http://scottwater.com/images/sw_Images/blog/WindowsLiveWriter/ASP.NetQuickTipsWeb.config_6CE7/servercontrols%5B2%5D.png 
 
 You can also do this for server controls defined in a web project, but you will need to explicitly set a namespace.
 
@@ -74,7 +74,7 @@ Tip: *(#usercontrols)Declare your User Controls*
 
 This tip is very similar to the custom server controls except for a slightly different syntax.
 
-!http://scottwater.com/images/blog/WindowsLiveWriter/ASP.NetQuickTipsWeb.config_6CE7/usercontrols_thumb%5B1%5D.png! :http://scottwater.com/images/blog/WindowsLiveWriter/ASP.NetQuickTipsWeb.config_6CE7/usercontrols%5B3%5D.png
+!http://scottwater.com/images/sw_Images/blog/WindowsLiveWriter/ASP.NetQuickTipsWeb.config_6CE7/usercontrols_thumb%5B1%5D.png! :http://scottwater.com/images/sw_Images/blog/WindowsLiveWriter/ASP.NetQuickTipsWeb.config_6CE7/usercontrols%5B3%5D.png
 
 Tip: *(#configSource)Know when to use configSource attribute*
 
