@@ -10,7 +10,7 @@ tags: [live, search, graffiti]
 
 !http://scottw.com/images/WindowsLiveWriter/LiveSearchAPISilkRoad_6B4B/image_3.png!
 
-Yesterday, Microsoft announced the release of "Live Search services "Silk Road"":http://search.live.com/developers.
+Yesterday, Microsoft announced the release of "Live Search services "Silk Road":http://search.live.com/developers.
 
 bq. Silk Road is Live Search's new set of search APIs (version 2.0 beta) and services for developers. With Silk Road, you can build applications without restrictions around presentation. Getting started is simple: decide what search content you want, choose from JSON, SOAP, or XML output, and then customize them according to your needs to build your own search application. All you need to get going is an AppID.
 

@@ -12,7 +12,7 @@ Just about everyone has been to a session on ASP.Net best practices, read a book
 
 I jotted down the tips below over the course of the morning. It is by no means exhaustive and I hope to publish another set of tips or two shortly. If you have any other suggestions/tips, please list them below. If you are not the kind of person who likes to comment on a blog, please drop me a line at "scottwater@gmail.com":mailto:scottwater@gmail.com. I will either add them below or create another post and list them. I am also working on a set of caching tips, so if you have any of them, there will be a specific post related to caching.
 
-Tip: *(#dropdown)Do not use the AutoPostBack attribute on the DropDownList control to simply redirect to another page. *
+Tip: *(#dropdown)Do not use the AutoPostBack attribute on the DropDownList control to simply redirect to another page.*
 
 There are probably cases when this might make sense, but for the most part it is overkill. Using the autopostback for a redirect requires extra roundtrip to the server. First the autopostback returns to the server and processes everything up to the event handling the postback. Next a Response.Redirect is issued which goes back to the client requesting the client use another page. So you end up with two separate requests + processing just to get a user to another page.
 
@@ -73,4 +73,6 @@ Uri newUri = new Uri(Request.Url, VirtualPathUtility.ToAbsolute(relativePath));
 
 {% endhighlight %}
 
-Again, please add any other suggestions below. I am looking forward to reading them.   *Update*: It looks like "there is a case for using the Label control":http://haacked.com/archive/2007/02/15/ASP.NET_Tip_-_Use_The_Label_Control_Correctly.aspx as an html label element (for accessibility). I was unaware of this functionality and will call it out better in another tip installment. Thanks "Phil":http://haacked.com and "Dusty":http://dustyd.net/!
+Again, please add any other suggestions below. I am looking forward to reading them.   
+
+*Update*: It looks like "there is a case for using the Label control":http://haacked.com/archive/2007/02/15/ASP.NET_Tip_-_Use_The_Label_Control_Correctly.aspx as an html label element (for accessibility). I was unaware of this functionality and will call it out better in another tip installment. Thanks "Phil":http://haacked.com and "Dusty":http://dustyd.net/!

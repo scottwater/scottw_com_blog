@@ -8,7 +8,9 @@ tags: [graffiti, telligent]
 ---
 
 
-!http://scottw.com/images/WindowsLiveWriter/GraffitiCMS_9346/graffiti-logo-270907_3.png! Simpable is the second site to go live on Graffiti CMS. We will soon be publishing the official Graffiti site, but until then, I am going to publish a couple of posts here about what's going on with this new project. My goal in the future is to talk more about things like the lessons learned in developing "Community Server":http://communityserver.org/ which have been applied to Graffiti, but for now, it will be mostly product related.
+!http://scottw.com/images/WindowsLiveWriter/GraffitiCMS_9346/graffiti-logo-270907_3.png!
+
+Simpable is the second site to go live on Graffiti CMS. We will soon be publishing the official Graffiti site, but until then, I am going to publish a couple of posts here about what's going on with this new project. My goal in the future is to talk more about things like the lessons learned in developing "Community Server":http://communityserver.org/ which have been applied to Graffiti, but for now, it will be mostly product related.
 
 *How about a quick FAQ.*
 

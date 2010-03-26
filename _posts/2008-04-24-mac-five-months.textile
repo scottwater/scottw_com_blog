@@ -23,5 +23,3 @@ Other applications I have used regularly:
 * "Evernote":http://evernote.com/ - I actually use both the Mac and PC version at the same time to keep some simple notes/etc in sync. I just started to get into this one, but so far I really like it.
 * "Skitch":http://skitch.com/ - OMG, *I love this tool*. It is free in beta, but as soon as I can send them some cash they will have my credit card number. I have a full post on this in queue, so all I will say is that they ("plasq":http://plasq.com/) made taking screen shots fun.
 * "Cyberduck":http://cyberduck.ch/ - I have not yet broken down and bought Transmit. As much as I like it, these days I do not FTP enough to justify a spending money on FTP.
-
-

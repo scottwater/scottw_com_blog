@@ -1,6 +1,9 @@
 ---
 layout: default
 title: "About Scott Watermasysk"
+permalink: /about/
+robots: "index,follow"
+
 ---
 
 Hello! Thanks for stopping by.

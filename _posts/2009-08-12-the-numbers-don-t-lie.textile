@@ -4,7 +4,7 @@ title: "The Numbers Don't Lie"
 old_url: "http://simpable.com/life/the-numbers-don-t-lie/"
 graffitiID: "248"
 rawDate: "8/12/2009 5:26:11 PM"
-tags: [ui, ui]
+tags: [ui]
 ---
 
 

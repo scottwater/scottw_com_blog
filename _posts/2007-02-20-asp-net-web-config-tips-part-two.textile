@@ -64,7 +64,7 @@ Tip: *(#servercontrols)Declare your Custom Server Controls*
 
 Declaring your custom server controls in the web.config allows you to skip the step of adding a _Register_ directive at the top of any page which uses the controls. In addition, it adds a bit of consistency since the _TagPrefix_ is always the same.
 
-!http://scottwater.com/images/sw_Images/blog/WindowsLiveWriter/ASP.NetQuickTipsWeb.config_6CE7/servercontrols_thumb.png!: http://scottwater.com/images/sw_Images/blog/WindowsLiveWriter/ASP.NetQuickTipsWeb.config_6CE7/servercontrols%5B2%5D.png 
+!http://scottw.com/images/sw_Images/blog/WindowsLiveWriter/ASP.NetQuickTipsWeb.config_6CE7/servercontrols_thumb.png!:http://scottw.com/images/sw_Images/blog/WindowsLiveWriter/ASP.NetQuickTipsWeb.config_6CE7/servercontrols%5B2%5D.png 
 
 You can also do this for server controls defined in a web project, but you will need to explicitly set a namespace.
 
@@ -74,7 +74,7 @@ Tip: *(#usercontrols)Declare your User Controls*
 
 This tip is very similar to the custom server controls except for a slightly different syntax.
 
-!http://scottwater.com/images/sw_Images/blog/WindowsLiveWriter/ASP.NetQuickTipsWeb.config_6CE7/usercontrols_thumb%5B1%5D.png! :http://scottwater.com/images/sw_Images/blog/WindowsLiveWriter/ASP.NetQuickTipsWeb.config_6CE7/usercontrols%5B3%5D.png
+!http://scottw.com/images/sw_Images/blog/WindowsLiveWriter/ASP.NetQuickTipsWeb.config_6CE7/usercontrols_thumb%5B1%5D.png!:http://scottw.com/images/sw_Images/blog/WindowsLiveWriter/ASP.NetQuickTipsWeb.config_6CE7/usercontrols%5B3%5D.png
 
 Tip: *(#configSource)Know when to use configSource attribute*
 
@@ -100,6 +100,6 @@ In addition, you do not have to put the code inline. You can still place your ha
 
 &lt;%@ WebHandler Language="C#" Class="CommunityServer.Blogs.Components.WeblogRssHandler" %&gt;
 
-_Note: If you are still use sure about HttpHandlers see these posts by _"_Brad Wilson_":http://www.dotnetdevs.com/articles/IntroToHandlers.aspx_ and _"_Karl Seguin_":http://codebetter.com/blogs/karlseguin/archive/2006/05/24/145397.aspx_._
+*Note*: If you are still use sure about HttpHandlers see these posts by _"Brad Wilson":http://www.dotnetdevs.com/articles/IntroToHandlers.aspx_ and _"Karl Seguin":http://codebetter.com/blogs/karlseguin/archive/2006/05/24/145397.aspx_.
 
 If you have any additional web.config tips, please add a comment below. Also feel free to ping me at "scottwater@gmail.com":mailto:scottwater@gmail.com with any other tips you would like to see included in the next addition.

@@ -10,7 +10,7 @@ robots: "index,follow"
 </div>
 <p class="postmetadata2">
 	Posted on {{ page.date | date: "%b %d, %Y" }} 
-	{% if page.tags %}
+	{% if page.tags.size > 0 %}
 	  and tagged as 
 	  {% for tag in page.tags%}
 	    <a href="/tags/#{{tag}}">{{tag}}</a>{%if forloop.last == false%},{%endif%}

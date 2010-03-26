@@ -65,6 +65,6 @@ If you remove null argument handling code, the TemplateEngine class is probably 
 
 *NOTE:*
 
-_I was browsing my local _"_CastleProject_":http://castleproject.org_ source folder to see if there was a license I should be including with the NVelocity assembly when I noticed a project called _"_TemplateEngine_":http://castleproject.org/components/templateengine/index.html_. There is not much information on the site about it and I only briefly browsed the included test suite, but it does look very nice. SimpleTemplate will certainly get you started, but I would recommend checking out TemplateEngine as well. I will do a follow later after I have had some time to play with it._
+I was browsing my local "_CastleProject_":http://castleproject.org source folder to see if there was a license I should be including with the NVelocity assembly when I noticed a project called _"TemplateEngine":http://castleproject.org/components/templateengine/index.html_ There is not much information on the site about it and I only briefly browsed the included test suite, but it does look very nice. SimpleTemplate will certainly get you started, but I would recommend checking out TemplateEngine as well. I will do a follow later after I have had some time to play with it.
 
 "Download SimpleTemplate":http://www.box.net/shared/ojpvxe52cw.

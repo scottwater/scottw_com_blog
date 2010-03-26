@@ -1,2 +1,6 @@
 pygments: true
-permalink: /:categories/:title
+permalink: /:categories/:title/
+email: scottwater@gmail.com
+baseUrl: http://scottw.com
+author: Scott Watermasysk
+title: Scott Watermasysk
