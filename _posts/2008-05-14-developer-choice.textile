@@ -19,5 +19,3 @@ In hindsight, this is very obvious. It is generally the answer to most developer
 This of course does not mean you shouldn't try anything new. The world of software is in constant flux. I routinely cringe at code I wrote a year ago. However, if you spend all your time looking for the perfect solution, you won't leave yourself the necessary time to build something great.
 
 FYI, if you are still interested in the NHibernate vs Linq to SQL, here is a "nice overview":http://www.callcontext.com/archive/2008/04/04/1163.aspx by "Geoff Bennet":http://www.callcontext.com/.
-
-

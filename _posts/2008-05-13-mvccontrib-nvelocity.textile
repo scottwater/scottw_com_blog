@@ -101,5 +101,3 @@ You can "download the code":http://scottw.com/files/downloads/nvelocity_mvc.rar 
 And that should be it. Now as you create a new IToolbox, you can quickly and easily inject them to your views.
 
 "Download":http://scottw.com/files/downloads/nvelocity_mvc.rar.
-
-

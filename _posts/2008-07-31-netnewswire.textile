@@ -16,8 +16,8 @@ Google Reader is a killer web application and when comes to features that I use,
 
 For those of you using Windows all is not lost. NewsGator (the current owner/creator of NetNewsWire) also has a free windows client "FeedDemon":http://www.newsgator.com/Individuals/FeedDemon/Default.aspx which provides the same general overall experience[2].
 
-[1] NewsGator provides synchronization across devices for free.
+fn1. NewsGator provides synchronization across devices for free.
 
-[2] I am personally not a fan of the FeedDemon NewsPaper approach so if you have to chose one, I highly recommend NetNewsWire.
+fn2. I am personally not a fan of the FeedDemon NewsPaper approach so if you have to chose one, I highly recommend NetNewsWire.
 
 

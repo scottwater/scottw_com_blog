@@ -17,5 +17,4 @@ I am in the business of selling software, so I have zero problems paying for som
 
 As you can see above, NCache wants $500 per developer just to build a solution. This does not include the cost of the software to actually move your solution to production. Since both products have different pricing structures it is hard to tell if one is actually more costly than the other. However, organizations who are most likely to be interested in this will likely have bigger teams and thus potentially incur an additional cost for every hire.
 
-
 It is a fine line between protecting your bottom line and annoying your users. Developers are much more finicky than your average consumer, so anything you can do to get your software in their hands is a good thing.

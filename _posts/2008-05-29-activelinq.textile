@@ -90,5 +90,3 @@ public class LinqRunner
 {% endhighlight %}
 
 "Download ActiveLinq":http://scottw.com/files/downloads/activelinq.rar.
-
-

@@ -11,5 +11,3 @@ tags: [telligent]
 If you have prior experience coding against "SAML":http://en.wikipedia.org/wiki/SAML please ping me at "scottw@telligent.com":mailto:scottw@telligent.com with your past experiences and rate details.
 
 We are looking for someone to help finish up some product work we are doing and could really use someone who has been there before. This is likely a short term gig, but it could lead to a lot more work in the future for the right candidate.
-
-

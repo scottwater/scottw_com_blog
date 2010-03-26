@@ -29,5 +29,3 @@ For various reasons, you may not always need distributed caching and may find de
 As you scale (add servers) with distributed caching it will become increasing important to clear cached items when the object's state has changed.
 
 If you have any other tips, suggestions, or strategies, please leave them in the comments.
-
-

@@ -12,13 +12,8 @@ tags: [cs, telligent]
 
 Quick Summary:
 
-
 * Themes - Hawaii is getting a really nice make over.
-
-* Q&amp;A - This is a killer forums feature which needed a little love to put it over the top. If you use your forums for support, this will be a game changer for you.
-
+* Q&A - This is a killer forums feature which needed a little love to put it over the top. If you use your forums for support, this will be a game changer for you.
 * Wiki - This is our V1 wiki. It is very usable and will be base of some really innovative things in 2009.
-
 * Mail Gateway - this is an older feature, but it got a much needed tune up. We are using it religiously inside "Telligent":http://telligent.com today and it has really changed things for us in a big way.
-
 * Evolution - Community Server for the intranet. Again, this is very solid, but I am already giddy thinking about what is going to be in v.Next. :)

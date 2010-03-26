@@ -10,7 +10,7 @@ tags: [apple, appstore, freemium, iphone]
 
 "Mashable":http://mashable.com has a story, ""iPhone App Store Prices are Outrageous and it Needs to Stop":http://mashable.com/2008/07/15/app-store-prices/" which criticizes some of the crappy applications available in the AppStore.
 
-bq. ...but why hasn&#8217;t anyone even mentioned the fact that most of the paid applications aren&#8217;t all that great and more often than not, they&#8217;re incredibly overpriced?
+bq. ...but why hasn't anyone even mentioned the fact that most of the paid applications aren't all that great and more often than not, they're incredibly overpriced?
 
 The problem is not the prices or quality. The real issue is there is currently no way to try an application before you buy it. While there is a review system, this is not the same as being able to download play with it for a little while and then make an informed decision. Crappy overpriced software is much harder to spot from a picture and a couple of reviews. Spend a couple hours/days with it and it removes a lot of the guess work.
 

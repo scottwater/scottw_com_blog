@@ -7,7 +7,6 @@ rawDate: "6/4/2008 9:59:29 AM"
 tags: [velocity, cache, memcached]
 ---
 
-
 As I previously wrote, "Velocity is Microsoft's entry into Distributed Caching":http://scottw.com/code/velocity/. It is currently in its first public CTP, so there are certainly going to be some rough spots. The documentation is pretty good, but setting it up and using it the first time required some trial and error. Here is a quick overview on getting it Velocity setup and and using the API.
 
 First, grab the "CTP bits":http://www.microsoft.com/downloads/details.aspx?FamilyId=B24C3708-EEFF-4055-A867-19B5851E7CD2&amp;displaylang=en and run the MSI.
@@ -137,7 +136,6 @@ namespace CacheDemo
 }
 
 {% endhighlight %}
-
 
 In the code above, we create a new instance of the CacheFactory and then get a reference to the default cache. From there, it should look very similar to using the HttpCache with one exception, cache.Put. Similar to "Memecached":http://www.danga.com/memcached/, Velocity supports the concept of Add's and Put's. The biggest difference between the two is Add will throw an exception if the given key already exists. If you use Put and the key does not exist, the object will be added. On the other hand, if the key already exists, Put will replace the object with he newer one.
 

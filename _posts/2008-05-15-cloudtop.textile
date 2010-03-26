@@ -16,5 +16,4 @@ h3. Three Great Tools
 *"Skitch":http://skitch.com/*. - (Mac only) "_Skitch.com is a webservice that works hand in hand with our application Skitch to give you 1-click
 uploading of images for fast and fun image sharing_". I have "mentioned Skitch":http://scottw.com/software/mac-five-months/ before. This tool just rocks and of the three tools I am writing about today, it is the one I would be totally lost without. It makes it so simple and easy to share an a screenshot/picture/image I am not sure what I would do without. And of course, it works flawlessly with Evernote. "Video Overview":http://www.viddler.com/explore/plasq/videos/2/.
 
-
 *"Jing":http://jingproject.com/.* - (Mac & PC) Jing allows you in an effortless way capture images and video of your desktop and share them with the world (or privately). Since I am a Skitch fan, I do not use the image sharing often, but the video feature has become an integral part of "our software development process":http://telligent.com. "Video Overview":http://video.techsmith.com/jing/latest/demo/introvideo/index.html?keepThis=true&TB_iframe=true&height=440&width=640

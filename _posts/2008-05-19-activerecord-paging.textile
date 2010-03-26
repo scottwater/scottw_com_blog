@@ -53,5 +53,3 @@ var userList = User.SlicedFindAll(30, 10,
 
 
 3. If you need to page large sets of data and you need to use SQL Server 2000, ActiveRecord (and NHibernate) are not the correct tool. The NHiberate SQL 2000 dialect does not (completely) filter the number of records in the database. It does attempt to limit the results, but ultimately if you request page 4 at 10 records per page, 50 records will be returned from the database. Since an entity does not have to equal a table, I kind of understand why this is the way it is, but it still sucks. Of course the good news is most people are now using SQL Server 2005 and although SQL Server 2005 does not support limit/offset like MySQL, a CTE is used in the 2005 dialect and a limited number of records is returned.
-
-

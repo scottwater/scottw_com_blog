@@ -21,7 +21,7 @@ I have had a couple people ask me how to do this in Graffiti, so I figured I wou
 There are just a couple steps:
 
 # Sign up for a new account on Disqus and create a new website. Click the link for "generic code".
-# In your Graffiti control panel, navigate to your "Personalize" page (Graffiti-Admin &gt; Presentation &gt; Themes &gt; YOUR_THEME).
+# In your Graffiti control panel, navigate to your "Personalize" page (Graffiti-Admin > Presentation > Themes > YOUR_THEME).
 # In your post.view file, remove the existing comment rendering code and replace it with the JavaScript from step one from the generic code page above.
 # In your index.view file, find the $macros function for building a comment link and change the fragment from "#comment" to "#disqus_thread".
 # In your layout.view file add the JavaScript from step three in the generic code page.
@@ -47,3 +47,5 @@ With this information, in step three from above instead of removing the comment 
 {% endhighlight %}
 
 That should be it. As part of Graffiti 2.0 I am hoping we can make this kind of update more easy to package up (it could be done today, but it would be theme specific which isn't quite generic enough).
+
+*Update*: I have removed disqus from my site. It is still a good service, but for now I have decided to run this blog without comments.

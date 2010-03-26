@@ -26,5 +26,3 @@ bq.  Tired of querying in antiquated SQL?
 Well, you don't have to!  LINQPad lets you interactively query SQL databases in a modern query language: LINQ.  Kiss goodbye to SQL Management Studio!
 
 Added Bonus: If you want to take your testing code in Snippet Compiler to a new level "Travis Illg":http://www.paraesthesia.com has published a template that will enable you to write your "test code using NUnit":http://www.paraesthesia.com/archive/2008/02/21/template-for-quick-typemock-testing.aspx.
-
-

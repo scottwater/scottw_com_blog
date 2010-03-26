@@ -61,6 +61,4 @@ In addition, using _"fancy loops":http://www.castleproject.org/others/nvelocity/
 
 The above example takes it to the extreme (all parts are optional), but should give you an indication of power available to you, again, all without requiring you to write a single line of code.
 
-[1] _As mentioned on the Castle site, the original NVelocity project seems to be dead. I have been using the updated version of Castle and recommend you use this version as well._
-
-
+fn1. _As mentioned on the Castle site, the original NVelocity project seems to be dead. I have been using the updated version of Castle and recommend you use this version as well._
