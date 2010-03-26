@@ -23,6 +23,4 @@ At $99 (for a server), price is not a huge factor here, but since I just started
 
 Any feedback, suggestions?
 
-*Update:* A couple of people contacted me about "UrlRewriter.net":http://UrlRewriter.net which looks to be a very nice open source project which does some of the same things as an ISAPI filter. Definelty something to keep in mind in the future. The downside with this approach is that all requests go through the aspnet_isapi which is something I was trying to avoid.
-
-
+*Update:* A couple of people contacted me about "UrlRewriter.net":http://UrlRewriter.net which looks to be a very nice open source project which does some of the same things as an ISAPI filter. Definitely something to keep in mind in the future. The downside with this approach is that all requests go through the aspnet_isapi which is something I was trying to avoid.

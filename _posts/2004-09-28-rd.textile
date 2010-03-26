@@ -7,28 +7,10 @@ rawDate: "9/28/2004 7:54:00 PM"
 tags: [community-events]
 ---
 
+As "Don":http://donxml.com "pointed out":http://donxml.com/allthingstechie/archive/2004/09/28/1370.aspx, I was recently appointed the "Microsoft Regional Director":http://www.microsoftregionaldirectors.com for New Jersey.
 
+bq. Regional Directors aren't Microsoft employees -- they're independent developers, architects, trainers, and other professionals who provide a vital link between Microsoft and the developer community. These technical experts can give you the insight and informed perspective you need to start developing.NET-connected software today -- whether you need help learning about the .NET Framework, training developers, or implementing all aspects of a solution. Contact a Microsoft-endorsed Regional Director to kick off your project today.
 
-<P>As <A href="http://donxml.com" target=_blank>Don</A> <A
-href="http://donxml.com/allthingstechie/archive/2004/09/28/1370.aspx"
-target=_blank>pointed out</A>, I was recently appointed the <A
-href="http://www.microsoftregionaldirectors.com" target=_blank>Microsoft
-Regional Director</A> for New Jersey.</P>
-<BLOCKQUOTE dir=ltr style="MARGIN-RIGHT: 0px">
-<P>Regional Directors aren't Microsoft employees--they're independent
-developers, architects, trainers, and other professionals who provide a vital
-link between Microsoft and the developer community. These technical experts
-can give you the insight and informed perspective you need to start developing
-.NET-connected software today--whether you need help learning about the .NET
-Framework, training developers, or implementing all aspects of a solution.
-Contact a Microsoft-endorsed Regional Director to kick off your project
-today.</P></BLOCKQUOTE>
-<P>As you will see <A
-href="http://www.microsoftregionaldirectors.com/Public/rdFind.aspx"
-target=_blank>here</A>, it is a great group of individuals to be affiliated with
-and I am really excited to be part of it. </P>
-<P><A href="http://aspsoft.blogs.com/jon/" target=_blank>Jonathan Goodyear</A>,
-<A href="http://dotnetjunkies.com/WebLog/DougSeven" target=_blank>Doug Seven</A>
-and <A href="http://geekswithblogs.net/drewby/" target=_blank>Drew Robbins</A>
-were also added as well in their respective regions.</P>
+As you will see "here":http://www.microsoftregionaldirectors.com/Public/rdFind.aspx, it is a great group of individuals to be affiliated with and I am really excited to be part of it.
 
+"Jonathan Goodyear":http://aspsoft.blogs.com/jon/, "Doug Seven":http://dotnetjunkies.com/WebLog/DougSeven, and "Drew Robbins":http://geekswithblogs.net/drewby/ were also added as well in their respective regions.

@@ -21,5 +21,3 @@ There are some other tools which do similar things, but none of them seem to do 
 In addition, Windows Live Writer also supports necessary (especially for me :) things like spell check.
 
 As good as it is, there are a couple of things I wish were better, in particular, I wish there were some addition plugin options which allowed you to add custom fields based on your configuration settings. Both "Graffiti":http://graffiticms.com and "Community Server":http://communityserver.org/ support optional per post settings which for now are only available to users from the web based post editor. Being able to optionally set things like a meta description would really make Windows Live Writer a much more useful (and robust) general publishing tool.
-
-

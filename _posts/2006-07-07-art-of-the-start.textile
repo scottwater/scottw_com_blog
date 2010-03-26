@@ -13,5 +13,3 @@ One of the better books I have read in recent months is "Guy Kawasaki's":http://
 I still recommend picking up a copy of the book, but if you are short on time, you can now watch Kawasaki do a "presentation":http://blog.guykawasaki.com/2006/06/the_art_of_the_.html on many of the topics from the book.
 
 <embed style="width:400px; height:326px;" id="VideoPlayback" align="middle" type="application/x-shockwave-flash" src="http://video.google.com/googleplayer.swf?docId=-3755718939216161559" allowScriptAccess="sameDomain" quality="best" bgcolor="#ffffff" scale="noScale" salign="TL"  FlashVars="playerMode=embedded"> </embed>
-
-

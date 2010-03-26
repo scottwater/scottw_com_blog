@@ -20,5 +20,3 @@ Here is my guess to how things went down:
 # The compromise is the "Microsoft Reference License":http://www.microsoft.com/resources/sharedsource/licensingbasics/referencelicense.mspx.
 
 In the end, I suspect the intent of developer division as Microsoft is correct, however the politics/restrictions make this a solution to a problem which does really exist yet. Personally, I am not sure I would want a world of customized versions of the .NET framework. In addition, knowing there is a bug with an easy fix which I was not allowed to fix would probably just drive me nuts.
-
-

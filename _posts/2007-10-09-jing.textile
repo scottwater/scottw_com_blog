@@ -19,5 +19,3 @@ bq.  The concept of Jing is the always-ready program that instantly captures and
 I still use TechSmith's "SnagIt":http://www.techsmith.com/screen-capture.asp quite a bit, but with each passing day I am finding myself using Jing more and more. TechSmith is saying this project will turn into something else, so I am very curious to see how this turns out. I am currently in love with this service, so hopefully it is around to stay in some manor.
 
 According to the Jing blog, a significant update is "scheduled for tomorrow":http://blog.jingproject.com/2007/10/jing_update_coming_wednesday_o.html. For a quick overview, see the "demo video":http://blog.jingproject.com/assets-jing/gettingstarted/index.html?keepThis=true&amp;TB_iframe=true&amp;height=385&amp;width=505.
-
-

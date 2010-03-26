@@ -18,6 +18,4 @@ This might seem limiting. But with the number of open source libraries and code 
 
 Graffiti has since surpassed the 1000 lines of code mark and there have been contributions from many other people, but I think the spirit of focusing only on what is absolutely vital still lives on.
 
-[1] I still *love* SubSonic. Without a doubt, SubSonic was extremely instrumental with getting the initial version up and running. The reason we removed it was our desire to support an xcopy database in addition to SQL Server and it just proved to be easier to write our own custom generator than to make this happen under our timeline.
-
-
+fn1. I still *love* SubSonic. Without a doubt, SubSonic was extremely instrumental with getting the initial version up and running. The reason we removed it was our desire to support an xcopy database in addition to SQL Server and it just proved to be easier to write our own custom generator than to make this happen under our timeline.

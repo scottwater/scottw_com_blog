@@ -16,13 +16,9 @@ When it came to OS X and other Mac software I was not so sure how much I would r
 A couple of the real gems:
 
 * "Transmit":http://www.panic.com/transmit/ - The next-generation Mac OS X FTP client! - This is how FTP software should work.
-
 * "Fusion":http://www.vmware.com/fusion/ - I have never been a fan of desktop virtualization software. In the past, I have used a backup machine and Norton Ghost for testing new software, but not anymore. Wow! Although I can boot directly into Windows at anytime, I have yet done so (note: I am not an avid gamer). I have an XP image that I use everyone once in a while and have been using Windows 2003 for development work. This has been nothing but pure joy.
-
 * "ZigVersion":http://zigzig.com/ - I still use "Tortoise":http://tortoisesvn.tigris.org/ on Windows, but I wish I had this as an option.
-
 * "TextMate":http://macromates.com/ - Good God, is there anything TextMate cannot do. Case in point, I am writing and publishing this blog post with it.
-
 * "iLife":http://www.apple.com/ilife/ - there is nothing even remotely close to iLife available on the PC.
 
 Put all of this together with the killer hardware and you have an incredible user experience. It is still too early to tell for sure, but so far, it has been a joy using the new machine.

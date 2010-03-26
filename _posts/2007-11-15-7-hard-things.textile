@@ -20,5 +20,3 @@ Listed below is a list of 7 of the harder things I have learned over the last co
 # *Documentation* - Yes, documentation is necessary, but users do NOT want to read it. If your users are asking you for more documentation, the lack of documentation is not really the problem. Your application is too complicated. See "The Paradox of the Active User":http://www.useit.com/alertbox/activeuserparadox.html.
 
 Is there anything you would add to the list?
-
-

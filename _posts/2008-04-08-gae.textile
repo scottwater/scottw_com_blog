@@ -12,6 +12,6 @@ Unless you were recently hit in the head with the rock you have been living unde
 
 Having Google behind this project certainly increases the hype factor by about a million percent. However, it is not Google's involvement which has convinced me this will be a huge success. Instead it is "this statement":http://googleappengine.blogspot.com/2008/04/introducing-google-app-engine-our-new.html (emphasis is mine):
 
-bq. During this preview period, applications are limited to 500MB of storage, 200M megacycles of CPU per day, and 10GB bandwidth per day. We expect most applications will be able to serve around 5 million pageviews per month. *In the future, these limited quotas will remain free, and developers will be able to purchase additional resources as needed*.
+bq. During this preview period, applications are limited to 500MB of storage, 200M megacycles of CPU per day, and 10GB bandwidth per day. We expect most applications will be able to serve around 5 million page views per month. *In the future, these limited quotas will remain free, and developers will be able to purchase additional resources as needed*.
 
 The cost of hosting is declining everyday, but what Google is now saying, if you build it on our stuff, we will completely host it for free until you hit about 5 million page views. It will be very interesting to see the types of services, businesses, and components which all get built around, in-front and on top of this. I have been flirting with both Rails and Django, but I think I have now been swayed.

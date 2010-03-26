@@ -45,7 +45,7 @@ In most cases, you should never set the available memory for an AppPool above 80
 
 Tip: *(#appoffline)Use AppOffline.htm for updates*
 
-If you are making any changes to files in your bin directory, always use the AppOffline.htm file. It is very likely that while you uploading (or copy &amp; pasting) your updates, users will see an error message. It is much better to show them one that you purposely created and can explain the situation vs. the built in ASP.NET error pages (or even your own customError page).  In addition, this will help prevent the locking .dll issue that is not supposed to exist anyway.
+If you are making any changes to files in your bin directory, always use the AppOffline.htm file. It is very likely that while you uploading (or copy & pasting) your updates, users will see an error message. It is much better to show them one that you purposely created and can explain the situation vs. the built in ASP.NET error pages (or even your own customError page).  In addition, this will help prevent the locking .dll issue that is not supposed to exist anyway.
 
 Tip: *(#pagevalid)Always check Page.IsValid in your button's EventHandler.*
 
@@ -64,7 +64,6 @@ Response.End();
 
 {% endhighlight %}
 
-
 Tip: *(#toabsolute)To create fully qualified URLs, use the new VirtualPath class.*
 
 {% highlight csharp %}
@@ -74,6 +73,4 @@ Uri newUri = new Uri(Request.Url, VirtualPathUtility.ToAbsolute(relativePath));
 
 {% endhighlight %}
 
-
 Again, please add any other suggestions below. I am looking forward to reading them.   *Update*: It looks like "there is a case for using the Label control":http://haacked.com/archive/2007/02/15/ASP.NET_Tip_-_Use_The_Label_Control_Correctly.aspx as an html label element (for accessibility). I was unaware of this functionality and will call it out better in another tip installment. Thanks "Phil":http://haacked.com and "Dusty":http://dustyd.net/!
-

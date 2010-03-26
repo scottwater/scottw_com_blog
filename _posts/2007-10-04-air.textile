@@ -21,5 +21,3 @@ In particular:
 On a side note, I still have not decided if I like Snitter or Tweetr better (both are excellent). I am still leaning towards Tweetr, but I think that is mainly because it isn't puke green.
 
 I have never done any Flash/Flex programming, so I am still not sure what it takes to build something like this with them. However, for end users, the experience of installing (and updating) an AIR application is very nice. It is sort of like OneClick, except it seems to work much better.
-
-

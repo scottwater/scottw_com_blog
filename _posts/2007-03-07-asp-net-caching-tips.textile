@@ -90,9 +90,7 @@ While the low tech way is easy and effective, it does not get you nitty gritty d
 
 To get at information such as object size you will need to get your hands dirty with "Windbg":http://www.microsoft.com/whdc/devtools/debugging/default.mspx. I could explain some of it to you, but I would really be just copying an pasting from "Tess Ferrandez's blog":http://blogs.msdn.com/tess/. In particular the following posts are very helpful.
 
-
 * "How much are you caching?":http://blogs.msdn.com/tess/archive/2006/01/26/517819.aspx
-
 * "How do I get the memory dumps in the first place? And what is SOS.dll?":http://blogs.msdn.com/tess/archive/2006/01/11/511773.aspx
 
 You should also familiarize yourself with the "ASP.Net performance counters":http://msdn2.microsoft.com/en-us/library/fxk122b4.aspx (every once in a while, I even use "Rob's":http://weblogs.asp.net/rhoward/ "performance counters control":http://www.asp.net/ControlGallery/ControlDetail.aspx?Control=43&amp;tabindex=6...2002 was a long time ago :).

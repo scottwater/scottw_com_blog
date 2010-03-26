@@ -10,9 +10,6 @@ tags: [seo]
 
 One of the best pieces of SEO advice I have every seen.
 
-
 bq. Concentrate on building a quality service. One that people will actually WANT TO BOOKMARK and comeback to. ["Jeremy Schoemaker":http://www.shoemoney.com/2008/01/16/why-i-do-not-like-95-of-seo-experts/]
 
 There are certainly software and functional things you can do to improve SEO, but if you do not have compelling content or a great service it is wasted effort.
-
-

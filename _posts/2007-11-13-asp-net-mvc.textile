@@ -17,5 +17,3 @@ IMO, the original page framework is not that bad. It just gives you too many opt
 Only time will tell, but I am really hopeful that this will help move ASP.Net a giant step forward.
 
 Note: Yes, I am aware there are projects like "Castle":http://www.castleproject.org/ (hat tip, we are using their updated version of "NVelocity":http://www.castleproject.org/others/nvelocity/improvements.html), but unfortunately until it is "in the box" it  makes it complicated to build shippable products so I have not really dug into more than just kicking the tires.
-
-

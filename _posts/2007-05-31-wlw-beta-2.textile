@@ -25,5 +25,3 @@ Note: I fully get that Wordpress has a significant market share and I commend Mi
 Note 2: We do support the full MetaBlog API. I am guessing this new functionality is based on support for custom extensions to API.
 
 Note 3: BTW, the update is super nice and I still highly recommend it.
-
-
