@@ -7,9 +7,6 @@ rawDate: "11/30/2008 9:35:52 PM"
 tags: [ebay, charity, bhcc]
 ---
 
-
-
-
 Before you read the rest of this post, quickly look around your office and do a quick count on the number of usable gadgets and gizmos you have not touched in more than three months? I will wait....
 
 Wow, quite a few things huh? What to do with all of this stuff?
@@ -65,5 +62,3 @@ A smile, you can have one too.
 * "Apple Wireless Keyboard":http://cgi.ebay.com/Apple-Wireless-Keyboard-MB167LL-A-Bluetooth-NO-Reserve_W0QQitemZ150313703743QQihZ005QQcategoryZ25444QQssPageNameZWDVWQQrdZ1QQcmdZViewItem
 * "Mac Office 2008":http://cgi.ebay.com/ws/eBayISAPI.dll?ViewItem&amp;item=150313702477&amp;ssPageName=ADME:L:LCA:US:1123
 * "mStand":http://cgi.ebay.com/Mstand-Laptop-Stand-By-Rain-Design-NO-Reserve_W0QQitemZ150313701108QQihZ005QQcategoryZ4601QQssPageNameZWDVWQQrdZ1QQcmdZViewItem
-
-

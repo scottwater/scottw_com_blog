@@ -91,6 +91,4 @@ public class SimpleTemplateControl : DataBoundControl
 }
 {% endhighlight %}
 
-
-Also note, as "previously mentioned":http://scottw.com/code/nvelocity/, NVelocity's support for fancy loops means there is no need for separate templates like ASP.Net's Repeater control.&#160;
-
+Also note, as "previously mentioned":http://scottw.com/code/nvelocity/, NVelocity's support for fancy loops means there is no need for separate templates like ASP.Net's Repeater control.

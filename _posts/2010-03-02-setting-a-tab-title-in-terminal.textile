@@ -7,7 +7,6 @@ rawDate: "3/2/2010 8:25:00 PM"
 tags: [terminal, bash, zsh, osx]
 ---
 
-
 I have been spending a lot more time in terminal recently. I routinely find myself having more tabs open than I can keep track of.
 
 I then end up forgetting what's open and end up opening even more tabs which just make the problem worse.
@@ -31,10 +30,8 @@ function title(){
 
 {% endhighlight %}
 
-
-
 Now, in any tab, I just need to execute:
 
+{% highlight bash %}
 title 'My Tab Title'
-
-
+{% endhighlight %}

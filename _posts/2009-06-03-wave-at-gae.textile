@@ -15,5 +15,3 @@ Based on the Wave video and this "roadmap post":http://googleappengine.blogspot.
 # GAE will be the preferred way to build extensions to Wave (XMPP and bi-directional email support)
 
 Regardless of whether or not Wave is largely adopted and has long term success (the best technology does not always win...Twitter, I am looking right at you :) the power and beauty of HTML 5 is being put front and center. While I was starting to see "some potential":http://scottw.com/software/silverlight-mix09/ in Silverlight, I am now firmly back in the camp of primarily leveraging the browser.
-
-

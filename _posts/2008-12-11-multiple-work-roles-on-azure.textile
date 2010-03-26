@@ -34,7 +34,6 @@ public class WorkerRole : RoleEntryPoint
 
 {% endhighlight %}
 
-
 In most case, your work role is going to simply process messages added to a queue. This has a couple great benefits:
 
 # It is drop dead simple.
@@ -49,5 +48,3 @@ However, as of today, you can only have a "single worker role":http://blogs.msdn
   ## Duplicate configuration - you will now be forced to manage multiple configuration settings. This is not rocket science, but something that will likely catch you off guard at some point.
 
 Overall, I love this functionality and it will simplify (and promote) building more loosely coupled message driven applications...which is a really good thing. However, without support for multiple roles it is going to be severely crippled. I know the Azure team is definitely listening, so hopefully this is something we will see supported very soon.
-
-

@@ -10,7 +10,7 @@ tags: [graffiti]
 
 "Scott Cate":http://scottcate.com/blog/ wrote a "quick post with a tip":http://scottcate.com/blog/graffiticms-tip-ndash-sorting-posts-in-a-category/ on how to sort posts in "Graffiti":http://graffiticms.com.
 
-bq.    If you're posts aren't in the order you want them - look into modifying the published date.
+bq. If you're posts aren't in the order you want them - look into modifying the published date.
 
 I left a comment on Scott's post about some of the built in options, but I figured I would share them here as well.
 

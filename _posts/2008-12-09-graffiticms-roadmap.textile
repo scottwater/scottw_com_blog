@@ -18,4 +18,4 @@ There are obviously (and rightfully) some users who are very frustrated with the
 
 We are well aware we are not the only game in town, but I love where we are going with this and for those of you who choose stick with us, I am sure you will love it as well.
 
-[1] In today's economy, even when you are founded or earning billions you need to think like a bootstrapped company.
+fn1. In today's economy, even when you are founded or earning billions you need to think like a bootstrapped company.

@@ -12,7 +12,7 @@ I attended a couple Ruby sessions at "CodeMash":http://scottw.com/code/codemash-
 
 For many people (especially web developers) when you hear about Ruby they think Ruby on Rails. While Rails is an impressive framework, there are some other interesting options available. One of them that recently caught my attention (and admiration) is called "Sinatra":http://www.sinatrarb.com/.
 
-bq. _Sinatra is a DSL for quickly creating web applications in Ruby with minimal effort. _
+bq. _Sinatra is a DSL for quickly creating web applications in Ruby with minimal effort._
 
 Sinatra is a drop dead simple way to create a small site, blog, service, or even a prototype. Here is all it takes to serve a web request with Sinatra:
 
@@ -107,7 +107,6 @@ not_found do
 end
 
 {% endhighlight %}
-
 
 A set of tests.
 

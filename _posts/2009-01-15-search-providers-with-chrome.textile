@@ -14,7 +14,7 @@ While Chrome does not provide you a separate textbox and dropdown for providers,
 
 First, what do you have to do to add a new provider? For many sites just visit it and do a quick search. As you will see in a second, Chrome will add providers it finds after you use them.
 
-Next, go "wrench" &gt; Options &gt; Select "Manage" next to default Search.
+Next, go "wrench" > Options > Select "Manage" next to default Search.
 
 !http://scottw.com/images/WindowsLiveWriter/SearchProviderswithChrome_5234/image_3.png(Google Chrome Options)!
 

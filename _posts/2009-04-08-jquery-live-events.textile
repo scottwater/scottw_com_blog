@@ -10,7 +10,7 @@ tags: [jquery]
 
 If you have been coding/using "jQuery":http://jquery.com/ for a long time, you can skip this post (and just about anything else I ever write on jQuery).
 
-Last week "I posted a little example":http://scottw.com/code/jquery-makes-me-smile/ about using jQuery's "starts-with selector":http://docs.jquery.com/Selectors/attributeStartsWith#attributevalue and then quickly (and easily) binding an event to all of the items found by the selector.&#160; However, shortly after posting it I ran into a little snag.
+Last week "I posted a little example":http://scottw.com/code/jquery-makes-me-smile/ about using jQuery's "starts-with selector":http://docs.jquery.com/Selectors/attributeStartsWith#attributevalue and then quickly (and easily) binding an event to all of the items found by the selector. However, shortly after posting it I ran into a little snag.
 
 The prototype I am building allows users to add new content directly inline. In addition, it enables quick paging via ajax. Unfortunately, any new content (direct or paged) was not wired up to my double click event.
 
@@ -22,7 +22,6 @@ The next attempt added an unbind before the bind. This worked perfectly well.
 $("div[id ^='Closed']").unbind("dblclick").bind("dblclick", function() { ToggleNoteViewState(this.id.slice(7)); });
 $("div[id ^='Open']").unbind("dblclick").bind("dblclick", function() { ToggleNoteViewState(this.id.slice(5)); });
 {% endhighlight %}
-
 
 However, this means I need to recall my bind function every time I add new content.
 
@@ -37,7 +36,4 @@ $(document).ready(function(){
 });
 {% endhighlight %}
 
-
 Nice!
-
-

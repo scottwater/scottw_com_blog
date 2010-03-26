@@ -15,5 +15,3 @@ bq.    _Users never read manuals but start using the software immediately. They 
 In a nutshell, users want to use software...not learn about it. It is OK to add features which require some understanding, but whenever possible you need to make sure things just work out of the box.
 
 This really drives my feature decisions more than just about anything else these days.
-
-

@@ -26,4 +26,4 @@ Granted it is still pre-beta, so I am sure the error message will improve.
 
 One other thing I am hopeful will improve is this limitation. I understand that with loads of text in a field like this, I would not be able to query against it and I could easily be sending tons of content across the wire. However, if you consider the type of applications which are good candidates for this type of system, limiting storage to this level will hamper development. Or course, since it is a free preview, I could probably switch to the live service[1], but one of the things I like most Azure compared to other options is the zero cost local development.
 
-[1] Actually, since I am more or less storing a single block of text I am using local blob storage but something about this just feels dirty.
+fn1. Actually, since I am more or less storing a single block of text I am using local blob storage but something about this just feels dirty.

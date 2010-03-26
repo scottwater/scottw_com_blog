@@ -27,5 +27,3 @@ While there is more to it, in a nutshell, what I would be looking for:
 An early example of this is "FathomDB":http://fathomdb.com. FathomDB is essentially an automated/managed MySQL in the cloud. Just tell it (via a slider) your data needs and it does the rest.
 
 We really are getting closer to building applications by simply composing a set of (already hosted) third party services.
-
-

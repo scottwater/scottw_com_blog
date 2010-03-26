@@ -12,7 +12,7 @@ tags: [google, feedburner, rss, adsense]
 
 Maybe "FeedBurner":http://feedburner.com isn't dead after all. I received the following email this morning:
 
-bq.    We're contacting you to let you know that we'll be migrating your FeedBurner account [removed] to your Google Account [removed] on 11/13/2008 .
+bq. We're contacting you to let you know that we'll be migrating your FeedBurner account [removed] to your Google Account [removed] on 11/13/2008 .
 
 Please rest assured, this change won't disrupt your current feeds service. As part of this migration, all of your existing FeedBurner feeds will automatically redirect to Google feeds. You won't lose any of your current subscribers in the process nor will this affect any email subscriptions.
 

@@ -46,6 +46,6 @@ public class AzureDemoObject
 
 On one hand, this seems a bit messy to me, but with the help of an extension method or two, more meaningful names can be used instead of PartitionKey and RowKey. In addition, I do have to love the convention over configuration.
 
-Finally, to make this even easier, there is a simple object called TableStorageEntity in the StorageClient API you can derive your entities from.&#160;
+Finally, to make this even easier, there is a simple object called TableStorageEntity in the StorageClient API you can derive your entities from.
 
 

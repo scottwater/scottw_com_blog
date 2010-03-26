@@ -10,7 +10,7 @@ tags: [telligent]
 
 "Josh":http://evolvingwe.com/ posted a list of tips for "working remotely":http://evolvingwe.com/social/x-tips-for-working-remotely/. Here are a couple of additions.
 
-"Evolution":http://telligent.com/products/community-server-evolution/&#160;
+"Evolution":http://telligent.com/products/community-server-evolution/
 OK, so I am biased towards our own internal social knowledge solution, but this really does improve the remote work place in a big way. Important information is stored and accessible in a central location, self organizing groups are readily at your disposal, and it easily plugs into your most typical communication tool, Email.
 
 *When in Rome...

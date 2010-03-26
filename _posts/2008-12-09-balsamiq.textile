@@ -20,7 +20,6 @@ Since I do not have anything interesting to share, I grabbed a nice example off 
 
 Here are the basics:
 
-
 # Everything is drag/drop and resizable.
 # Most items allow you to edit the text by clicking on them.
 # Complex items such as tables, tabs, and breadcrumbs use a comma delimited format.
@@ -28,6 +27,4 @@ Here are the basics:
 
 This is a great little tool for any developer, PM, or business type person who could use a little help expressing themselves visually. At $79 this tool is a steal. *However, see my disclaimer above*.
 
-[1] Now realizing how great a gimmick this free license move is. Kudos Balsamiq on the great tool and clever marketing. :)
-
-
+fn1. Now realizing how great a gimmick this free license move is. Kudos Balsamiq on the great tool and clever marketing. :)

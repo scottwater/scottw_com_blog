@@ -9,7 +9,7 @@ tags: [funq, iofc]
 
 "Speaking of IofC's":http://scottw.com/code/iofc-on-azure/, I have been enjoying watching "Daniel Cazzulino's":http://www.clariusconsulting.net/blogs/kzu/ "video series":http://www.clariusconsulting.net/blogs/kzu/archive/2009/02/02/116399.aspx on "Funq":http://code.google.com/p/funq/.
 
-bq.    _I'm planning to record a series of screencasts which will serve as walk-throughs on how to apply TDD on a practical project consisting in building a full-featured and high-performance DI container which has two very explicit goal: minimalistic design and small footprint._
+bq. _I'm planning to record a series of screencasts which will serve as walk-throughs on how to apply TDD on a practical project consisting in building a full-featured and high-performance DI container which has two very explicit goal: minimalistic design and small footprint._
 
 As I mentioned before, I still don't have the expertise to speak with authority on .NET Inversion of Control containers/components. However, even if you could care less about IofC, there are some compelling reason to watch the video series:
 

@@ -11,7 +11,7 @@ I have tried a couple of solutions for sharing links on "Twitter":http://twitter
 
 Bit.ly provides the five main things I was looking for in a link sharing/shortening tool:
 
-# Simplicity - visit any page and click a browser bookmarklet.&#160;&#160;
+# Simplicity - visit any page and click a browser bookmarklet.
 # Shortening - very small urls which means you have plenty of characters left to describe the link.
 # Publishing - easily publish to twitter. As soon as you shorten the link you are presented an option to publish right to twitter.
 # Stats - nothing earth shattering, but it nice to see which links/descriptions get the most clicks.

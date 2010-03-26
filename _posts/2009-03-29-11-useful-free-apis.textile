@@ -12,6 +12,4 @@ I originally saw this great link "11 Useful Free APIs for Developing Twitter App
 
 While there are a couple of them that are focused on just twitter, there are quite a few others that have usage far and beyond twitter.
 
-It really is amazing what you can build today simply by leveraging services provided by others. As the trends in cloud computing continue, I expect you see more of these services becoming available since the costs to run them are shinking day by day. This of course leads to more services and so on and so on.
-
-
+It really is amazing what you can build today simply by leveraging services provided by others. As the trends in cloud computing continue, I expect you see more of these services becoming available since the costs to run them are shrinking day by day. This of course leads to more services and so on and so on.

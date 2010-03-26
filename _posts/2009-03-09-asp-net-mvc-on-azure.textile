@@ -13,5 +13,3 @@ tags: [azure, mvc]
 One thing different in version two of this post is instead of just including the sample solution, he has walked through the necessary steps so that you can do this on your own.
 
 Hopefully, this becomes an out of the box project template in the near future. IMO, the type of developers and projects which will be the first to move to the cloud are likely the same group who will be interested first in using MVC.
-
-

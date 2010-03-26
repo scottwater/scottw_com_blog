@@ -15,7 +15,7 @@ bq. With Pandora you can explore this vast trove of music to your heart's conten
 
 h3. Tools
 
-"OpenPandora":http://openpandora.googlepages.com/ - This is a very nice (free) application which sits in your windows task bar.&#160; It has a slew of nice additional features such as Windows Messenger integration.
+"OpenPandora":http://openpandora.googlepages.com/ - This is a very nice (free) application which sits in your windows task bar. It has a slew of nice additional features such as Windows Messenger integration.
 
 !http://openpandora.googlepages.com/openpandora.jpg!
 

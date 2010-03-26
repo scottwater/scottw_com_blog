@@ -15,5 +15,3 @@ I was recently booking a flight from Philadelphia to Dallas. On the main booking
 !http://scottw.com/images/OnTime.jpg(Ontime numbers)!
 
 If the flight is late more than 50% of the time, maybe it is time to change the flight time.
-
-

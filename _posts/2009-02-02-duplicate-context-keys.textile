@@ -21,5 +21,3 @@ So with this, I am able to quickly create my entities, create a simple DataServi
 After a little unhelpful time in Google, my only guess is the context tracking is based on my PartitionKey + RowKey + the base type they are defined on. So in my case, since all my entities derive from TableEntity the DataService sees them as a duplicate. The fix is pretty simple, just don't use the TableEntity class or create a new context for each insert[1]. However, this still sounds like a bug to me.
 
 [1] Of course since transactions in Azure are only at the row level, there really isn't much benefit to batching up the requests, but it feels cleaner to me and gives me something else to write about. :)
-
-

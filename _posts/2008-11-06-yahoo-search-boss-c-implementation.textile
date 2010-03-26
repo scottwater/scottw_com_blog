@@ -8,11 +8,11 @@ tags: [yahoo, boss, rest]
 ---
 
 
-!http://scottw.com/images/WindowsLiveWriter/YahooSearchBOSSCImplementation_7620/image_3.png!:http://developer.yahoo.com/search/boss/&#160;
+!http://scottw.com/images/WindowsLiveWriter/YahooSearchBOSSCImplementation_7620/image_3.png!:http://developer.yahoo.com/search/boss/
 
 I saw some mentions about "Yahoo's Boss":http://developer.yahoo.com/search/boss/ a couple weeks ago, but I didn't have time until recently to try it out for myself.
 
-bq.    BOSS (Build your Own Search Service) is Yahoo!'s open search web services platform. The goal of BOSS is simple: to foster innovation in the search industry. Developers, start- ups, and large Internet companies can use BOSS to build and launch web-scale search products that utilize the entire Yahoo! Search index. BOSS gives you access to Yahoo!'s investments in crawling and indexing, ranking and relevancy algorithms, and powerful infrastructure. By combining your unique assets and ideas with our search technology assets, BOSS is a platform for the next generation of search innovation, serving hundreds of millions of users across the Web.
+bq. BOSS (Build your Own Search Service) is Yahoo!'s open search web services platform. The goal of BOSS is simple: to foster innovation in the search industry. Developers, start- ups, and large Internet companies can use BOSS to build and launch web-scale search products that utilize the entire Yahoo! Search index. BOSS gives you access to Yahoo!'s investments in crawling and indexing, ranking and relevancy algorithms, and powerful infrastructure. By combining your unique assets and ideas with our search technology assets, BOSS is a platform for the next generation of search innovation, serving hundreds of millions of users across the Web.
 
 I could not find a C# implementation, so a couple of nights ago, I decided to put one together.
 
@@ -66,5 +66,3 @@ var result = new WebSearch("Boss_ID").Get("My Query");
 Anyone have a preference?
 
 "Download Assembly and Source":http://www.box.net/shared/eihe7a2ytu.
-
-

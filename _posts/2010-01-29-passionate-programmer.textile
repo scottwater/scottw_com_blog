@@ -20,10 +20,8 @@ bq.    _"If you think of your career as a business (which it is), your 'product'
 
 Not much to add here. This really is the core of theme in the book. This is your *LIFE*. Own it.
 
-bq.    _"Be the worst guy in every band you are in" _
+bq.    _"Be the worst guy in every band you are in"_
 
 Seek out opportunities, groups, events where you are no where close to being the best developer in the room. You will usually find these are the best opportunities to learn and advance your own knowledge.
 
-[1] To get a DRM Free electronic version, check out the "Pragmatic Programmers site directly":http://pragprog.com/titles/cfcar2/the-passionate-programmer.
-
-
+fn1. To get a DRM Free electronic version, check out the "Pragmatic Programmers site directly":http://pragprog.com/titles/cfcar2/the-passionate-programmer.

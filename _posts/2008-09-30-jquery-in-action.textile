@@ -10,13 +10,13 @@ tags: [jquery, books]
 
 Assuming you were not living under a rock on Monday, you likely saw the "announcement":http://jquery.com/blog/2008/09/28/jquery-microsoft-nokia/ that "Microsoft will be shipping":http://weblogs.asp.net/scottgu/archive/2008/09/28/jquery-and-microsoft.aspx "jQuery":http://jquery.com/ in the next version of Visual Studio.
 
-bq. The jQuery intellisense annotation support will be available as a free web-download in a few weeks (and will work great with VS 2008 SP1 and the free Visual Web Developer 2008 Express SP1).&#160; The new ASP.NET MVC download will also distribute it, and add the jQuery library by default to all new projects.
+bq. The jQuery intellisense annotation support will be available as a free web-download in a few weeks (and will work great with VS 2008 SP1 and the free Visual Web Developer 2008 Express SP1). The new ASP.NET MVC download will also distribute it, and add the jQuery library by default to all new projects.
 
 We will also extend Microsoft product support to jQuery beginning later this year, which will enable developers and enterprises to call and open jQuery support cases 24x7 with Microsoft PSS.
 
-Going forward we'll use jQuery as one of the libraries used to implement higher-level controls in the ASP.NET AJAX Control Toolkit, as well as to implement new Ajax server-side helper methods for ASP.NET MVC.&#160; New features we add to ASP.NET AJAX (like the new "client":http://weblogs.asp.net/bleroy/archive/2008/09/16/javascript-and-client-templates-on-hanselminutes.aspx "template":http://weblogs.asp.net/bleroy/archive/2008/07/30/using-client-templates-part-1.aspx "support":http://weblogs.asp.net/bleroy/archive/2008/09/02/using-client-templates-part-2-live-bindings.aspx) will be designed to integrate nicely with jQuery as well.&#160;
+Going forward we'll use jQuery as one of the libraries used to implement higher-level controls in the ASP.NET AJAX Control Toolkit, as well as to implement new Ajax server-side helper methods for ASP.NET MVC. New features we add to ASP.NET AJAX (like the new "client":http://weblogs.asp.net/bleroy/archive/2008/09/16/javascript-and-client-templates-on-hanselminutes.aspx "template":http://weblogs.asp.net/bleroy/archive/2008/07/30/using-client-templates-part-1.aspx "support":http://weblogs.asp.net/bleroy/archive/2008/09/02/using-client-templates-part-2-live-bindings.aspx) will be designed to integrate nicely with jQuery as well.
 
-We also plan to contribute tests, bug fixes, and patches back to the jQuery open source project.&#160; These will all go through the standard jQuery patch review process. ["Scott Guthrie":http://weblogs.asp.net/scottgu/archive/2008/09/28/jquery-and-microsoft.aspx]
+We also plan to contribute tests, bug fixes, and patches back to the jQuery open source project. These will all go through the standard jQuery patch review process. ["Scott Guthrie":http://weblogs.asp.net/scottgu/archive/2008/09/28/jquery-and-microsoft.aspx]
 
 This is good news for two reasons:
 

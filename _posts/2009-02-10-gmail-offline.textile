@@ -15,5 +15,3 @@ I primarily use Chrome, so setup is drop dead simple, just turn it on enable Goo
 There is more to Microsoft Exchange than email, but for me this is one more nail in that coffin. If I were starting a new business in this economy, Google Applications just got a whole lot more interesting.
 
 Interesting, by the time I got around to actually publishing this post, Google has announced another killer feature, "Multiple Inboxes":http://gmailblog.blogspot.com/2009/02/new-in-labs-multiple-inboxes.html.
-
-

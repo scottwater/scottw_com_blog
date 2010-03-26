@@ -15,5 +15,3 @@ bq. _I'm excited today to announce that we are also releasing the ASP.NET MVC so
 This is a huge step forward. It will be interesting to see how the community reacts to this in the comming months.
 
 One obvious place you can expect to see this leveraged is by the "Mono":http://www.mono-project.com/Main_Page folks.
-
-

@@ -15,13 +15,8 @@ Similar to some of the "other positions I have posted":http://scottw.com/code/se
 Here is a quick run down:
 
 * Full time or contract (although this will be ongoing work, so we prefer FT)
-
 * We prefer Lucene.Net experience, but if you really know "Lucene":http://lucene.apache.org/java/ and have a desire/willingness to jump to the .NET side of the world let us know.
-
 * You must legally be employable in the US (generally this means you must be a US citizen).
-
 * If you lived in the Dallas Texas area that would be ideal, but again if you have skills and a decent internet connection we can make this work.
 
 If you are interested, please send your resume and summary of skills to "scottw@telligent.com":mailto:scottw@telligent.com.
-
-

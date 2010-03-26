@@ -10,7 +10,7 @@ tags: [disqus, graffiti]
 
 I set up "Disqus":http://disqus.com on my blog about two weeks ago. So far I have been very happy with the service and pleasantly surprised with some features I did not know exists.
 
-bq.    Disqus, pronounced "discuss", is a service and tool for web comments and discussions. The Disqus comment system can be plugged into any website, blog, or application. Disqus makes commenting easier and more interactive, while connecting websites and commenters across a thriving discussion community.
+bq. Disqus, pronounced "discuss", is a service and tool for web comments and discussions. The Disqus comment system can be plugged into any website, blog, or application. Disqus makes commenting easier and more interactive, while connecting websites and commenters across a thriving discussion community.
 
 Disqus is a free service to the general public with absolutely no inline advertisements.
 
@@ -47,5 +47,3 @@ With this information, in step three from above instead of removing the comment 
 {% endhighlight %}
 
 That should be it. As part of Graffiti 2.0 I am hoping we can make this kind of update more easy to package up (it could be done today, but it would be theme specific which isn't quite generic enough).
-
-

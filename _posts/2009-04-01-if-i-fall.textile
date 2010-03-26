@@ -7,7 +7,6 @@ rawDate: "4/1/2009 9:30:53 PM"
 tags: [videos, inspirational]
 ---
 
-
 Really don't know what else to say, except make watch this video.
 
 <object width="440" height="361">
@@ -18,5 +17,3 @@ Really don't know what else to say, except make watch this video.
 </object>
 
 "Walk On":http://vodpod.com/watch/1165857-walk-on-espn-video
-
-

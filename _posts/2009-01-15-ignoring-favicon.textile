@@ -42,4 +42,8 @@ public class ControllerFactory2 : DefaultControllerFactory
 
 {% endhighlight %}
 
-While this would work, there was still something getting through which appeared to be throwing an exception on every other request or two. WIth a little more debugging, I found that the RawUrl on the Request object had the following value: "/favicon.ico".&#160; As annoying as this is, it is easily fixable by the following to my Routes: _routes.IgnoreRoute("favicon.ico");._
+While this would work, there was still something getting through which appeared to be throwing an exception on every other request or two. WIth a little more debugging, I found that the RawUrl on the Request object had the following value: "/favicon.ico". As annoying as this is, it is easily fixable by the following to my Routes:
+
+{% highlight csharp %}
+ _routes.IgnoreRoute("favicon.ico");._
+{% endhighlight %}

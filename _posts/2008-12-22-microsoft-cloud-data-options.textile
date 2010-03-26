@@ -35,13 +35,7 @@ h3. What, when, where, why?
 * Both options provide blob storage. However, the SDS blob functionality is very simple. Files can be a max of 100mb. On the Azure side of things, files can theoretically be of any size. However, anything over 4mb must be inserted in blocks using the blocklist API. I would expect to see a lot more innovations/options on the Azure side of things.
 
 * If you need to query your data, use multiple sorts, and/or joins, SDS is what you are looking for.
-
 * If you need to have related objects exist in a list that you may or may not use and in memory ordering/filtering is a viable option, Azure table storage is for you.
-
 * While these are separate services, I fully expect most applications will leverage both of them (as well as .NET Services).
-
 * Neither Azure tables or SDS provide query aggregates at the moment (count, sum, etc). These are on the roadmap for SDS and I would expect you will not see them anytime soon in Azure.
-
 * Queues are built on tables. Not sure why that is helpful, but I found it interesting.
-
-

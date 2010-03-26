@@ -37,7 +37,7 @@ post["Slug"] = "mongo-post";
 posts.Insert(post);
 
 Document query = new Document();
-query[“Slug”] = "mongo-post";
+query["Slug"] = "mongo-post";
 
 
 Document mongo_post = posts.FindOne(query);
@@ -84,10 +84,8 @@ Console.WriteLine("Title: {0} local published time {1} ", title, published);
 {% endhighlight %}
 
 
-While the example is trivial, I think it is a good step forward.&#160;
+While the example is trivial, I think it is a good step forward.
 
 I want to play around with a bit more before I try to figure out how to submit a patch or fork it.
 
 In the mean time, if you want play with the code, download the source from "github":http://github.com, and then swap out the "Document.cs class with this file":http://www.box.net/shared/knqqd9jn9k.
-
-

@@ -18,5 +18,3 @@ Recently they announced to "two major changes":http://aws.typepad.com/aws/2009/0
 I am really looking forward to the next couple of months in this space. It is obvious that "Amazon":http://aws.amazon.com has stepped up its game since Microsoft has gone public with the "Azure":http://www.microsoft.com/azure/default.mspx initiative and you have to imagine things are just getting started.
 
 Big competition FTW.
-
-

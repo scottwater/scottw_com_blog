@@ -23,5 +23,3 @@ I am definitely looking forward to spending more time coding in it in the coming
 If you did not get to attend Mix or even if you did and somehow in Vegas managed to miss a session or two, be sure to "watch the sessions online":http://videos.visitmix.com/.
 
 *Update*: browsing through my links to read in "Instapaper":http://instapaper.com/, I came across a great "Silverlight 3 feature write up":http://timheuer.com/blog/archive/2009/03/18/silverlight-3-whats-new-a-guide.aspx by "Tim Heuer":http://timheuer.com/blog/.
-
-

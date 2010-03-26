@@ -10,7 +10,7 @@ tags: [nhiberate, nhprof, sql-server]
 
 "NHProf":http://nhprof.com/ is a profiling tool for "NHibernate":https://www.hibernate.org/343.html.
 
-bq.    _NHibernate Profiler is a real-time visual debugger allowing a development team to gain valuable insight and perspective into their usage of NHibernate._
+bq. _NHibernate Profiler is a real-time visual debugger allowing a development team to gain valuable insight and perspective into their usage of NHibernate._
 
 What really jumped out at me after using it for just a couple of minutes is how much more useful it is for developers than SQL Profiler (assuming you are using NHibernate).
 
@@ -29,7 +29,6 @@ Which one of the two screen shots cares about the user?
 Seriously, if you had to use of these tools daily; would you choose the one that throws up on the screen or the one which tries to make your life easier?
 
 Obviously there is quite a bit more to SQL profiler, but for the things a developer would care about on a daily basis, you cannot beat the following:
-
 
 # Results grouped by session. NHibernate cheats by encouraging a single session to be used per page request, but either way it is a very useful way to view what is happening per request.
 # Details about the number of records returned per query.

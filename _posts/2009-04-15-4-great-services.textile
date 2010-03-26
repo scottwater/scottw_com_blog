@@ -7,7 +7,6 @@ rawDate: "4/15/2009 10:21:51 PM"
 tags: [instapaper, tumblr, disqus, wufoo, services]
 ---
 
-
 I am constantly amazed at the number of awesome services which are available (at least in some capacity) for free. Some like Twitter get tons of press. Others, provide a quality service to a loyal set of users but largely remain out of the spotlight.
 
 Here are four services which you might not have heard of, but I highly recommend you look into.
@@ -25,5 +24,3 @@ There are other similar services, but none are as drop dead simple as Instapaper
 h3. Your Turn
 
 _So, what services am I missing? Which would you add to the list?_
-
-
