@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : Multiple Work Roles on Azure </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151901" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151901" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/graffiticms-roadmap/" title="GraffitiCMS RoadMap" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/microsoft-cloud-data-options/" title="Microsoft Cloud Data Options" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>Multiple Work Roles on Azure</h1>
+  <div class="entry">
+  	<p>One of the early <a href="http://www.microsoft.com/azure/windowsazure.mspx">Windows Azure</a> features that really excited my was the worker role functionality.</p>
+<p>If you are not familiar with work roles they are basically a very simple way to do back ground processing when hosting an application on Azure.</p>
+<p>Here is a worker role skeleton:</p>
+<div class="highlight"><pre><code class="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">WorkerRole</span> <span class="p">:</span> <span class="n">RoleEntryPoint</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">while</span><span class="p">(</span><span class="k">true</span><span class="p">)</span>    
+        <span class="p">{</span>
+            <span class="c1">//Do work here</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="k">public</span> <span class="k">override</span> <span class="n">RoleStatus</span> <span class="nf">GetHealthStatus</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">RoleStatus</span><span class="p">.</span><span class="n">Healthy</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div><p>In most case, your work role is going to simply process messages added to a queue. This has a couple great benefits:</p>
+<ol>
+	<li>It is drop dead simple.</li>
+	<li>Provides a structured path to move heavy processing out of your web application and does not require managing your own back ground threads.</li>
+	<li>Since queues (and all of Azure storage as well <span class="caps">SDS</span>) are <span class="caps">REST</span> enabled, you can easily push tasks to a worker role from just about anywhere (Azure web application and existing applications)</li>
+</ol>
+<p>However, as of today, you can only have a <a href="http://blogs.msdn.com/jnak/archive/2008/12/10/multiple-service-configurations-for-a-windows-azure-cloud-service.aspx">single worker role</a> (although you can have multiple instances) associated with an Azure project. I am really hoping this is changed before <span class="caps">RTM</span> since working around it is pretty ugly.</p>
+<ol>
+	<li>Multiple threads &#8211; you could create multiple threads within a single worker role. This is very easy to do, but will be very hard to scale since all of your threads will be treated as equals. There are some other things you could do to control this, but it just gets more complicated and uglier with each attempt.</li>
+	<li>Additional Role Projects &#8211; you can today add multiple roles to a single solution file. You can then configure multiple start up projects which gets you the necessary functionality but has two major issues.
+	<ol>
+		<li>Deployment &#8211; You will now have to do multiple deployments. There maybe times when your additional work roles are out of sync with your web application and vice versa (in addition, the current <span class="caps">CPT</span> limits you to one hosted project, so there is no way to build an application today using this model).</li>
+		<li>Duplicate configuration &#8211; you will now be forced to manage multiple configuration settings. This is not rocket science, but something that will likely catch you off guard at some point.</li>
+	</ol></li>
+</ol>
+<p>Overall, I love this functionality and it will simplify (and promote) building more loosely coupled message driven applications&#8230;which is a really good thing. However, without support for multiple roles it is going to be severely crippled. I know the Azure team is definitely listening, so hopefully this is something we will see supported very soon.</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Dec 11, 2008 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#azure">azure</a>,
+  	  
+  	    <a href="/tags/#workerrole">workerrole</a>,
+  	  
+  	    <a href="/tags/#cloud-computing">cloud-computing</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/graffiticms-roadmap/" title="GraffitiCMS RoadMap">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/microsoft-cloud-data-options/" title="Microsoft Cloud Data Options">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:19 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

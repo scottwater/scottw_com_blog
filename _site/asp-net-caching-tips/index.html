@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : ASP.Net Quick Tips - Caching </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151848" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151848" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/iis7-urlrewriting-no-file-extensions/" title="IIS7, UrlRewriting, No File Extensions" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/twitter-for-windows/" title="Twitter For Windows" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>ASP.Net Quick Tips - Caching</h1>
+  <div class="entry">
+  	<p>This is part four in the <a href="http://scottw.com/blog/archive/tags/asp.net+tips/"><span class="caps">ASP</span>.Net tips series</a>. In particular, this is a follow-up to, &#8220;<a href="http://scottw.com/blog/archive/asp-net-state-management-tips/"><span class="caps">ASP</span>.Net Quick Tips &#8211; State Management</a>&#8221; which focuses exclusively on caching.</p>
+<p>Caching:</p>
+<ol>
+	<li>is the number one way you can improve the performance of an <span class="caps">ASP</span>.Net application.</li>
+	<li>is a very easy way to fix problems which do not exist.</li>
+</ol>
+<p>Tip: <strong>Learn the Cache <span class="caps">API</span>:</strong></p>
+<p>Most conference talks and demos show how you can quickly and easily cache a page or page fragment using output caching. While this works, I think in many cases this limits your ability to really take advantage of the cache by using it to store data which is applicable to many pages and fragments. In addition, you can better control when items are expired, set dependencies, implement callbacks, and much more.</p>
+<p>Tip: <strong>Avoid Output Caching</strong></p>
+<p>This one will likely get me in a little trouble. :) In my experience, unless you talking about kernel level page output caching, caching the rendered <span class="caps">HTML</span> is a marginal performance gain. Using the cache <span class="caps">API</span> and building re-usability into your object model will save you multiple trips to your database as well giving more you flexibility throughout your application. There are times where page fragment (user controls) may work since they can be used on multiple pages, but in just about application I have worked on, output caching&#8217;s ease of use did not outweigh the inflexibility it introduced.</p>
+<p>Tip: <strong>Do not over-cache:</strong></p>
+<p>Do not cache objects longer than they are needed. Do not be afraid to add code which causes some objects to use different cache times depending on their re-usability. As an example, in <a href="http://communityserver.org">Community Server</a>, blog posts which are older than 7 days are not cached. We looked at some usage patterns and found that after a week, most blog posts are very rarely referenced by multiple requests within a reasonable amount of time. In other words, the post was cached to save an extra trip to the database, but no one was using it.</p>
+<p>Caching an object for a couple of seconds is a very reasonable thing to do. On a high traffic site, you could potentially re-use the same object on hundreds or thousands of requests by simply caching it for 3 to 5 seconds.</p>
+<p>Keep in mind, the old saying, &#8220;<em>it is better to measure twice and cut once</em>&#8221;definitely applies here. In my experience most developers over-estimate the needed cache time frame which leads to problems in the future.</p>
+<p>Tip: <strong>Do not cache page 2+:</strong></p>
+<p>Quiz: How often do you click on page 2 in pagable list of content? If yes, how many times do you click on page 3?</p>
+<p>The &quot;Do not over-cache&#8217; tip, leads us to: not all content is equal. As content gets older, it is generally a lot less likely to be accessed. Thus, in most cases, it is a lot less likely to be a candidate for caching. In <a href="http://communityserver.org">Community Server</a> we noticed that in just about every pagable area almost no one except for Google was requesting page 2 and just everybody avoided page 3, yet these objects still took the same cache memory space. It varies a little between each application + control panel, but in most cases, we avoid caching older content. There are of course times when some older content becomes popular, but we should be able to handle them a la carte in those cases&#8230;and yes, there are still some places page 2 will be cached.</p>
+<p>Tip: <strong>Add Roles to your cache key:</strong></p>
+<p>As has been mentioned, you should only cache objects which can be used by more than one user. Most data centric web sites show different data to different users which can make caching challenging. One of the nice things we implemented in <a href="http://communityserver.org">Community Server</a> early on was to include a list of the users roles in the cache key. In CS (and many other applications) users with the same roles usually have the same set of permissions. Using the roles as part of the of the cache key makes it much easier to cache/reuse private data which is applicable to more than one user.</p>
+<p>Tip: <strong>User VaryByCustom to add flexibility to output caching:</strong></p>
+<p>Just because I recommend avoiding output caching doesn&#8217;t mean you should not use it. There are certainly sites, projects, and tasks which make it a useful solution.</p>
+<p>Output caching generally relies on parameters such as querystrings and control values to generate cache keys. However, there is an extensibility hook built into output caching called &#8220;<em>VaryByCustom</em>&#8221;.</p>
+<p>Using VaryByCustom is very simple:</p>
+<ol>
+	<li>Add the VaryByCustom attribute to output caching directive.</li>
+	<li>Override the GetVaryByCustomString method on your global.asax</li>
+</ol>
+<p>The following is a quick example which shows how you can apply the roles tip from above to output caching.</p>
+<p>First, we add the output directive, specify 20 seconds as the duration and tell it to use the &#8220;roles&#8221; key the VaryByCustom attribute.</p>
+<div class="highlight"><pre><code class="xml"><span class="err">&lt;</span>%@ OutputCache Duration=&quot;20&quot; VaryByParam=&quot;None&quot; VaryByCustom=&quot;roles&quot; %&gt;
+</code></pre>
+</div><p>Next, we override the GetVaryByCustomString method. If the custom string parameter equals &#8220;roles&#8221;, we return our custom roles key. If not, we simply pass the request to the base implementation.</p>
+<div class="highlight"><pre><code class="csharp"><span class="k">public</span> <span class="k">override</span> <span class="kt">string</span> <span class="nf">GetVaryByCustomString</span><span class="p">(</span><span class="n">HttpContext</span> <span class="n">context</span><span class="p">,</span> <span class="kt">string</span> <span class="n">custom</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Compare</span><span class="p">(</span><span class="n">custom</span><span class="p">,</span> <span class="s">&quot;roles&quot;</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">IsAuthenticated</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">//assumes roles are always returned in the same order, probably not true</span>
+            <span class="k">return</span> <span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&quot;;&quot;</span><span class="p">,</span> <span class="n">Roles</span><span class="p">.</span><span class="n">GetRolesForUser</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+            <span class="k">return</span> <span class="s">&quot;anonymous&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">base</span><span class="p">.</span><span class="n">GetVaryByCustomString</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">custom</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div><p>Tip: <strong>Know what&#8217;s in your cache &#8211; Low Tech:</strong></p>
+<p><a href="http://aspadvice.com/blogs/ssmith/">Steve Smith</a> has a very nice (and simple) <a href="http://aspalliance.com/cachemanager/">Cache Manager Plug-in</a> utility you can use to quickly see what is your cache.</p>
+<p>Tip: <strong>Know what&#8217;s in your cache &#8211; High Tech:</strong></p>
+<p>While the low tech way is easy and effective, it does not get you nitty gritty details such as object size (which is an art in managed code) as well as hits/misses/etc.</p>
+<p>To get at information such as object size you will need to get your hands dirty with <a href="http://www.microsoft.com/whdc/devtools/debugging/default.mspx">Windbg</a>. I could explain some of it to you, but I would really be just copying an pasting from <a href="http://blogs.msdn.com/tess/">Tess Ferrandez&#8217;s blog</a>. In particular the following posts are very helpful.</p>
+<ul>
+	<li><a href="http://blogs.msdn.com/tess/archive/2006/01/26/517819.aspx">How much are you caching?</a></li>
+	<li><a href="http://blogs.msdn.com/tess/archive/2006/01/11/511773.aspx">How do I get the memory dumps in the first place? And what is <span class="caps">SOS</span>.dll?</a></li>
+</ul>
+<p>You should also familiarize yourself with the <a href="http://msdn2.microsoft.com/en-us/library/fxk122b4.aspx"><span class="caps">ASP</span>.Net performance counters</a> (every once in a while, I even use <a href="http://weblogs.asp.net/rhoward/">Rob&#8217;s</a> <a href="http://www.asp.net/ControlGallery/ControlDetail.aspx?Control=43&amp;amp;tabindex=6...2002">performance counters control</a> was a long time ago :).</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Mar 07, 2007 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#aspnet">aspnet</a>,
+  	  
+  	    <a href="/tags/#asp-net-tips">asp-net-tips</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/iis7-urlrewriting-no-file-extensions/" title="IIS7, UrlRewriting, No File Extensions">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/twitter-for-windows/" title="Twitter For Windows">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:18 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

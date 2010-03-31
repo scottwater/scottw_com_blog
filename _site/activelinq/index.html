@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : ActiveLinq </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151854" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151854" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/for-your-convenience/" title="For Your Convenience" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/password-limitations/" title="Password Limitations" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>ActiveLinq</h1>
+  <div class="entry">
+  	<p>I have been <a href="http://scottw.com/code/developer-choice/">evaluating Linq to <span class="caps">SQL</span> and Castle ActiveRecord</a> for a small project I am working on. In end I decided to go with ActiveRecord. As part of my experiment, I did a quick prototype of an ActiveRecord <strong><em>like</em></strong> pattern using Linq to <span class="caps">SQL</span>.</p>
+<p>I have zero plans to continue to working on and I cannot stress ActiveRecord <strong><em>like</em></strong> enough. In all honesty, this is an insult to ActiveRecord, but life is too short and there is no reason for this code to die on my hard drive if someone else might find it useful.</p>
+<h3>What does it do?</h3>
+<p>What it does today is enable very simple querying without the need write more than a line of code. There are some parts like using lambas for the where filter that I really like, but there are others like the order by which feel hacky.</p>
+<h3>How to use it?</h3>
+<ol>
+	<li>Add the code files in the download to your project</li>
+	<li>Take a Linq to <span class="caps">SQL</span> class and derive from from ActiveLinq</li>
+	<li>Register the connectionstring for each type (preferably in App_Start)</li>
+</ol>
+<h3>Example:</h3>
+<div class="highlight"><pre><code class="csharp"><span class="na">[Table(Name = &quot;wc_Users&quot;)]</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">User</span> <span class="p">:</span> <span class="n">ActiveLinq</span><span class="p">&lt;</span><span class="n">User</span><span class="p">&gt;</span>
+<span class="p">{</span>
+   <span class="c1">//Columns</span>
+<span class="p">}</span>
+</code></pre>
+</div><p>Then you can use it like this:</p>
+<div class="highlight"><pre><code class="csharp"><span class="na">[TestFixture]</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">LinqRunner</span>
+<span class="p">{</span>
+<span class="na">    [TestFixtureSetUp]</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">Init</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">ActiveLinqStarter</span><span class="p">.</span><span class="n">RegisterTypesByConnectionstring</span><span class="p">(</span><span class="s">&quot;...&quot;</span><span class="p">,</span> <span class="k">typeof</span><span class="p">(</span><span class="n">User</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="na"> </span>
+<span class="na">    [Test]</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">FindFirstUserMatchingCondition</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">User</span> <span class="n">u</span> <span class="p">=</span> <span class="n">User</span><span class="p">.</span><span class="n">FindFirst</span><span class="p">(</span><span class="n">ux</span> <span class="p">=&gt;</span> <span class="n">ux</span><span class="p">.</span><span class="n">IsEnabled</span> <span class="p">&amp;&amp;</span> <span class="p">!</span><span class="n">ux</span><span class="p">.</span><span class="n">IsAdmin</span><span class="p">,</span>  <span class="n">User</span><span class="p">.</span><span class="n">OrderByAsc</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">Email</span><span class="p">));</span>
+        <span class="n">Assert</span><span class="p">.</span><span class="n">IsNotNull</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="s">&quot;user could not be found&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="na"> </span>
+<span class="na">    [Test]</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">FindASingleUserRecord</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">User</span> <span class="n">u</span> <span class="p">=</span> <span class="n">User</span><span class="p">.</span><span class="n">FindOne</span><span class="p">(</span><span class="n">ux</span> <span class="p">=&gt;</span> <span class="n">ux</span><span class="p">.</span><span class="n">Username</span> <span class="p">==</span> <span class="s">&quot;scottw&quot;</span><span class="p">);</span> 
+        <span class="n">Assert</span><span class="p">.</span><span class="n">IsNotNull</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="s">&quot;user could not be found&quot;</span><span class="p">);</span>
+ 
+        <span class="n">u</span> <span class="p">=</span> <span class="n">User</span><span class="p">.</span><span class="n">FindOne</span><span class="p">(</span><span class="n">ux</span> <span class="p">=&gt;</span> <span class="n">ux</span><span class="p">.</span><span class="n">Username</span> <span class="p">==</span> <span class="s">&quot;DOES NOT EXIST&quot;</span><span class="p">);</span>
+        <span class="n">Assert</span><span class="p">.</span><span class="n">IsNull</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="s">&quot;A user was found when it should not have been&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="na"> </span>
+<span class="na">    [Test]</span>
+<span class="na">    [ExpectedException(typeof(ArgumentException))]</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">FindASingleUserRecordException</span><span class="p">()</span>
+    <span class="p">{</span>
+       <span class="n">User</span><span class="p">.</span><span class="n">FindOne</span><span class="p">(</span><span class="n">ux</span> <span class="p">=&gt;</span> <span class="n">ux</span><span class="p">.</span><span class="n">IsEnabled</span><span class="p">);</span> <span class="c1">//Should return 16 enabled users</span>
+    <span class="p">}</span>
+<span class="na"> </span>
+<span class="na">    [Test]</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">FindAllUserRecords</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">var</span> <span class="n">users</span> <span class="p">=</span> <span class="n">User</span><span class="p">.</span><span class="n">FindAll</span><span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span> 
+        <span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">users</span><span class="p">.</span><span class="n">Count</span> <span class="p">==</span> <span class="m">17</span><span class="p">,</span> <span class="s">&quot;Could not find all 17 users&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="na"> </span>
+<span class="na">    [Test]</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">FindAllUserRecordsWithOffset</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">var</span> <span class="n">users</span> <span class="p">=</span> <span class="n">User</span><span class="p">.</span><span class="n">FindAll</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">20</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span>
+        <span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">users</span><span class="p">.</span><span class="n">Count</span> <span class="p">==</span> <span class="m">12</span><span class="p">,</span> <span class="s">&quot;Offset failed, should be 12 uses&quot;</span><span class="p">);</span>
+ 
+        <span class="n">users</span> <span class="p">=</span> <span class="n">User</span><span class="p">.</span><span class="n">FindAll</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="n">ux</span> <span class="p">=&gt;</span> <span class="n">ux</span><span class="p">.</span><span class="n">IsEnabled</span><span class="p">);</span>
+        <span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">users</span><span class="p">.</span><span class="n">Count</span> <span class="p">==</span> <span class="m">16</span><span class="p">,</span> <span class="s">&quot;Could not find all 16 enabled users&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div><p><a href="http://scottw.com/files/downloads/activelinq.rar">Download ActiveLinq</a>.</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on May 29, 2008 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#linq">linq</a>,
+  	  
+  	    <a href="/tags/#activerecord">activerecord</a>,
+  	  
+  	    <a href="/tags/#source-code">source-code</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/for-your-convenience/" title="For Your Convenience">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/password-limitations/" title="Password Limitations">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:18 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

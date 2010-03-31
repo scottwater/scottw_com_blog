@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : IofC on Azure </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151904" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151904" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/google-appengine-roadmap-update/" title="Google AppEngine RoadMap Update" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/watching-the-funq/" title="Watching the Funq" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>IofC on Azure</h1>
+  <div class="entry">
+  	<p>One of the first things everyone must learn about hosting an application on <a href="http://www.microsoft.com/azure/default.mspx">Azure</a> is the restricted context in which it runs. Microsoft has been a bit vague on what exactly this means, but roughly it is a more locked down version of Medium Trust. For obvious reasons, there is no access to registry, limited file system access, in the case of this post, more strict policy on code access.</p>
+<p>There are quite a few components for .<span class="caps">NET</span> developers choose from when it comes to implementing Inversion of Control (IofC). They all vary in a variety of ways and no one is the true answer. I am not an expert on IofC components, but for most of the common tasks, anyone of the available components should work for you. It is just a matter of finding one you (and your team) are comfortable with. However, in the case of using IofC while hosting an application on Azure, you may need to do a bit more home work.</p>
+<p>While I have not tested all the components available, I did manage to get two of them to work and as far as I can tell, the core areas I am using in my pet Azure project seem to function perfectly.</p>
+<p>1. <a href="http://ninject.org/">Ninject</a> &#8211; to use Ninject on Azure, you need to set one option when creating your container: UseReflectionBasedInjection = true. So my Initialize method looks something like this:</p>
+<div class="highlight"><pre><code class="csharp"><span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Initialize</span><span class="p">(</span><span class="k">params</span> <span class="n">StandardModule</span><span class="p">[]</span> <span class="n">modules</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">options</span> <span class="p">=</span> <span class="k">new</span> <span class="n">KernelOptions</span><span class="p">()</span> <span class="p">{</span><span class="n">UseReflectionBasedInjection</span> <span class="p">=</span> <span class="k">true</span><span class="p">};</span>
+    <span class="n">kernal</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StandardKernel</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">modules</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div><p>Note: For Ninject I am using the latest bits from the trunk, but <a href="http://kohari.org/">Nate</a> let me that the 1.0 release should work just fine as well.</p>
+<p>2. <a href="http://structuremap.sourceforge.net/Default.htm">StructureMap</a> &#8211; through a bit of trial and error, I was able to get StructureMap to work on Azure with no configuration changes after I <a href="http://groups.google.com/group/structuremap-users/browse_thread/thread/96688545ea0e9e04/1ef8de40360f3720?hl=en">removed a couple attributes</a> which appeared to no longer be in use. I sent email to the <a href="http://groups.google.com/group/structuremap-users?hl=en">StructureMap Google Group</a> with the changes I made and a couple days ago <a href="http://codebetter.com/blogs/jeremy.miller/">Jeremy Miller</a> released <a href="http://sourceforge.net/project/showfiles.php?group_id=104740">version 2.5.3</a> which contains the changes.</p>
+<p>If you have managed to get any other containers to work on Azure, please leave a comment below and I will update this post.</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Feb 09, 2009 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#ninject">ninject</a>,
+  	  
+  	    <a href="/tags/#iofc">iofc</a>,
+  	  
+  	    <a href="/tags/#structuremap">structuremap</a>,
+  	  
+  	    <a href="/tags/#azure">azure</a>,
+  	  
+  	    <a href="/tags/#cloud-computing">cloud-computing</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/google-appengine-roadmap-update/" title="Google AppEngine RoadMap Update">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/watching-the-funq/" title="Watching the Funq">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:19 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

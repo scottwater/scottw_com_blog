@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : SimpleTemplate </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151855" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151855" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/velocity-setup/" title="Setting Up Velocity (Distributed Cache)" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/developer-licensing/" title="Developer Licensing" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>SimpleTemplate</h1>
+  <div class="entry">
+  	<p>By now it should be obvious that I am <a href="http://scottw.com/search/nvelocity/">big fan</a> of the open source component <a href="http://castleproject.org/others/nvelocity/index.html">NVelocity</a>. Most of the examples of its usage are UI related such as view engines for <a href="http://castleproject.org/monorail/index.html">MonoRail</a> and <a href="http://www.asp.net/mvc"><span class="caps">ASP</span>.Net <span class="caps">MVC</span></a>. We (<a href="http://telligent.com">Telligent</a>) also use it to power the theme engine for <a href="http://graffiticms.com/">Graffiti</a>. While it is great to be able to use it in this way, the are a lot more non-web UI uses for it.</p>
+<p>The other day, I received a <a href="http://scottw.com/code/nvelocity/#comment-348">comment</a> asking for an example of how to use NVelocity, so I decided to put together a quick sample component, SimpleTemplate.</p>
+<p>SimpleTemplate has one goal, take a string that represents an NVelocity template along with the data you want to insert/replace in that template and return the results. If you find yourself using constantly using string.Format or StringBuilder.AppendFormat to build complicated strings, SimpleTemplate should be able to make things much easier for you.</p>
+<p>Here are a couple of quick examples of what you can expect it to do:</p>
+<div class="highlight"><pre><code class="csharp"><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SingleItemTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="kt">string</span> <span class="n">result</span> <span class="p">=</span> <span class="s">&quot;Hello World&quot;</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">string</span> <span class="n">template</span> <span class="p">=</span> <span class="s">&quot;Hello $test&quot;</span><span class="p">;</span>
+    <span class="n">var</span> <span class="n">iContext</span> <span class="p">=</span> <span class="n">TemplateEngine</span><span class="p">.</span><span class="n">CreateContext</span><span class="p">();</span>
+    <span class="n">iContext</span><span class="p">.</span><span class="n">Put</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">,</span> <span class="s">&quot;World&quot;</span><span class="p">);</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">result</span> <span class="p">==</span> <span class="n">TemplateEngine</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">template</span><span class="p">,</span><span class="n">iContext</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre>
+</div><p>With a custom object:</p>
+<div class="highlight"><pre><code class="csharp"><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">ObjectWithPropertyTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="kt">string</span> <span class="n">result</span> <span class="p">=</span> <span class="s">&quot;Hello World&quot;</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">string</span> <span class="n">template</span> <span class="p">=</span> <span class="s">&quot;Hello $to.Test&quot;</span><span class="p">;</span>
+    <span class="n">TestObject</span> <span class="n">to</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TestObject</span><span class="p">()</span> <span class="p">{</span><span class="n">Test</span> <span class="p">=</span> <span class="s">&quot;World&quot;</span><span class="p">};</span>
+    <span class="n">var</span> <span class="n">iContext</span> <span class="p">=</span> <span class="n">TemplateEngine</span><span class="p">.</span><span class="n">CreateContext</span><span class="p">();</span>
+    <span class="n">iContext</span><span class="p">.</span><span class="n">Put</span><span class="p">(</span><span class="s">&quot;to&quot;</span><span class="p">,</span> <span class="n">to</span><span class="p">);</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">result</span> <span class="p">==</span> <span class="n">TemplateEngine</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="n">iContext</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre>
+</div><p>Finally, just to show off, anonymous types:</p>
+<div class="highlight"><pre><code class="csharp"><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">TestAnonymousTypes</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">anonymousType</span> <span class="p">=</span> <span class="k">new</span> <span class="p">{</span><span class="n">Test</span> <span class="p">=</span> <span class="s">&quot;Hello&quot;</span><span class="p">,</span> <span class="n">Child</span> <span class="p">=</span> <span class="k">new</span> <span class="p">{</span><span class="n">ChildTest</span> <span class="p">=</span> <span class="s">&quot;World&quot;</span><span class="p">}};</span>
+    <span class="k">const</span> <span class="kt">string</span> <span class="n">result</span> <span class="p">=</span> <span class="s">&quot;Hello World&quot;</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">string</span> <span class="n">template</span> <span class="p">=</span> <span class="s">&quot;$at.Test $at.Child.ChildTest&quot;</span><span class="p">;</span>
+    
+    <span class="n">var</span> <span class="n">iContext</span> <span class="p">=</span> <span class="n">TemplateEngine</span><span class="p">.</span><span class="n">CreateContext</span><span class="p">();</span>
+    <span class="n">iContext</span><span class="p">.</span><span class="n">Put</span><span class="p">(</span><span class="s">&quot;at&quot;</span><span class="p">,</span> <span class="n">anonymousType</span><span class="p">);</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">result</span> <span class="p">==</span> <span class="n">TemplateEngine</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="n">iContext</span><span class="p">));</span>
+    
+<span class="p">}</span>
+</code></pre>
+</div><p>If you remove null argument handling code, the TemplateEngine class is probably about 15 lines of code. I have included the full source in the download.</p>
+<p><strong><span class="caps">NOTE</span>:</strong></p>
+<p>I was browsing my local <a href="http://castleproject.org"><em>CastleProject</em></a> source folder to see if there was a license I should be including with the NVelocity assembly when I noticed a project called <em><a href="http://castleproject.org/components/templateengine/index.html">TemplateEngine</a></em> There is not much information on the site about it and I only briefly browsed the included test suite, but it does look very nice. SimpleTemplate will certainly get you started, but I would recommend checking out TemplateEngine as well. I will do a follow later after I have had some time to play with it.</p>
+<p><a href="http://www.box.net/shared/ojpvxe52cw">Download SimpleTemplate</a>.</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Jun 05, 2008 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#nvelocity">nvelocity</a>,
+  	  
+  	    <a href="/tags/#open-source">open-source</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/velocity-setup/" title="Setting Up Velocity (Distributed Cache)">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/developer-licensing/" title="Developer Licensing">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:18 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

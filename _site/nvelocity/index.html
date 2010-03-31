@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : Simplifying ASP.Net - NVelocity </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151851" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151851" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/hat-ii/" title="Telligent Hack-A-Thon II" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/mvccontrib-nvelocity/" title="MvcContrib NVelocity Extension" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>Simplifying ASP.Net - NVelocity</h1>
+  <div class="entry">
+  	<p><a href="http://www.castleproject.org/others/nvelocity/index.html[1">NVelocity</a>] is a .<span class="caps">NET</span> port of the <a href="http://velocity.apache.org/engine/releases/velocity-1.5/index.html">Velocity</a> open source template engine. I have used NVelocity quite a few times over the last couple of years.</p>
+<ul>
+	<li><a href="http://scottw.com/blog/pages/csbtl/"><span class="caps">CSBTL</span></a> &#8211; this project never went public, but basically it removed the need to understand web forums and complicated server controls for building Community Server blog themes.</li>
+	<li><a href="http://graffiticms.com/">Graffiti</a> &#8211; Graffiti supports a very simple theming model which enables building new themes with no knowledge of web forms and/or <span class="caps">ASP</span>.Net</li>
+</ul>
+<p>While you have more options using aspx pages, I generally prefer the simplicity of doing web pages via NVelocity. There are no complicated server controls, complete control over the markup, simple extensibility, and no need to jump between contexts when iterating over a list.</p>
+<p>With this in mind, I was very happy to find the NVelocityViewFactory as part of the <a href="http://www.codeplex.com/MVCContrib">MvcContrib project</a>. With just a couple configuration steps, I was able to use NVelocity views for my <span class="caps">ASP</span>.Net <span class="caps">MVC</span> projects. Sweetness!</p>
+<p>For example, <a href="http://haacked.com/">Phil Haack</a>, has a post which discusses options to doing a <a href="http://haacked.com/archive/2008/05/03/code-based-repeater-for-asp.net-mvc.aspx">simple repeater</a>. This could be greatly simplified with NVelocity (see below). No code needs to be written, no context switching for properties, etc.</p>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;table&gt;</span>
+#foreach($hobby in $hobbies)
+  <span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">&quot;#if($velocityCount % 2 == 0)row #else alt-row #end&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;td&gt;</span>$hobby.Title<span class="nt">&lt;/td&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+#end
+<span class="nt">&lt;/table&gt;</span>
+</code></pre>
+</div><p>In addition, using <em><a href="http://www.castleproject.org/others/nvelocity/improvements.html#fancyloops">fancy loops</a></em> we could easily add content to be shown if it is empty and better structure our markup.</p>
+<div class="highlight"><pre><code class="html">#foreach($hobby in $hobbies)
+#beforeall
+    <span class="nt">&lt;table&gt;</span>
+#before
+    <span class="nt">&lt;tr</span> <span class="na">class=</span>
+#even
+    &quot;row&quot;&gt;
+#odd 
+    &quot;alt-row&quot;&gt;
+#each  
+  <span class="nt">&lt;td&gt;</span>$hobby.Title<span class="nt">&lt;/td&gt;</span>
+ 
+#after
+    <span class="nt">&lt;/tr&gt;</span>
+#afterall
+    <span class="nt">&lt;/table&gt;</span>
+#nodata
+    <span class="nt">&lt;h3&gt;</span>Sorry, no hobbies<span class="nt">&lt;/h3&gt;</span>
+#end
+</code></pre>
+</div><p>The above example takes it to the extreme (all parts are optional), but should give you an indication of power available to you, again, all without requiring you to write a single line of code.</p>
+<p class="footnote" id="fn1"><a href="#fnr1"><sup>1</sup></a> <em>As mentioned on the Castle site, the original NVelocity project seems to be dead. I have been using the updated version of Castle and recommend you use this version as well.</em></p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on May 12, 2008 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#nvelocity">nvelocity</a>,
+  	  
+  	    <a href="/tags/#open-source">open-source</a>,
+  	  
+  	    <a href="/tags/#mvc">mvc</a>,
+  	  
+  	    <a href="/tags/#castle">castle</a>,
+  	  
+  	    <a href="/tags/#graffiti">graffiti</a>,
+  	  
+  	    <a href="/tags/#cs">cs</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/hat-ii/" title="Telligent Hack-A-Thon II">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/mvccontrib-nvelocity/" title="MvcContrib NVelocity Extension">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:18 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

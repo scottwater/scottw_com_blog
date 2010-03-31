@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : MongoDB and C# Dynamics </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151908" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151908" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/passionate-programmer/" title="Passionate Programmer - Review" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/a-tough-interview/" title="A Tough Interview" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>MongoDB and C# Dynamics</h1>
+  <div class="entry">
+  	<p>I am a big fan of <a href="http://www.mongodb.org">MongoDB</a>.</p>
+<p>There is a good C# driver called, <a href="http://github.com/samus/mongodb-csharp">MongoDB-CSharp</a>. Unfortunately, because of the strongly typed nature of C#, the default implementation requires you to work with your data as a dictionary. This has an unfortunate side effect of some ugly code and a quite a bit of casting.</p>
+<p>Given a choice of working with a dictionary vs <span class="caps">SQL</span> I would choice a dictionary everyday. However, with C# 4.0&#8217;s dynamics, we can make this much easier to work with.</p>
+<p>The change in usage is minor, but I find it to be much more readable and productive.</p>
+<p>Before:</p>
+<div class="highlight"><pre><code class="csharp"><span class="n">Mongo</span> <span class="n">mongo</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Mongo</span><span class="p">();</span>
+<span class="n">mongo</span><span class="p">.</span><span class="n">Connect</span><span class="p">();</span> 
+
+<span class="n">var</span> <span class="n">db</span> <span class="p">=</span> <span class="n">mongo</span><span class="p">[</span><span class="s">&quot;blog&quot;</span><span class="p">];</span>
+
+<span class="n">var</span> <span class="n">posts</span> <span class="p">=</span> <span class="n">db</span><span class="p">[</span><span class="s">&quot;posts&quot;</span><span class="p">];</span>
+
+<span class="n">Document</span> <span class="n">post</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Document</span><span class="p">();</span>
+<span class="n">post</span><span class="p">[</span><span class="s">&quot;Title&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;Hello Mongo World&quot;</span><span class="p">;</span>
+<span class="n">post</span><span class="p">[</span><span class="s">&quot;Body&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;This is my first MongoDB post!&quot;</span><span class="p">;</span>
+<span class="n">post</span><span class="p">[</span><span class="s">&quot;Published&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">UtcNow</span><span class="p">;</span>
+<span class="n">post</span><span class="p">[</span><span class="s">&quot;Tags&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">&quot;NoSQL&quot;</span><span class="p">,</span> <span class="s">&quot;MongoDB&quot;</span><span class="p">,</span> <span class="s">&quot;greatness&quot;</span> <span class="p">};</span>
+<span class="n">post</span><span class="p">[</span><span class="s">&quot;Slug&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;mongo-post&quot;</span><span class="p">;</span>
+
+<span class="n">posts</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="n">post</span><span class="p">);</span>
+
+<span class="n">Document</span> <span class="n">query</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Document</span><span class="p">();</span>
+<span class="n">query</span><span class="p">[</span><span class="s">&quot;Slug&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;mongo-post&quot;</span><span class="p">;</span>
+
+
+<span class="n">Document</span> <span class="n">mongo_post</span> <span class="p">=</span> <span class="n">posts</span><span class="p">.</span><span class="n">FindOne</span><span class="p">(</span><span class="n">query</span><span class="p">);</span>
+
+<span class="kt">string</span> <span class="n">title</span> <span class="p">=</span> <span class="n">mongo_post</span><span class="p">[</span><span class="s">&quot;Title&quot;</span><span class="p">]</span> <span class="k">as</span> <span class="kt">string</span><span class="p">;</span>
+<span class="n">DateTime</span> <span class="n">published</span> <span class="p">=</span> <span class="p">((</span><span class="n">DateTime</span><span class="p">)</span><span class="n">mongo_post</span><span class="p">[</span><span class="s">&quot;Published&quot;</span><span class="p">]).</span><span class="n">ToLocalTime</span><span class="p">();</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Title: {0} local published time {1} &quot;</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">published</span><span class="p">);</span>
+</code></pre>
+</div><p>After:</p>
+<div class="highlight"><pre><code class="csharp"><span class="n">Mongo</span> <span class="n">mongo</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Mongo</span><span class="p">();</span>
+<span class="n">mongo</span><span class="p">.</span><span class="n">Connect</span><span class="p">();</span> 
+
+<span class="n">var</span> <span class="n">db</span> <span class="p">=</span> <span class="n">mongo</span><span class="p">[</span><span class="s">&quot;blog&quot;</span><span class="p">];</span>
+
+<span class="n">var</span> <span class="n">posts</span> <span class="p">=</span> <span class="n">db</span><span class="p">[</span><span class="s">&quot;posts&quot;</span><span class="p">];</span>
+
+<span class="n">dynamic</span> <span class="n">post</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Document</span><span class="p">();</span>
+<span class="n">post</span><span class="p">.</span><span class="n">Title</span> <span class="p">=</span> <span class="s">&quot;Hello Mongo World&quot;</span><span class="p">;</span>
+<span class="n">post</span><span class="p">.</span><span class="n">Body</span> <span class="p">=</span> <span class="s">&quot;This is my first MongoDB post!&quot;</span><span class="p">;</span>
+<span class="n">post</span><span class="p">.</span><span class="n">Published</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">UtcNow</span><span class="p">;</span>
+<span class="n">post</span><span class="p">.</span><span class="n">Tags</span> <span class="p">=</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">&quot;NoSQL&quot;</span><span class="p">,</span> <span class="s">&quot;MongoDB&quot;</span><span class="p">,</span> <span class="s">&quot;greatness&quot;</span> <span class="p">};</span>
+<span class="n">post</span><span class="p">.</span><span class="n">Slug</span> <span class="p">=</span> <span class="s">&quot;mongo-post&quot;</span><span class="p">;</span>
+
+<span class="n">posts</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="n">post</span><span class="p">);</span>
+
+<span class="n">dynamic</span> <span class="n">query</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Document</span><span class="p">();</span>
+<span class="n">query</span><span class="p">.</span><span class="n">Slug</span> <span class="p">=</span> <span class="s">&quot;mongo-post&quot;</span><span class="p">;</span>
+
+
+<span class="n">var</span> <span class="n">mongo_post</span> <span class="p">=</span> <span class="n">posts</span><span class="p">.</span><span class="n">FindOne</span><span class="p">(</span><span class="n">query</span><span class="p">);</span>
+
+<span class="kt">string</span> <span class="n">title</span> <span class="p">=</span> <span class="n">mongo_post</span><span class="p">.</span><span class="n">Title</span><span class="p">;</span>
+<span class="n">DateTime</span> <span class="n">published</span> <span class="p">=</span> <span class="n">mongo_post</span><span class="p">.</span><span class="n">Published</span><span class="p">.</span><span class="n">ToLocalTime</span><span class="p">();</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Title: {0} local published time {1} &quot;</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">published</span><span class="p">);</span>
+</code></pre>
+</div><p>While the example is trivial, I think it is a good step forward.</p>
+<p>I want to play around with a bit more before I try to figure out how to submit a patch or fork it.</p>
+<p>In the mean time, if you want play with the code, download the source from <a href="http://github.com">github</a>, and then swap out the <a href="http://www.box.net/shared/knqqd9jn9k">Document.cs class with this file</a>.</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Feb 01, 2010 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#mongodb">mongodb</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/passionate-programmer/" title="Passionate Programmer - Review">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/a-tough-interview/" title="A Tough Interview">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:19 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

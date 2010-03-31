@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : Disqus and Graffiti </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151857" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151857" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/mbp-luster/" title="My MBP &ndash; Bye Bye Luster" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/hugs/" title="Hugs" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>Disqus and Graffiti</h1>
+  <div class="entry">
+  	<p>I set up <a href="http://disqus.com">Disqus</a> on my blog about two weeks ago. So far I have been very happy with the service and pleasantly surprised with some features I did not know exists.</p>
+<blockquote>
+<p>Disqus, pronounced &#8220;discuss&#8221;, is a service and tool for web comments and discussions. The Disqus comment system can be plugged into any website, blog, or application. Disqus makes commenting easier and more interactive, while connecting websites and commenters across a thriving discussion community.</p>
+</blockquote>
+<p>Disqus is a free service to the general public with absolutely no inline advertisements.</p>
+<p>There are some nice features like threading, bi-directional email, and spam blocking. These are great, but the real clincher is an effortless instant community. For the average blogger, getting users to sign up for comments and create profiles is not an option. Users simply do not have the time to register on every blog. This is where Disqus really shines. Users can create their own accounts on Diqus and use that account on the 30,000 or so (and growing) blogs using the service. (note: Users can still make anonymous comments as well.)</p>
+<p>I have had a couple people ask me how to do this in Graffiti, so I figured I would do a quick write up.</p>
+<p>There are just a couple steps:</p>
+<ol>
+	<li>Sign up for a new account on Disqus and create a new website. Click the link for &#8220;generic code&#8221;.</li>
+	<li>In your Graffiti control panel, navigate to your &#8220;Personalize&#8221; page (Graffiti-Admin &gt; Presentation &gt; Themes &gt; YOUR_THEME).</li>
+	<li>In your post.view file, remove the existing comment rendering code and replace it with the JavaScript from step one from the generic code page above.</li>
+	<li>In your index.view file, find the $macros function for building a comment link and change the fragment from &#8220;#comment&#8221; to &#8220;#disqus_thread&#8221;.</li>
+	<li>In your layout.view file add the JavaScript from step three in the generic code page.</li>
+</ol>
+<p>That should be it assuming you are using one of the standard Graffiti themes.</p>
+<p>If you are like me and have been happily using Graffiti for while now, you will already have comments that you don&#8217;t want to hide. To get around this, I went to the posts page in my graffiti admin and looked up the PosId ofmy most recently written post (in my case it was 143).</p>
+<p>With this information, in step three from above instead of removing the comment list and form from my post.view, I wrapped it in an if statement like this:</p>
+<div class="highlight"><pre><code class="csharp"><span class="cp">#if($post.Id &gt; 143) </span>
+
+<span class="na">[Your Existing Comment Code]</span> 
+
+<span class="cp">#else </span>
+
+<span class="na">[Your Diqus Code]</span> 
+
+<span class="err">#</span><span class="n">end</span>
+</code></pre>
+</div><p>That should be it. As part of Graffiti 2.0 I am hoping we can make this kind of update more easy to package up (it could be done today, but it would be theme specific which isn&#8217;t quite generic enough).</p>
+<p><strong>Update</strong>: I have removed disqus from my site. It is still a good service, but for now I have decided to run this blog without comments.</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Aug 28, 2008 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#disqus">disqus</a>,
+  	  
+  	    <a href="/tags/#graffiti">graffiti</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/mbp-luster/" title="My MBP &ndash; Bye Bye Luster">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/hugs/" title="Hugs">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:18 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : X-Copy Database Options </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151850" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151850" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/trust/" title="Am I a Thief? " /> 
+      
+      
+      <link rel="next" href="http://scottw.com/greener-grass/" title="Life on a Mac - the Grass is Greener" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>X-Copy Database Options</h1>
+  <div class="entry">
+  	<p><a href="http://weblogs.asp.net/rhoward/archive/2007/12/07/microsoft-access-or-sql-server-express.aspx">Rob covered the reasons</a> we chose Microsoft Access as one of our two supported databases for the first beta release of <a href="http://graffiticms.com/">Graffiti</a>.</p>
+<p>So far, despite a little bit of query quirkiness (top, lack of sub-queries, and no support for named parameters) Access has been working really well. I have used Access on this site since the beginning and I have yet to see anything that would concern me. I think many people remember back to the <span class="caps">ASP</span>.Old days where Access to could really slow down under heavy usage. However, with <span class="caps">ASP</span>.Net caching, you really do not have to hit the database nearly as often.</p>
+<p>Before choosing Access, we looked at <a href="http://sqlite.org/">Sqlite</a> which probably would have worked, but I do not think we would have been any better off than using Access. The other obvious choice would be <span class="caps">SQL</span> Express, but do to security reasons, it is still <span class="caps">DOA</span> when it comes to shared hosting; which is really pathetic. And then there is also <span class="caps">SQL</span> Compact edition, which throws a NotSupportedException if you try to use it under <span class="caps">IIS</span> (again, Nice!). Even as I type this, I cannot fathom why <span class="caps">SQL</span> Express did not have shared hosting as it&#8217;s number feature requirement. What a huge missed opportunity to make the power of <span class="caps">SQL</span> Server accessible to the masses.</p>
+<p>There are many other database platforms out there, but the key factor we are looking for is <strong>100% x-copy deployment</strong>. Database configuration and setup is really hard for non-geeks to grasp and can easily get in the way of a great user experience. We are still exploring some other options and I am trying to find some time to play with <a href="http://www.vistadb.net/">VistaDB</a> which could be a viable alternative as well. <strong>Does anyone else have any other suggestions?</strong></p>
+<p>We are also going to document our database provider <span class="caps">API</span>. It is very simple, relies on code generation, and has no clue what is going on in the layer above. Hopefully with a little help from the community we can have providers for databases like MySQL and Sqlite. Speaking of Sqlite, if you are familiar with it and want to help flush out a provider for it, please contact me (scottw@telligent.com). I did start a provider for it, but never got around to finishing it.</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Dec 10, 2007 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#database">database</a>,
+  	  
+  	    <a href="/tags/#sql-server">sql-server</a>,
+  	  
+  	    <a href="/tags/#access">access</a>,
+  	  
+  	    <a href="/tags/#graffiti">graffiti</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/trust/" title="Am I a Thief? ">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/greener-grass/" title="Life on a Mac - the Grass is Greener">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:18 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

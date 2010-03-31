@@ -5,6 +5,8 @@ permalink: /archive/
 robots: "noindex,follow"
 ---
 
+<h2 class="archivetitle">Posts by Year and Month</h2>
+
 <div id="archive">
   {% for post in site.posts %}
       {% if year != post.date|date:'%Y' %}
@@ -13,7 +15,7 @@ robots: "noindex,follow"
       {% endif %}
       {% if month != post.date|date:'%B' %}
         {% assign month = post.date|date:'%B' %}
-        <h3 class="month">{{ month }}</h3>
+        <h3 class="month archiveset">{{ month }}</h3>
       {% endif %}
       <div class="archive-link">
         <span class="archive-date">{{ post.date|date:'%d' }}</span>

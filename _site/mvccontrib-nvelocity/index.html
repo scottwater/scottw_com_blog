@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : MvcContrib NVelocity Extension </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151852" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151852" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/nvelocity/" title="Simplifying ASP.Net - NVelocity" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/developer-choice/" title="Developer Choice" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>MvcContrib NVelocity Extension</h1>
+  <div class="entry">
+  	<p>One of the major selling points of <a href="http://www.asp.net/mvc"><span class="caps">ASP</span>.Net <span class="caps">MVC</span></a> is its extensibility options. Almost every piece of it can updated or swapped out. I have been hacking on the bits quite a bit over the last couple of weeks and have been using the <a href="http://codeplex.com/MVCContrib">MvcContrib</a> to augment some of the built in <span class="caps">ASP</span>.Net functionality.</p>
+<p>The main piece of MvcContrib I have been using is it&#8217;s NVelocity view engine. As I previously mentioned, I personally find <a href="http://scottw.com/code/nvelocity/">NVelocity much easier to work with</a> than standard aspx pages.</p>
+<p>One of the features I had previously leveraged in NVelocity was the concept of a Toolbox. A toolbox, as the name implies is a collection of objects you can build to make building views easier and a little more <a href="http://en.wikipedia.org/wiki/Don&#39;t_repeat_yourself"><span class="caps">DRY</span></a>. Previously I have done this via a configuration file, attributes (<a href="http://graffiticms.com/">Graffiti</a> <a href="http://dev.graffiticms.com/developer/chalk-extensions/writing-your-own-chalk-extension/">Chalk Extensions</a>), or by simply adding items to the NVelocity context.</p>
+<p>Adding support to access the NVelocity context would have been pretty easy, but it would have worked against one of the tenants of <span class="caps">MVC</span>, separation of concerns. I could have also just sub-classed the base controller and added my tools to ViewData dictionary, but again I would abusing the separation of concerns by introducing a dependency between my views and controllers.</p>
+<p>So now I needed to find a (simple) way to add my toolbox items without building a dependency between my controllers and views. I had already been using <a href="http://www.castleproject.org/container/index.html">Castle Windsor</a> to manage other dependencies in my project, so with a little trial and error (and some documentation reading) I was able to add optional support for injecting one or more IToolbox instances directly into my view factory which in turn, exposes them to my views.</p>
+<p>Unfortunately, I could not figure out a clean was to extend the NVelocityViewFactory, so I took the easy way out and just copied and pasted the code into my own project. [Note: If others find this helpful, I will see if I can get it committed to the main project].</p>
+<p>Once I copied NVelocityViewFactory.cs, the changes I needed to make were very trivial.</p>
+<p>First, I created an interface called IToolbox with a single property to implement, Key. Key is used to expose the IToolbox object to the NVelocity view (ie, $key.ToolboxPropertyOrMethod).</p>
+<div class="highlight"><pre><code class="csharp"><span class="k">public</span> <span class="k">interface</span> <span class="n">IToolbox</span>
+<span class="p">{</span>
+    <span class="kt">string</span> <span class="n">Key</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div><p>Example:</p>
+<div class="highlight"><pre><code class="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">MathTool</span> <span class="p">:</span> <span class="n">IToolbox</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Key</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;math&quot;</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+ 
+    <span class="k">public</span> <span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="p">+</span> <span class="n">y</span><span class="p">;</span>
+    <span class="p">}</span>
+ 
+    <span class="k">public</span> <span class="kt">int</span> <span class="nf">Subtract</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="p">-</span> <span class="n">y</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div><p>Next, I added a new constructor to the NVelocityViewFactory class which accepted an array of IToolbox as well as one which accepted an array of IToolbox and the standard IDictionary which was already in place.</p>
+<p>Finally, I updated a copy of the NVelocityView class to work with and properly pass along the array of IToolbox.</p>
+<p>You can <a href="http://scottw.com/files/downloads/nvelocity_mvc.rar">download the code</a> and add it to your project. To use it, simply wire up the NVelocityViewFactory via Windsor and then configure it to pass along your own IToolbox items as an array.</p>
+<div class="highlight"><pre><code class="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;components&gt;</span>
+ 
+        <span class="nt">&lt;component</span> <span class="na">id=</span><span class="s">&quot;ViewFactory&quot;</span>
+            <span class="na">service=</span><span class="s">&quot;System.Web.Mvc.IViewEngine, System.Web.MVC&quot;</span>
+            <span class="na">type=</span><span class="s">&quot;WaterCooler.Web.MVC.NVelocityViewFactory, WaterCooler.Web&quot;</span><span class="nt">&gt;</span>
+ 
+            <span class="nt">&lt;parameters&gt;</span>
+                <span class="nt">&lt;tools&gt;</span>
+                    <span class="nt">&lt;array&gt;</span>
+                        <span class="nt">&lt;item&gt;</span>${ToolBox.DateTool}<span class="nt">&lt;/item&gt;</span>
+                        <span class="nt">&lt;item&gt;</span>${ToolBox.MathTool}<span class="nt">&lt;/item&gt;</span>
+                    <span class="nt">&lt;/array&gt;</span>
+                <span class="nt">&lt;/tools&gt;</span>
+            <span class="nt">&lt;/parameters&gt;</span>
+ 
+        <span class="nt">&lt;/component&gt;</span>
+ 
+        <span class="nt">&lt;component</span> <span class="na">id=</span><span class="s">&quot;ToolBox.DateTool&quot;</span>
+            <span class="na">service =</span><span class="s">&quot;WaterCooler.Web.MVC.IToolbox, WaterCooler.Web&quot;</span>
+            <span class="na">type=</span><span class="s">&quot;WaterCooler.Web.MVC.DateTool, WaterCooler.Web&quot;</span>
+        <span class="nt">/&gt;</span>
+ 
+        <span class="nt">&lt;component</span> <span class="na">id=</span><span class="s">&quot;ToolBox.MathTool&quot;</span>
+            <span class="na">service =</span><span class="s">&quot;WaterCooler.Web.MVC.IToolbox, WaterCooler.Web&quot;</span>
+            <span class="na">type=</span><span class="s">&quot;WaterCooler.Web.MVC.MathTool, WaterCooler.Web&quot;</span>
+        <span class="nt">/&gt;</span>
+        
+    <span class="nt">&lt;/components&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</code></pre>
+</div><p>And that should be it. Now as you create a new IToolbox, you can quickly and easily inject them to your views.</p>
+<p><a href="http://scottw.com/files/downloads/nvelocity_mvc.rar">Download</a>.</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on May 13, 2008 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#mvc">mvc</a>,
+  	  
+  	    <a href="/tags/#nvelocity">nvelocity</a>,
+  	  
+  	    <a href="/tags/#open-source">open-source</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/nvelocity/" title="Simplifying ASP.Net - NVelocity">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/developer-choice/" title="Developer Choice">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:18 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

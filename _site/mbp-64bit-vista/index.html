@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : Installing Vista 64bit on a MacBook Pro </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151857" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151857" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/netnewswire/" title="NetNewsWire" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/free-graffiti-themes/" title="Free Graffiti Themes" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>Installing Vista 64bit on a MacBook Pro</h1>
+  <div class="entry">
+  	<p>This week, I found myself needing a Windows computer with an x64 OS. The only hardware I have at home which is x64 (64bit) capable is my MacBook Pro, so I decided to rebuild my <a href="http://www.apple.com/macosx/features/bootcamp.html">Boot Camp</a> partition with Vista x64 w/SP1.</p>
+<p>While MacBook Pro&#8217;s are x64 capable, the process for setting it up is not as simple as running an installer. I had to do quite a bit of Googling and forum/blog reading to get it working.</p>
+<p>Hopefully the notes below will make it much easier for others to setup and install.</p>
+<h3>1. Create big(ger) your Boot Camp partition.</h3>
+<p>This sounds like a no brainer, but I know quite a few people who opted for 30 GB partitions only to find themselves almost out of disk space very quickly. I am not sure why, but Vista is a huge install.</p>
+<p>I have a 200 GB drive and wanted to dedicate 60 to 70 GB&#8217;s to my Vista partition. The Boot Camp utility kept failing to create the partition because it said it could not move enough file even with nearly 130 GB&#8217;s of free space (I moved things like iTunes to a <span class="caps">USB</span> drive). In a bit of desperation, I gave the machine a quick reboot and ran the utility one last time and it worked. I am not sure if/what the reboot did or if it will work on your computer, but it seemed to help me.</p>
+<h3>2. Make a usable install disk.</h3>
+<p>I will spare you most of the tech details, but in a nutshell if you are using a <span class="caps">DVD</span>/<span class="caps">ISO</span> you downloaded from <span class="caps">MSDN</span> with Vista x64 you will likely need to follow the <a href="http://jowie.com/post/2008/02/24/Select-CD-ROM-Boot-Type-prompt-while-trying-to-boot-from-Vista-x64-DVD-burnt-from-iso-file.aspx">steps outlined here</a> otherwise you will not be able to choose the version of Vista to install.</p>
+<h3>3. BootCamp Drivers.</h3>
+<p>This was by far the most frustrating part. While x64 Vista will install on MBP&#8217;s, Apple has only officially released drivers for Mac Pro&#8217;s. As you will see in the next step, there seems to be a validity to this, but they could make life easier for a lot of folks if they just posted them.</p>
+<p>To make things worse, <a href="http://www.apple.com/support/downloads/bootcampupdate21forwindowsvista64.html">Apple did recently (April) release</a> a set of drivers to the public which specifically work with x64 Vista. However, they were only released as an update to the Mac Pro drivers.</p>
+<p>Thankfully (although I doubt legally) the Boot Camp drivers were posted to <a href="http://rapidshare.com">RapidShare</a> as a four part download (<a href="http://rapidshare.com/files/85542703/Drivers.part1.rar">1</a>, <a href="http://rapidshare.com/files/85544166/Drivers.part2.rar">2</a>, <a href="http://rapidshare.com/files/85544787/Drivers.part3.rar">3</a>, <a href="http://rapidshare.com/files/85545293/Drivers.part4.rar">4</a>). RapidShare is insanely slow (on purpose) and annoying as hell to use, but it works. It will take about an hour to download the drivers, but unfortunately without them you cannot proceed.</p>
+<p>After you download the drivers put them on a <span class="caps">USB</span> drive or burn them to a CD and install them on your <span class="caps">MBP</span>. Once you have them installed, you can download the updated set from Apple and install them as well.</p>
+<p>You should now see Vista recognizes things like iSight.</p>
+<h3>4. Wifi Drivers.</h3>
+<p>I did not find others online with this issue, but for me, even with the updated Boot Camp drivers, my wifi card was not working. After not having much success finding a fix I decided to plug the <span class="caps">MBP</span> directly into my router and let Vista attempt to fix the driver which it somehow did (seriously, I was shocked, but it worked!).</p>
+<h3>5. Video Drivers.</h3>
+<p>My <span class="caps">MBP</span> has an <span class="caps">NVIDIA</span> 256 MB video card. Vista was able to supply its own video driver which seemed to work OK, but did not support Areo. I could live without Areo, but the exerpiece just did not feel right; besides I was now getting a crappy <a href="http://scottw.com/software/mac-vista/">Windows Experience Index</a> score.</p>
+<p>I tried to download official x64 drivers from <span class="caps">NVIDIA</span>, but for whatever reason they would not install. So a bit more Googling around led me to <a href="http://www.laptopvideo2go.com/about">LaptopVideo2Go</a>.</p>
+<p><strong><span class="caps">WARNING</span></strong>: I hate installing/modifying things where I do not know why. It is dangerous and something you should avoid. For me, my BootCamp partition is a throw away, so it OK if it goes poof.</p>
+<p>I downloaded the latest <a href="http://www.laptopvideo2go.com/forum/index.php?showtopic=16311">x64 <span class="caps">NVIDIA</span> drivers</a>, installed them, and again got an error message. It turns out, I was not following the full instructions. Also listed on the download page is an updated ini file which convinces the drivers to install. A quick reboot later and everything was great.</p>
+<p>So far things have been going really well. Using x64 I have full access to all 4 GB&#8217;s of memory and the machine/Vista seem really fast.</p>
+<h3>Other notes:</h3>
+<ul>
+	<li>While Vista was installing it found and let me use my Apple Bluetooth keyboard. This was not expect and very cool. Unfortunately, once I installed the actual Bluetooth drivers the keyboard stopped working until I did a discovery. I wonder if this is a security issue?</li>
+	<li>I deactivated system restore and found it cleared up a ton of space.</li>
+	<li>I did use <a href="http://www.imgburn.com/">ImgBurn</a> as the article suggests and I was quite happy with it. It does a great job burning DVD&#8217;s.</li>
+</ul>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Aug 04, 2008 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#apple">apple</a>,
+  	  
+  	    <a href="/tags/#mac">mac</a>,
+  	  
+  	    <a href="/tags/#vista">vista</a>,
+  	  
+  	    <a href="/tags/#x64">x64</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/netnewswire/" title="NetNewsWire">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/free-graffiti-themes/" title="Free Graffiti Themes">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:18 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

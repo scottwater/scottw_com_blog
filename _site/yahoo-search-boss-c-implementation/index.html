@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : Yahoo! Search BOSS C# Implementation </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151859" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151859" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/seo-in-blogs-is-overrated/" title="SEO in Blogs is Overrated" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/papercut/" title="Papercut &ndash; Easy Email Testing" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>Yahoo! Search BOSS C# Implementation</h1>
+  <div class="entry">
+  	<p><a href="http://developer.yahoo.com/search/boss/"><img src="http://scottw.com/images/wlw/YahooSearchBOSSCImplementation_7620/image_3.png" alt="" /></a></p>
+<p>I saw some mentions about <a href="http://developer.yahoo.com/search/boss/">Yahoo&#8217;s Boss</a> a couple weeks ago, but I didn&#8217;t have time until recently to try it out for myself.</p>
+<blockquote>
+<p><span class="caps">BOSS</span> (Build your Own Search Service) is Yahoo!&#8216;s open search web services platform. The goal of <span class="caps">BOSS</span> is simple: to foster innovation in the search industry. Developers, start- ups, and large Internet companies can use <span class="caps">BOSS</span> to build and launch web-scale search products that utilize the entire Yahoo! Search index. <span class="caps">BOSS</span> gives you access to Yahoo!&#8217;s investments in crawling and indexing, ranking and relevancy algorithms, and powerful infrastructure. By combining your unique assets and ideas with our search technology assets, <span class="caps">BOSS</span> is a platform for the next generation of search innovation, serving hundreds of millions of users across the Web.</p>
+</blockquote>
+<p>I could not find a C# implementation, so a couple of nights ago, I decided to put one together.</p>
+<p>The Boss <span class="caps">REST</span> <span class="caps">API</span> is just a couple of <a href="http://developer.yahoo.com/search/boss/boss_guide/">Get requests</a>, so there was not a whole lot to implement, but this should make it pretty easy for anyone looking to add Boss search to their application.</p>
+<p>As far as I can tell, my implementation supports all of the Boss <span class="caps">API</span> except for spell checking. This includes Image, News, and Web searches. Search results are returned in three formats: Xml, <span class="caps">JSON</span>, and an object set.</p>
+<p>Here are a couple examples.</p>
+<p>Example 1: Search for &#8220;Telligent&#8221;:</p>
+<div class="highlight"><pre><code class="csharp"><span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="k">new</span> <span class="n">WebSearch</span><span class="p">(</span><span class="s">&quot;BOSS_ID&quot;</span><span class="p">).</span><span class="n">Query</span><span class="p">(</span><span class="s">&quot;Telligent&quot;</span><span class="p">).</span><span class="n">Get</span><span class="p">();</span>
+</code></pre>
+</div><p>Example 2: Search for &#8220;Telligent&#8221; and limit the results to 5 and get the second page of results.</p>
+<div class="highlight"><pre><code class="csharp"><span class="n">XElement</span> <span class="n">result</span> <span class="p">=</span> <span class="k">new</span> <span class="n">WebSearch</span><span class="p">(</span><span class="s">&quot;BOSS_ID&quot;</span><span class="p">).</span><span class="n">Query</span><span class="p">(</span><span class="s">&quot;Telligent&quot;</span><span class="p">).</span><span class="n">Take</span><span class="p">(</span><span class="m">5</span><span class="p">).</span><span class="n">Skip</span><span class="p">(</span><span class="m">5</span><span class="p">).</span><span class="n">GetXML</span><span class="p">();</span>
+</code></pre>
+</div><p>Example 3: Search for &#8220;Telligent&#8221; but limit it to it to a couple of sites:</p>
+<div class="highlight"><pre><code class="csharp"><span class="kt">string</span> <span class="n">json</span> <span class="p">=</span> <span class="k">new</span> <span class="n">WebSearch</span><span class="p">(</span><span class="s">&quot;Boss_ID&quot;</span><span class="p">).</span><span class="n">Query</span><span class="p">(</span><span class="s">&quot;Telligent&quot;</span><span class="p">).</span><span class="n">Site</span><span class="p">(</span><span class="s">&quot;simpable.com&quot;</span><span class="p">).</span><span class="n">Site</span><span class="p">(</span><span class="s">&quot;telligent.com&quot;</span><span class="p">).</span><span class="n">GetJSON</span><span class="p">();</span>
+</code></pre>
+</div><p>Example 4: Search for &#8220;Telligent&#8221; mentions in the news for the last week.</p>
+<div class="highlight"><pre><code class="csharp"><span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="k">new</span> <span class="n">NewsSearch</span><span class="p">(</span><span class="s">&quot;Boss_ID&quot;</span><span class="p">).</span><span class="n">Query</span><span class="p">(</span><span class="s">&quot;Telligent&quot;</span><span class="p">).</span><span class="n">Age</span><span class="p">(</span><span class="m">7</span><span class="p">).</span><span class="n">Get</span><span class="p">();</span>
+</code></pre>
+</div><p>Example 5: Search for &#8220;Telligent&#8221; images:</p>
+<div class="highlight"><pre><code class="csharp"><span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ImageSearch</span><span class="p">(</span><span class="s">&quot;Boss_ID&quot;</span><span class="p">).</span><span class="n">Query</span><span class="p">(</span><span class="s">&quot;Telligent&quot;</span><span class="p">).</span><span class="n">Filter</span><span class="p">(</span><span class="k">false</span><span class="p">).</span><span class="n">Get</span><span class="p">();</span>
+</code></pre>
+</div><p>There is built in support for language, region, content type, etc filters as well.</p>
+<p>I labeled the assembly version 0.9 since there are some <span class="caps">API</span> tweaks I still want to make. The biggest of these is the &#8220;Query&#8221; method. Having a query method makes the code a bit more readable, however, since it is required before you can execute a search, I am thinking it needs to either be in the constructor and as part of the &#8220;get&#8221;.</p>
+<p>Examples (non-working):</p>
+<div class="highlight"><pre><code class="csharp"><span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="k">new</span> <span class="n">WebSearch</span><span class="p">(</span><span class="s">&quot;Boss_ID&quot;</span><span class="p">,</span> <span class="s">&quot;My Query&quot;</span><span class="p">).</span><span class="n">Get</span><span class="p">();</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="k">new</span> <span class="n">WebSearch</span><span class="p">(</span><span class="s">&quot;Boss_ID&quot;</span><span class="p">).</span><span class="n">Get</span><span class="p">(</span><span class="s">&quot;My Query&quot;</span><span class="p">);</span>
+</code></pre>
+</div><p>Anyone have a preference?</p>
+<p><a href="http://www.box.net/shared/eihe7a2ytu">Download Assembly and Source</a>.</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Nov 06, 2008 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#yahoo">yahoo</a>,
+  	  
+  	    <a href="/tags/#boss">boss</a>,
+  	  
+  	    <a href="/tags/#rest">rest</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/seo-in-blogs-is-overrated/" title="SEO in Blogs is Overrated">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/papercut/" title="Papercut &ndash; Easy Email Testing">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:18 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

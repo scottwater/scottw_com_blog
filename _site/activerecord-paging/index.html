@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : Paging Data In ActiveRecord </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151853" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151853" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/cloudtop/" title="Enhancing Desktop Computing with the Cloud" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/friendfeed/" title="FriendFeed" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>Paging Data In ActiveRecord</h1>
+  <div class="entry">
+  	<p><a href="http://scottw.com/code/castle/">I am still digging</a> Castle&#8217;s <a href="http://castleproject.org/activerecord/index.html">ActiveRecord</a> implementation. While the code is &#8220;tight&#8221; and there is substantial documentation, there are still a couple of things that took me longer to figure out than I had hoped. This is not a knock against Castle, more a testament to the size and scope of the project. Anyway, here are a couple of notes on paging data.</p>
+<h3>Three things I learned about paging data in ActiveRecord (via NHibernate)</h3>
+<p>1. Writing a query that pages is very easy. There is a set of queries in the Castle.ActiveRecord.Queries namespace which all have an overloaded method SetQueryRange. The first overload takes a single integer which sets the max results. The second sets both the number of results you need and an offset.</p>
+<div class="highlight"><pre><code class="csharp"><span class="n">var</span> <span class="n">userQuery</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SimpleQuery</span><span class="p">&lt;</span><span class="n">User</span><span class="p">&gt;</span>
+    <span class="p">(</span><span class="s">&quot;from User where IsEnabled = :IsEnabled Order By Username&quot;</span><span class="p">);</span>
+<span class="n">userQuery</span><span class="p">.</span><span class="n">SetParameter</span><span class="p">(</span><span class="s">&quot;IsEnabled&quot;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+<span class="n">userQuery</span><span class="p">.</span><span class="n">SetQueryRange</span><span class="p">(</span><span class="n">pageIndex</span> <span class="p">*</span> <span class="n">pageSize</span><span class="p">,</span> <span class="n">pageSize</span><span class="p">);</span>
+</code></pre>
+</div><p>2. Paging can be done without the use of the Queries namespace via the SliceFindAll static method on ActiveRecordBase. In hindsight this is pretty obvious, but I completely missed this method initially and went with the queries above.</p>
+<div class="highlight"><pre><code class="csharp"><span class="k">public</span> <span class="k">static</span> <span class="n">T</span><span class="p">[]</span> <span class="nf">SlicedFindAll</span><span class="p">(</span><span class="kt">int</span> <span class="n">firstResult</span><span class="p">,</span> <span class="kt">int</span> <span class="n">maxResults</span><span class="p">,</span> 
+    <span class="k">params</span> <span class="n">ICriterion</span><span class="p">[]</span> <span class="n">criteria</span><span class="p">)</span>
+ 
+<span class="k">public</span> <span class="k">static</span> <span class="n">T</span><span class="p">[]</span> <span class="nf">SlicedFindAll</span><span class="p">(</span><span class="kt">int</span> <span class="n">firstResult</span><span class="p">,</span> <span class="kt">int</span> <span class="n">maxResults</span><span class="p">,</span> 
+    <span class="n">Order</span><span class="p">[]</span> <span class="n">orders</span><span class="p">,</span> <span class="k">params</span> <span class="n">ICriterion</span><span class="p">[]</span> <span class="n">criteria</span><span class="p">)</span>
+ 
+ 
+<span class="k">public</span> <span class="k">static</span> <span class="n">T</span><span class="p">[]</span> <span class="nf">SlicedFindAll</span><span class="p">(</span><span class="kt">int</span> <span class="n">firstResult</span><span class="p">,</span> <span class="kt">int</span> <span class="n">maxResults</span><span class="p">,</span> 
+    <span class="n">DetachedCriteria</span> <span class="n">criteria</span><span class="p">,</span> <span class="k">params</span> <span class="n">Order</span><span class="p">[]</span> <span class="n">orders</span><span class="p">)</span>
+</code></pre>
+</div><p>For example, in my project, if I wanted to get the fourth page (10 per page) of users ordered by Username and filtered by IsEnabled = true:</p>
+<div class="highlight"><pre><code class="csharp"><span class="n">var</span> <span class="n">userList</span> <span class="p">=</span> <span class="n">User</span><span class="p">.</span><span class="n">SlicedFindAll</span><span class="p">(</span><span class="m">30</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> 
+    <span class="k">new</span> <span class="n">Order</span><span class="p">[]</span> <span class="p">{</span><span class="k">new</span> <span class="n">Order</span><span class="p">(</span><span class="s">&quot;Username&quot;</span><span class="p">,</span> <span class="k">true</span><span class="p">)},</span> 
+    <span class="n">Expression</span><span class="p">.</span><span class="n">Eq</span><span class="p">(</span><span class="s">&quot;IsEnabled&quot;</span><span class="p">,</span> <span class="k">true</span><span class="p">));</span>
+</code></pre>
+</div><p>3. If you need to page large sets of data and you need to use <span class="caps">SQL</span> Server 2000, ActiveRecord (and NHibernate) are not the correct tool. The NHiberate <span class="caps">SQL</span> 2000 dialect does not (completely) filter the number of records in the database. It does attempt to limit the results, but ultimately if you request page 4 at 10 records per page, 50 records will be returned from the database. Since an entity does not have to equal a table, I kind of understand why this is the way it is, but it still sucks. Of course the good news is most people are now using <span class="caps">SQL</span> Server 2005 and although <span class="caps">SQL</span> Server 2005 does not support limit/offset like MySQL, a <span class="caps">CTE</span> is used in the 2005 dialect and a limited number of records is returned.</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on May 19, 2008 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#activerecord">activerecord</a>,
+  	  
+  	    <a href="/tags/#castle">castle</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/cloudtop/" title="Enhancing Desktop Computing with the Cloud">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/friendfeed/" title="FriendFeed">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:18 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

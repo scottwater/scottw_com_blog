@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : RSS to Evernote </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151857" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151857" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/roadmap-2008-09/" title="Telligent Roadmap Update" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/netnewswire/" title="NetNewsWire" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>RSS to Evernote</h1>
+  <div class="entry">
+  	<p>I am a <a href="http://scottw.com/search/evernote/">big fan</a> of <a href="http://evernote.com">Evernote</a> and I have been trying to use it more often for centralizing and managing content that matters to me the most. In many cases, this is content to which I receive in my aggregator.</p>
+<p>Evernote makes it really easy to take content from your browser and send it to Evernote (clipper, web toolbar, and even a FireFox extension).</p>
+<p>Aggregators have also gotten much better at allowing users to flag content which is important to them. While this is certainly helpful, as mentioned above, I am trying to centralize all the information that is important to me in one place.</p>
+<p>Both Google Reader and Newsgator allow you syndicate your flagged content. My first thought was to simply share that <span class="caps">RSS</span> feed with Evernote, but unfortunately, Evernote does not yet have an <span class="caps">RSS</span> import tool (hopefully this changes in the future).</p>
+<p>Looking through the Evernote site, I found an option to email content to my Evernote account. So my next thought was to find a simple way to email enable my <span class="caps">RSS</span> feed. I considered a variety of sites which will do this for you, but in the end they all had some minor and annoying issues:</p>
+<ul>
+	<li>The sites added their own branding and unsubscribe lingo. This is actually fair and a good idea if you are looking to email enable a blog, but I did not want this showing up in my information store.</li>
+	<li>Little or no control over how/when items are emailed. For example, Feedburner will only send emails once a day. I can handle some delay, but I wanted to minimize it and I needed it to send out the emails more often than daily.</li>
+</ul>
+<p>As a developer, my next thought was, write something simple. But before I fired up Visual Studio, I googled a bit and found this handy tool, <a href="http://rss2email.infogami.com/">Rss2Email</a>.</p>
+<blockquote>
+<p><em>rss2email is a free tool for delivering news from <span class="caps">RSS</span> feeds to your email program that works under Windows and <span class="caps">UNIX</span></em>.</p>
+</blockquote>
+<p>I followed the install steps, created my local account with my Evernote email address and now once an hour the content I find most useful from my list of blogs is pushed into Evernote.</p>
+<p>I chose to set mine up on OS X, but it will work just as easily on Windows. Here are my basic steps:</p>
+<ol>
+	<li>Follow the Unix steps mention on the <a href="http://rss2email.infogami.com/getstarted">getting started page</a>. (I used curl instead of wget)</li>
+	<li>Create your feed database</li>
+	<li>Add your &#8220;favorites&#8221; feed. (note, by default Google uses Atom, so you might need to pass your feed through FeedBurner which will create an <span class="caps">RSS</span> version of it for you).</li>
+	<li>Setup a chron job to execute the run command.</li>
+</ol>
+<p>Again, I hope this becomes a built in feature for Evernote, but in the meantime, this saves me from storing information in two places or the need to open an item in my browser to add it to Evernote.</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Jul 30, 2008 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#mac">mac</a>,
+  	  
+  	    <a href="/tags/#rss">rss</a>,
+  	  
+  	    <a href="/tags/#evernote">evernote</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/roadmap-2008-09/" title="Telligent Roadmap Update">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/netnewswire/" title="NetNewsWire">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:18 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

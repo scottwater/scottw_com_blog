@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : Sparking Azure </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151907" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151907" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/do-you-never-have-time/" title="Do You Never Have Time?" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/pandora-one-ndash-simple-done-right/" title="Pandora One &ndash; Simple Done Right" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>Sparking Azure</h1>
+  <div class="entry">
+  	<p>You know what they say, it only takes a spark. :)</p>
+<p>As I mentioned before, I have <a href="http://scottw.com/code/spark/">fallen in love</a> with the <a href="http://sparkviewengine.com/">Spark ViewEngine</a>. It is a very nice mix of power and simplicity. I also been spending a lot more time on cloud related initiatives, so I was bummed to learn Spark could not be used on <a href="http://www.microsoft.com/azure/default.mspx">Azure</a> (compute) since it requires full trust (and Azure initially had a no concept of trust levels, it only had one limited trust level).</p>
+<p>Fortunately for me (and hopefully you) one of the many Azure <a href="http://visitmix.com/">Mix</a> announcements was support for Full Trust. What this means is that you can now easily use Spark on Azure. All you need to do complete the following two steps.</p>
+<p>1. <strong>Enable Full Trust</strong>. Unlike traditional <span class="caps">ASP</span>.Net sites, full trust is not enabled in the web.config and it is not the default setting. As <a href="http://blogs.msdn.com/windowsazure/archive/2009/03/18/hosting-roles-under-net-full-trust.aspx">pointed on on the WindowsAzure blog</a>, all you have to do is set the enableNativeCodeExecution attribute to true in your service definition file (for the web role).</p>
+<p>2. <strong>Mark your view as content</strong>. This unfortunately needs to happen for every view you add to your project. I am hoping there is a way to automate this or do pre-build. However, until I figure that out, it needs to be done manually otherwise the view will never be found. (<a href="http://www.shanmcarthur.net/cloud-services/azure-tips/including-files-with-non-standard-extensions-in-azure-deployment">hat tip</a>)</p>
+<p>I have only done a minor bit of testing, but so far, it all seems to be working. If you find any issues, please drop me a comment.</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Apr 24, 2009 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#azure">azure</a>,
+  	  
+  	    <a href="/tags/#cloud-computing">cloud-computing</a>,
+  	  
+  	    <a href="/tags/#spark">spark</a>,
+  	  
+  	    <a href="/tags/#mvc">mvc</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/do-you-never-have-time/" title="Do You Never Have Time?">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/pandora-one-ndash-simple-done-right/" title="Pandora One &ndash; Simple Done Right">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:19 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

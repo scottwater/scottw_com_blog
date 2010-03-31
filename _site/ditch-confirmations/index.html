@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : Ditch Confirmations </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151849" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151849" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/uniball-207/" title="Uniball 207" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/jing/" title="Jing" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>Ditch Confirmations</h1>
+  <div class="entry">
+  	<p>James Avery wrote a post, &#8220;<a href="http://dotavery.com/blog/archive/2007/10/08/149425.aspx">Modals or No more popups</a>&#8221; inquiring about modal solutions. I really do not have an opinion on the different options :), but his post reminded me of a rule set for myself while working on <a href="http://graffiticms.com/">Graffiti</a>: <strong>Never use Popups unless they are absolutely positively needed</strong>.</p>
+<p><img src="http://scottw.com/images/wlw/DitchAnythingModal_13BEB/areyousure_6.png" title="Sucky modal with an X through it" alt="Sucky modal with an X through it" /></p>
+<p>This rule was influenced by <a href="http://www.rhjr.net/">Robert Hoekman&#8217;s</a> excellent, &quot;_&quot;designing the obvious&quot;:http://www.amazon.com/exec/obidos/redirect?path=<span class="caps">ASIN</span>/032145345X&amp;link_code=as2&amp;camp=1789&amp;tag=scottwater-20&amp;creative=9325_&quot;.</p>
+<blockquote>
+<p>This behavior is just plain rude. It&#8217;s not the user&#8217;s job to jump through every little hoop an application comes up with. It&#8217;s the job of the software to what the user wants.</p>
+</blockquote>
+<p>In the past, I have primarily used a popup to confirm the deletion of content. I started to think about how many times I accidentally clicked delete and did not actually want to delete anything. I am sure this has happened, but it is probably one in a very large number. Still, I know I would be not very happy if I accidentally deleted a post (like this one :).</p>
+<p>The solution (and one that Hoekman shows as well via <a href="http://gmail.com">GMail</a>) for Graffiti was to enable content to be undeleted. To support this, we added a simple bit field (IsDeleted) to some of our content tables (Posts and Comments). When something is deleted, instead of actually removing it from the table, we set IsDeleted to false. With this in place, we can enable users to delete without any kind of confirmation. When we query the data, we exclude the IsDeleted records (in most cases) then give users the option to undelete the record later if the need arises.</p>
+<p>Here are a quick video (if you view this via <span class="caps">RSS</span> you might need to click through):</p>
+<p><object height="268" width="708" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"><param name="_cx" value="18733"><param name="_cy" value="7091"><param name="FlashVars" value=""><param name="Movie" value="http://content.screencast.com/bootstrap.swf"><param name="Src" value="http://content.screencast.com/bootstrap.swf"><param name="WMode" value="Window"><param name="Play" value="0"><param name="Loop" value="-1"><param name="Quality" value="High"><param name="SAlign" value="LT"><param name="Menu" value="-1"><param name="Base" value=""><param name="AllowScriptAccess" value=""><param name="Scale" value="NoScale"><param name="DeviceFont" value="0"><param name="EmbedMovie" value="0"><param name="BGColor" value="FFFFFF"><param name="SWRemote" value=""><param name="MovieData" value=""><param name="SeamlessTabbing" value="1"><param name="Profile" value="0"><param name="ProfileAddress" value=""><param name="ProfilePort" value="0"><param name="AllowNetworking" value="all"><param name="AllowFullScreen" value="true">       <embed src="http://content.screencast.com/bootstrap.swf" quality="high" bgcolor="#FFFFFF" width="708" height="268" type="application/x-shockwave-flash" flashvars="content=http://content.screencast.com/media/5f2b10b8-8b95-4b15-8a02-d13c208e2163_e40ce500-e7bd-44cf-8154-6db29118d0f7_static_0_0_video.swf&amp;width=708&amp;height=268" allowfullscreen="true"> </embed> </object></p>
+<p>On a similar note, <a href="http://subsonicproject.com/">SubSonic</a> has excellent support for IsDeleted.</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Oct 08, 2007 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#design">design</a>,
+  	  
+  	    <a href="/tags/#books">books</a>,
+  	  
+  	    <a href="/tags/#graffiti">graffiti</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/uniball-207/" title="Uniball 207">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/jing/" title="Jing">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:18 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

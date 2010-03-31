@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Scott Watermasysk</title>
+ <link href="http://scottw.com/atom.xml" rel="self"/>
+ <link href="http://scottw.com/"/>
+ <updated>2010-03-31T15:19:12-04:00</updated>
+ <id>http://scottw.com/</id>
+ <author>
+   <name>Scott Watermasysk</name>
+   <email>scottwater@gmail.com</email>
+ </author>
+ 
+ 
+ <entry>
+   <title>Setting A Tab Title in Terminal</title>
+   <link href="http://scottw.com/setting-a-tab-title-in-terminal/"/>
+   <updated>2010-03-02T00:00:00-05:00</updated>
+   <id>http://scottw.com/setting-a-tab-title-in-terminal</id>
+   <content type="html">&lt;p&gt;I have been spending a lot more time in terminal recently. I routinely find myself having more tabs open than I can keep track of.&lt;/p&gt;
+&lt;p&gt;I then end up forgetting what&amp;#8217;s open and end up opening even more tabs which just make the problem worse.&lt;/p&gt;
+&lt;p&gt;I finally got tired of this and &lt;a href=&quot;http://twitter.com/scottw/status/9900627749&quot;&gt;posted a quick question on Twitter&lt;/a&gt;. While waiting for a twitter response, I figured I would finally checkout &lt;a href=&quot;http://superuser.com&quot;&gt;SuperUser&lt;/a&gt; which of course &lt;a href=&quot;http://superuser.com/questions/105499/change-terminal-title-in-osx&quot;&gt;had the answer&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You just need to execute the following command:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -n -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;\033]0;YOUR TAB TITLE HERE\007&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Since there is no way I will remember that command (and who should) I wrapped it in a function that I can put in my .bash_profile.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;title&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+	&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -n -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;\033]0;$1\007&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Now, in any tab, I just need to execute:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;title &lt;span class=&quot;s1&quot;&gt;&amp;#39;My Tab Title&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Singing With Sinatra</title>
+   <link href="http://scottw.com/sinatra/"/>
+   <updated>2010-02-17T00:00:00-05:00</updated>
+   <id>http://scottw.com/sinatra</id>
+   <content type="html">&lt;p&gt;I attended a couple Ruby sessions at &lt;a href=&quot;http://scottw.com/code/codemash-2010/&quot;&gt;CodeMash&lt;/a&gt; this year which really piqued my interest level in Ruby.&lt;/p&gt;
+&lt;p&gt;For many people (especially web developers) when you hear about Ruby they think Ruby on Rails. While Rails is an impressive framework, there are some other interesting options available. One of them that recently caught my attention (and admiration) is called &lt;a href=&quot;http://www.sinatrarb.com/&quot;&gt;Sinatra&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Sinatra is a &lt;span class=&quot;caps&quot;&gt;DSL&lt;/span&gt; for quickly creating web applications in Ruby with minimal effort.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sinatra is a drop dead simple way to create a small site, blog, service, or even a prototype. Here is all it takes to serve a web request with Sinatra:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;rubygems&amp;#39;&lt;/span&gt; 
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;sinatra&amp;#39;&lt;/span&gt; 
+&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/hi&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; 
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt; 
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;While the code above returns the UI inline, there is full support for templates, layouts, and much more.&lt;/p&gt;
+&lt;p&gt;If you are new to Ruby and want to see what you can do with the language with almost no effort, Sinatra is a great place to start.&lt;/p&gt;
+&lt;p&gt;I have been hacking around on it for a couple of days and decided to write a simple plugin. While I am sure I will cringe at this code a couple of months from now, I figured I would post it see if it is useful to others.&lt;/p&gt;
+&lt;p&gt;Goal:&lt;br /&gt;
+Ensure urls served by the application are consistent by requiring no trailing slash and requiring all urls to be lower cased. If either one of these conditions are not met, the plugin will do a 301 redirect to the proper url.&lt;/p&gt;
+&lt;p&gt;Here is the actual plugin:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;sinatra/base&amp;#39;&lt;/span&gt;
+ 
+&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Sinatra&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ConsistentUrls&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;validate_url_requests&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;before&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;downcase&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;path_to_redirect&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+ 
+        &lt;span class=&quot;c1&quot;&gt;#if the path ends in &amp;#39;/&amp;#39; remove it&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;path_to_redirect&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt; /.+\/$/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ 
+        &lt;span class=&quot;c1&quot;&gt;#if the original path was not lower case. NOTE: we lowercase this above to minimize steps&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;path_to_redirect&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path_to_redirect&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;
+ 
+        &lt;span class=&quot;c1&quot;&gt;#if we need to redirect, build a query_string&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path_to_redirect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;query_string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;hash_to_querystring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;path_to_redirect&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;?&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;query_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;query_string&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+ 
+        &lt;span class=&quot;n&quot;&gt;redirect&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path_to_redirect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;301&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path_to_redirect&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    
+    &lt;span class=&quot;c1&quot;&gt;#borrowed from http://justanothercoder.wordpress.com/2009/04/24/converting-a-hash-to-a-query-string-in-ruby/&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hash_to_querystring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;query_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;query_string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;amp;&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;query_string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+ 
+  &lt;span class=&quot;n&quot;&gt;register&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ConsistentUrls&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;A minimal application skeleton. The key line is the validate_url_requests which is what invokes the plugin.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;rubygems&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;sinatra&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;consistenturls&amp;#39;&lt;/span&gt;
+ 
+&lt;span class=&quot;c1&quot;&gt;#plugin &lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;validate_url_requests&lt;/span&gt;
+ 
+&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+   &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+ 
+&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;%r{(.+)}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;catch_all&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;I am the catch all &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;catch_all&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+ 
+&lt;span class=&quot;n&quot;&gt;not_found&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;The path &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; does not exist&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;A set of tests.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;demo_app&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;test/unit&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;rack/test&amp;#39;&lt;/span&gt;
+ 
+&lt;span class=&quot;n&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:environment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:test&lt;/span&gt;
+ 
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ConsistentUrlsTests&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Unit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;TestCase&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Rack&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Methods&lt;/span&gt;
+ 
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;app&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Sinatra&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Application&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_urls_with_trailing_slashes_will_be_redirected&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;execute_url_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/some-random-url/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/some-random-url&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;execute_url_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/some-random-url/second-path/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/some-random-url/second-path&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_urls_with_trailing_slashes_and_querystrings_will_be_redirected&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;execute_url_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/some-random-url/?abc=123&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/some-random-url?abc=123&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;execute_url_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/some-random-URL/?abc=123&amp;amp;z=abc&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/some-random-url?abc=123&amp;amp;z=abc&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_case_sensitive_url_will_be_redirected&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;execute_url_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/CAPS-LOCK-ROCKS&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/caps-lock-rocks&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt; 
+  
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_case_sensitive_url_with_trailing_slash_will_be_redirected&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;execute_url_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/CAPS-LOCK-ROCKS/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/caps-lock-rocks&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt; 
+  
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_case_sensitive_url_with_query_string_will_be_redirected&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;execute_url_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/CAPS-LOCK-ROCKS?abc=123&amp;amp;def=HIJ&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/caps-lock-rocks?abc=123&amp;amp;def=HIJ&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;execute_url_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/CAPS-LOCK-ROCKS/ROCKS/It/ROCKs/?abc=123&amp;amp;def=HIJ&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/caps-lock-rocks/rocks/it/rocks?abc=123&amp;amp;def=HIJ&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt; 
+  
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;execute_url_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url_to_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expected_redirect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url_to_test&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;follow_redirect!&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_equal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last_request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;http://example.org&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expected_redirect&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Getting started:&lt;/p&gt;
+&lt;p&gt;Setup steps for Sinatra can be &lt;a href=&quot;http://github.com/sinatra/sinatra&quot;&gt;found here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Two things to note.&lt;/p&gt;
+&lt;p&gt;1. To run the tests, you will need to get &lt;a href=&quot;http://github.com/brynary/rack-test&quot;&gt;rack-test&lt;/a&gt;. I mistakenly assumed this part of Rack which tripped me up a bit.&lt;/p&gt;
+&lt;p&gt;2. You need to grab &lt;a href=&quot;http://rtomayko.github.com/shotgun/&quot;&gt;Shotgun&lt;/a&gt; if you want to have the site reloaded anytime you make a change. This requirement was apparently something that changed recently. It is documented nicely on the Sinatra site, but seems to catch people off guard.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>One Less Step</title>
+   <link href="http://scottw.com/one-less-step/"/>
+   <updated>2010-02-10T00:00:00-05:00</updated>
+   <id>http://scottw.com/one-less-step</id>
+   <content type="html">&lt;p&gt;Every step a user must take provides a chance for failure and frustration.&lt;/p&gt;
+&lt;p&gt;Compare these two shipping confirmation emails from 1-800-Flowers and Zappos.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1-800-Flowers&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://scottw.com/images/wlw/OneLessStep_8C64/1800Flowers_a404a639-a632-4bcb-b2e7-734bc152e196.jpg&quot; title=&quot;1800 Flowers&quot; alt=&quot;1800 Flowers&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Zappos&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://scottw.com/images/wlw/OneLessStep_8C64/zappos_bda0db96-1cdb-405c-9876-2c29610543ad.jpg&quot; title=&quot;Zappos&quot; alt=&quot;Zappos&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;1-800-Flowers actually says, &amp;#8220;2 easy steps&amp;#8221;.&lt;/p&gt;
+&lt;p&gt;However, what they are not counting on:&lt;/p&gt;
+&lt;ol&gt;
+	&lt;li&gt;The tracking code is 18 characters. While more savvy computer users will simply copy and paste, many will try to manually enter the 18 characters. Those that do copy and paste will usually need to highlight the text, go to the edit menu select copy&amp;#8230; in short, they are usually not going to use control+C and then control+V.&lt;/li&gt;
+	&lt;li&gt;The &lt;span class=&quot;caps&quot;&gt;UPS&lt;/span&gt; website is stuck in the mid-90&amp;#8217;s and requires you to first pick your country. Don&amp;#8217;t every make the wrong choice here (and of course this adds another step).&lt;/li&gt;
+	&lt;li&gt;Users will need to switch back and forth between their email app/screen/tab and the &lt;span class=&quot;caps&quot;&gt;USP&lt;/span&gt; screen.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The funny thing about this is 1-800-Flowers actually has other links in the confirmation email, including one to &lt;span class=&quot;caps&quot;&gt;UPS&lt;/span&gt;. They just don&amp;#8217;t link to the one that really matters.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>NHProf vs. SQL Profiler</title>
+   <link href="http://scottw.com/nhprof-vs-sql-profiler/"/>
+   <updated>2010-02-09T00:00:00-05:00</updated>
+   <id>http://scottw.com/nhprof-vs-sql-profiler</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;http://nhprof.com/&quot;&gt;NHProf&lt;/a&gt; is a profiling tool for &lt;a href=&quot;https://www.hibernate.org/343.html&quot;&gt;NHibernate&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;NHibernate Profiler is a real-time visual debugger allowing a development team to gain valuable insight and perspective into their usage of NHibernate.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;What really jumped out at me after using it for just a couple of minutes is how much more useful it is for developers than &lt;span class=&quot;caps&quot;&gt;SQL&lt;/span&gt; Profiler (assuming you are using NHibernate).&lt;/p&gt;
+&lt;p&gt;First a couple of screen shots that really tell the whole story:&lt;/p&gt;
+&lt;p&gt;NHProf&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://scottw.com/images/wlw/11289ed9fb3a_7C7A/nhprof_1.png&quot; title=&quot;NHProf Screenshot&quot; alt=&quot;NHProf Screenshot&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;caps&quot;&gt;SQL&lt;/span&gt; Server Profiler&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://scottw.com/images/wlw/11289ed9fb3a_7C7A/SQL_Profiler.png&quot; title=&quot;Sql Profiler Crappy Screenshot&quot; alt=&quot;Sql Profiler Crappy Screenshot&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Which one of the two screen shots cares about the user?&lt;/p&gt;
+&lt;p&gt;Seriously, if you had to use of these tools daily; would you choose the one that throws up on the screen or the one which tries to make your life easier?&lt;/p&gt;
+&lt;p&gt;Obviously there is quite a bit more to &lt;span class=&quot;caps&quot;&gt;SQL&lt;/span&gt; profiler, but for the things a developer would care about on a daily basis, you cannot beat the following:&lt;/p&gt;
+&lt;ol&gt;
+	&lt;li&gt;Results grouped by session. NHibernate cheats by encouraging a single session to be used per page request, but either way it is a very useful way to view what is happening per request.&lt;/li&gt;
+	&lt;li&gt;Details about the number of records returned per query.&lt;/li&gt;
+	&lt;li&gt;Alerts and Tips pointing you performance improvements&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So far, NHProf has been a huge help in understanding how NHibernate translates mappings and queries requests into my object model.&lt;/p&gt;
+&lt;p&gt;It also makes we wonder why this level of information is not available out of the box via &lt;span class=&quot;caps&quot;&gt;SQL&lt;/span&gt; Profiler, but well&amp;#8230;nevermind.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>A Tough Interview</title>
+   <link href="http://scottw.com/a-tough-interview/"/>
+   <updated>2010-02-03T00:00:00-05:00</updated>
+   <id>http://scottw.com/a-tough-interview</id>
+   <content type="html">&lt;p&gt;I have had a couple tough interviews&amp;#8230;&lt;/p&gt;
+&lt;p&gt;For the record, &lt;a href=&quot;http://www.cnn.com/2010/WORLD/americas/02/01/bogota.bulletproof.tailor/index.html?hpt=C1&quot;&gt;he is referring to to a gun&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://scottw.com/images/wlw/AToughInterview_B09A/Your_Job_3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>MongoDB and C# Dynamics</title>
+   <link href="http://scottw.com/mongodb-dynamics/"/>
+   <updated>2010-02-01T00:00:00-05:00</updated>
+   <id>http://scottw.com/mongodb-dynamics</id>
+   <content type="html">&lt;p&gt;I am a big fan of &lt;a href=&quot;http://www.mongodb.org&quot;&gt;MongoDB&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;There is a good C# driver called, &lt;a href=&quot;http://github.com/samus/mongodb-csharp&quot;&gt;MongoDB-CSharp&lt;/a&gt;. Unfortunately, because of the strongly typed nature of C#, the default implementation requires you to work with your data as a dictionary. This has an unfortunate side effect of some ugly code and a quite a bit of casting.&lt;/p&gt;
+&lt;p&gt;Given a choice of working with a dictionary vs &lt;span class=&quot;caps&quot;&gt;SQL&lt;/span&gt; I would choice a dictionary everyday. However, with C# 4.0&amp;#8217;s dynamics, we can make this much easier to work with.&lt;/p&gt;
+&lt;p&gt;The change in usage is minor, but I find it to be much more readable and productive.&lt;/p&gt;
+&lt;p&gt;Before:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;csharp&quot;&gt;&lt;span class=&quot;n&quot;&gt;Mongo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mongo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Mongo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;mongo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; 
+
+&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mongo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;blog&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;posts&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;Document&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Title&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Hello Mongo World&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Body&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;This is my first MongoDB post!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Published&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UtcNow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Tags&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;NoSQL&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;MongoDB&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;greatness&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Slug&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;mongo-post&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Insert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;Document&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;query&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Slug&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;mongo-post&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+&lt;span class=&quot;n&quot;&gt;Document&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mongo_post&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FindOne&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mongo_post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Title&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;published&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mongo_post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Published&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ToLocalTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Title: {0} local published time {1} &amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;published&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;After:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;csharp&quot;&gt;&lt;span class=&quot;n&quot;&gt;Mongo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mongo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Mongo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;mongo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; 
+
+&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mongo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;blog&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;posts&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;dynamic&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Hello Mongo World&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Body&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;This is my first MongoDB post!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Published&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UtcNow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Tags&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;NoSQL&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;MongoDB&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;greatness&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Slug&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;mongo-post&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Insert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;dynamic&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;query&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Slug&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;mongo-post&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mongo_post&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FindOne&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mongo_post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;published&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mongo_post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Published&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ToLocalTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Title: {0} local published time {1} &amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;published&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;While the example is trivial, I think it is a good step forward.&lt;/p&gt;
+&lt;p&gt;I want to play around with a bit more before I try to figure out how to submit a patch or fork it.&lt;/p&gt;
+&lt;p&gt;In the mean time, if you want play with the code, download the source from &lt;a href=&quot;http://github.com&quot;&gt;github&lt;/a&gt;, and then swap out the &lt;a href=&quot;http://www.box.net/shared/knqqd9jn9k&quot;&gt;Document.cs class with this file&lt;/a&gt;.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Passionate Programmer - Review</title>
+   <link href="http://scottw.com/passionate-programmer/"/>
+   <updated>2010-01-29T00:00:00-05:00</updated>
+   <id>http://scottw.com/passionate-programmer</id>
+   <content type="html">&lt;p&gt;Chad Fowler&amp;#8217;s, &amp;#8220;&lt;a href=&quot;http://bit.ly/8SVxc8&quot;&gt;Passionate Programmer&lt;/a&gt;&amp;#8221;&lt;sup class=&quot;footnote&quot; id=&quot;fnr1&quot;&gt;&lt;a href=&quot;#fn1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; is a definite must read for any developer who gives a damn about his or her career.&lt;/p&gt;
+&lt;p&gt;I had heard about Passionate Programmer before but didn&amp;#8217;t it give it much thought until after hearing &lt;a href=&quot;http://objo.com/&quot;&gt;Joe O&amp;#8217;Brien&lt;/a&gt; mention it at &lt;a href=&quot;http://codemash.org&quot;&gt;CodeMash&lt;/a&gt; (&lt;a href=&quot;http://scottw.com/code/codemash-2010/&quot;&gt;review&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;At it&amp;#8217;s core, Passionate Programmer is about taking responsibility for your own career. Employers should do all they can do to help (some do), but at the end of the day, the only one responsible for you is&amp;#8230;.well, you.&lt;/p&gt;
+&lt;p&gt;Two quotes which really stuck out to me:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&amp;#8220;If you think of your career as a business (which it is), your &amp;#8216;product&amp;#8217; is made up of the services you have to offer&amp;#8221;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Not much to add here. This really is the core of theme in the book. This is your &lt;strong&gt;&lt;span class=&quot;caps&quot;&gt;LIFE&lt;/span&gt;&lt;/strong&gt;. Own it.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&amp;#8220;Be the worst guy in every band you are in&amp;#8221;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Seek out opportunities, groups, events where you are no where close to being the best developer in the room. You will usually find these are the best opportunities to learn and advance your own knowledge.&lt;/p&gt;
+&lt;p class=&quot;footnote&quot; id=&quot;fn1&quot;&gt;&lt;a href=&quot;#fnr1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; To get a &lt;span class=&quot;caps&quot;&gt;DRM&lt;/span&gt; Free electronic version, check out the &lt;a href=&quot;http://pragprog.com/titles/cfcar2/the-passionate-programmer&quot;&gt;Pragmatic Programmers site directly&lt;/a&gt;.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>CodeMash 2010</title>
+   <link href="http://scottw.com/codemash-2010/"/>
+   <updated>2010-01-19T00:00:00-05:00</updated>
+   <id>http://scottw.com/codemash-2010</id>
+   <content type="html">&lt;p&gt;I had the opportunity this year to attend &lt;a href=&quot;http://codemash.org/&quot;&gt;CodeMash&lt;/a&gt; 2010.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://codemash.org&quot;&gt;&lt;img src=&quot;http://scottw.com/images/wlw/CodeMash2010_BADB/codemash_bc127d19-e19e-4067-a5ed-bbdc846e2ef6.png&quot; title=&quot;codemash logo&quot; alt=&quot;codemash logo&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For those of you unfamiliar with CodeMash:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;#8220;&lt;em&gt;CodeMash is all about jumping into new domains. Getting out of your comfort zone. Learning new things from new people.&lt;/em&gt;&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;CodeMash 2010 was without a doubt the best developer event I have ever attended.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Here is my list about what made it great:&lt;/p&gt;
+&lt;p&gt;1. People &amp;#8211; there was an awesome mix of people. Those attending seemed to do a really good job of attending sessions there were outside of their comfort zones. I have seen this attempted at other places, but usually the cliques are usually too strong.&lt;/p&gt;
+&lt;p&gt;2. &lt;a href=&quot;http://www.poppendieck.com/&quot;&gt;Mary Poppendieck&lt;/a&gt; &amp;#8211; her keynote, &amp;#8220;The Five Habits of Successful Lean Development&amp;#8221; was easily worth the price of admission. You can see the &lt;a href=&quot;http://www.poppendieck.com/pdfs/Five%20Habits.pdf&quot;&gt;slides here&lt;/a&gt;. I am considering attending an event or two later this year just to see her speak again.&lt;/p&gt;
+&lt;p&gt;3. Focus on Craftsmanship &amp;#8211; there were quite a few really good sessions which focused on refining your craft more than just getting to know technology &lt;span class=&quot;caps&quot;&gt;ABC&lt;/span&gt; a little bit better. &lt;a href=&quot;http://objo.com/&quot;&gt;Joe O&amp;#8217; Brien&amp;#8217;s&lt;/a&gt; &amp;#8220;Refactoring the Programmer&amp;#8221; and &lt;a href=&quot;http://codebetter.com/blogs/jeremy.miller/&quot;&gt;Jeremy Miller&amp;#8217;s&lt;/a&gt; &amp;#8220;Software Design and Testability&amp;#8221; really stood out to me. Both sessions were fabulous and I hope to see Joe and Jeremy present similar sessions at other events this year.&lt;/p&gt;
+&lt;p&gt;4. Other Technologies &amp;#8211; I have been a fan of &lt;a href=&quot;http://mongodb.org&quot;&gt;MongoDB&lt;/a&gt; for a while. It was great to attend a really good overview session which helped connect a lot dots. I have also had an on again off again fascination with Ruby. It was rewarding to hear some as passionate about as &lt;a href=&quot;http://fallenrogue.com/&quot;&gt;Leon Gersing&lt;/a&gt; walk through some of its&amp;#8217; benefits without the fud.&lt;/p&gt;
+&lt;p&gt;5. Cost &amp;#8211; I still cannot believe this event only cost $175. It takes a lot of time and effort to put on this kind of event. (Seriously, drop the not-for-profit, double the price, and take this show on the road. It sucks having to wait until next year to attend again :)&lt;/p&gt;
+&lt;p&gt;6. Family &amp;#8211; I made the newbie mistake of leaving the family home. This is the first developer event I have attended where family (wife &amp;amp; daughter) would have really enjoyed tagging along.&lt;/p&gt;
+&lt;p&gt;Besides bringing the family, the only thing I would have done differently are the pre-compilers. I skipped them and regretted it. I was trying to minimize time away from home, but I definitely missed out on great sessions.&lt;/p&gt;
+&lt;p&gt;I am already looking forward to CodeMash 2011 (and please, AT&amp;amp;T get these folks some 3g. Spotty service is one thing, none is just cruel).&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>The Obligation</title>
+   <link href="http://scottw.com/obligation/"/>
+   <updated>2009-12-30T00:00:00-05:00</updated>
+   <id>http://scottw.com/obligation</id>
+   <content type="html">&lt;p&gt;In &lt;a href=&quot;http://sethgodin.typepad.com/&quot;&gt;Seth Godin&amp;#8217;s&lt;/a&gt; &lt;a href=&quot;http://bit.ly/5mCifE&quot;&gt;Tribes&lt;/a&gt;, one particular section really struck a cord with me and I have been thinking about it just about every day for a couple of weeks now.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Not too far from us, a few blocks away, there are kids without enough to eat and without parents who care. A little further away, hours by plane, are people unable to reach their goals because they live in a community that just doesn&amp;#8217;t have the infrastructure to support them. A bit further away are people being brutally persecuted by their governments. And the world is filled with people who can&amp;#8217;t go to high school, never mind college, and who certainly can&amp;#8217;t spend their time focused on whether or not they get a good parking space at work.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;And so, the obligation: don&amp;#8217;t settle.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;To have all these advantages, all this momentum, all these opportunities and then settle for mediocre and then defend the status quo and then worry about corporate politics &amp;#8211; what a waste.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Flynn Berry wrote that you should never use the word &amp;#8220;opportunity.&amp;#8221; It&amp;#8217;s not an opportunity, it&amp;#8217;s an obligation.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;I don&amp;#8217;t think we have any choice. I think we have an obligation to change the rules, to raise the bar, to play a different game, and to play it better than anyone has any right to believe is possible.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;If you can read this post, I am 99.9999% sure you are in the obligated bucket.&lt;/p&gt;
+&lt;p&gt;Here&amp;#8217;s to a great 2010 and fulfilling those obligations.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Pragmatic Beer &ndash; Thanksgiving Edition</title>
+   <link href="http://scottw.com/prag-beer-thanksgiving/"/>
+   <updated>2009-11-23T00:00:00-05:00</updated>
+   <id>http://scottw.com/prag-beer-thanksgiving</id>
+   <content type="html">&lt;p&gt;Don and I are going to host a &lt;a href=&quot;http://scottw.com/code/pragmatic-beer/&quot;&gt;Pragmatic Beer&lt;/a&gt; night tomorrow November 24 at 6:30 PM. If you are in the area, please stop by and have a drink/dinner/etc.&lt;/p&gt;
+&lt;p&gt;Where: &lt;br /&gt;
+&lt;a href=&quot;http://www.harvestmoonbrewery.com/&quot;&gt;Harvest Moon&lt;/a&gt;, &lt;br /&gt;
+New Brunswick NJ.&lt;br /&gt;
+When: 6:30 PM&lt;br /&gt;
+Date: November 24th, 2009&lt;/p&gt;
+&lt;p&gt;Topics: Open&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://scottw.com/images/wlw/PragmaticBeerThanksgivingEdition_89B7/moon-outside_3_3_3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ 
+</feed>

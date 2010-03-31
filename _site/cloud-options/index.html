@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : Cloud Options - Amazon, Google, &amp; Microsoft </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151901" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151901" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/saying-goodbye-to-the-non-essential/" title="Saying Goodbye to the Non-Essential" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/ebhcc/" title="eBay Bloggers Holiday Charity Challenge" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>Cloud Options - Amazon, Google, &amp; Microsoft</h1>
+  <div class="entry">
+  	<p>I have been researching various cloud offerings on and off for the last couple of months. I have primarily focused on offerings from Amazon, Google, and Microsoft.</p>
+<p>Here is an overview and some quick opinions of what each service offers.</p>
+<h3><a href="http://aws.amazon.com/" title="AWS">Amazon</a></h3>
+<p><img src="http://scottw.com/images/wlw/MicrosoftCloudvs.GoogleAmazon_9AC7/logo_aws_3.gif" alt="" /></p>
+<p>While they did not invent the notion of cloud computing, they are certainly the thought leader here and have an impressive offering.</p>
+<h4>Core Services</h4>
+<ul>
+	<li><a href="http://aws.amazon.com/s3/">S3</a> &#8211; Blob storage</li>
+	<li><a href="http://aws.amazon.com/simpledb/">SimpleDB</a> &#8211; structure data</li>
+	<li><a href="http://aws.amazon.com/ec2/">EC2</a> &#8211; OS in the cloud</li>
+	<li><a href="http://aws.amazon.com/sqs/"><span class="caps">SQS</span></a> &#8211; Queue in the cloud</li>
+</ul>
+<h4>Overview &amp; Thoughts</h4>
+<ul>
+	<li>Most mature offering of the three.</li>
+	<li>All services are available as a web service. This makes it very easy to integrate and use without a full commitment to Amazon.</li>
+	<li>EC2 is based on VM images. For those who are control freaks, this can be very ideal. For me personally, I would rather not have to worry about managing this level (deployments, patching, trouble shooting, etc).</li>
+	<li>The <a href="http://aws.amazon.com/ebs/"><span class="caps">EBS</span></a> (elastic block store) allows EC2 instances to essentially use a shared drive. This is a must for running something like SQ Server on the images since you would need a way to maintain state.</li>
+	<li><a href="http://scottw.com/software/aspnet-cloud/">Windows is now an option</a>.</li>
+	<li>EC2 + <span class="caps">EBS</span> + Windows Support = <span class="caps">ASP</span>.Net + <span class="caps">SQL</span> Server options.</li>
+	<li><a href="http://www.25hoursaday.com/weblog/2007/12/21/AmazonSimpleDBTheGoodTheBadAndTheUgly.aspx">Eventual Consistency</a> on the data side is not that appealing. I get why it helps scaling, but I would love for this to be optional. For the apps I generally build, this could be a real <span class="caps">PITA</span>.</li>
+</ul>
+<h3><a href="http://code.google.com/appengine/" title="AppEngine">Google</a></h3>
+<p><img src="http://scottw.com/images/wlw/MicrosoftCloudvs.GoogleAmazon_9AC7/appengine_lowres_3.jpg" alt="" /></p>
+<p>Like everything else Google, they took a very simple approach called AppEngine.</p>
+<h4>Core Services</h4>
+<ul>
+	<li>Hosting</li>
+	<li>Data Access (BigTable)</li>
+	<li>Google Data Services</li>
+</ul>
+<h4>Overview &amp; Thoughts</h4>
+<ul>
+	<li>Unlike Amazon you have no control at the OS level. This is similar to the Microsoft offering and something I am OK with.</li>
+	<li>No background processing. This is a big deal breaker for me. If you want to do any non-UI processing you need to do it off of the Google services. As you will see shortly, Microsoft makes this drop dead simple and since you control the servers via EC2 Amazon has this area covered as well (it just requires a bit more setup).</li>
+	<li>Integrating with Google services is a very nice benefit, especially on authentication. Any site/service which does not require me to create yet another login is a good thing.</li>
+	<li>Python &#8211; I actually really dig python, but I still think C#.</li>
+	<li>No <span class="caps">REST</span>/Web Service access &#8211; there are libraries being written by third parties to work around this, but after spending time with Amazon and Microsoft services I would find it hard to move forward without web service level access.</li>
+	<li>index.yaml &#8211; One issue with using a cloud based db is little (or no) control specifying indexes. As part of the AppEngine deployment process a file called index.yaml is generated which tells BigTable the types of queries your app runs and what should be indexed.</li>
+	<li>I get the sense that Google is trying to appeal to a small and focused audience (well, as small as Google can). There is nothing wrong with this approach, but I think long term I would feel handcuffed on their platform.</li>
+</ul>
+<h3><a href="http://www.microsoft.com/azure/default.mspx" title="Windows Azure">Microsoft</a></h3>
+<p><img src="http://scottw.com/images/wlw/MicrosoftCloudvs.GoogleAmazon_9AC7/image_a0893aea-deb2-446b-a277-d6de97bc1aac.png" alt="" /></p>
+<p>In typical Microsoft fashion, they are trying to cover all possible bases.</p>
+<h4>Core Services</h4>
+<ul>
+	<li><a href="http://www.microsoft.com/azure/windowsazure.mspx">Application Hosting</a> (Azure)</li>
+	<li>Data &#8211; <a href="http://www.microsoft.com/azure/sql.mspx"><span class="caps">SDS</span></a> &amp; Azure Storage</li>
+	<li>Blobs (part of <span class="caps">SDS</span> and Azure storage)</li>
+	<li>Queues (part of Azure storage)</li>
+	<li>.<a href="http://www.microsoft.com/azure/netservices.mspx"><span class="caps">NET</span> Services</a> (Access Control, Service Bus, &amp; Workflow)</li>
+	<li><a href="http://dev.live.com/">Live Services</a> (Mesh &amp; everything else)</li>
+</ul>
+<h4>Overview &amp; Thoughts</h4>
+<ul>
+	<li>Background processing &#8211; this is a huge part of big web applications. Although I kid about Microsoft trying to cover all their bases, this is one particular area that they not only covered, but made it extremely simple. My one gripe here is that the current <span class="caps">CTP</span> only supports a single worker role (back ground process).</li>
+	<li>Super simple deployment &#8211; just upload a package and a configuration file which specifies the number of instances you want to run on.</li>
+	<li>Staging &#8211; This is another part that just makes me smile. Built in support for staging your updates before they go live. Then one click to publish push it live.</li>
+	<li>Option Duplication &#8211; You can still tell there are various teams/pieces of the offering at different stages. I am sure it will get cleaned up in the coming months, but on the data side there is a lot of overlap around data storage, querying, and blobs.</li>
+	<li>.<span class="caps">NET</span> Service Bus &#8211; This service should make the process of slowly moving pieces of your various (Enterprise) solutions to the cloud much easier. In addition, it will make doing Slingbox like applications infinitely easier. Very cool stuff here.</li>
+	<li>Access control/Geneva &#8211; I plan on writing a lot more on this in the future, but there was clearly a lot of thought put into how to authenticate users from various providers/solutions. Enterprises and enterprise targeted apps will really find this appealing.</li>
+	<li>Live Services &#8211; I did not think this would interest me until I saw how easy it was to build a Mesh enabled web application. It is almost 100% consumer (vs. Enterprise) focused, but still really interesting.</li>
+	<li>The <span class="caps">REST</span>/Web Service approach (along with .<span class="caps">NET</span> Service Bus) will make moving existing applications to the cloud much easier than I would have expected. It also makes it very easy to simple add &#8220;cloud&#8221; features to your existing internal/on premise applications as well.</li>
+	<li>I would love to see something like Amazon&#8217;s <span class="caps">EBS</span> added as an offering</li>
+	<li>Microsoft still has a lot of &#8220;execution&#8221; to complete, but overall I am thoroughly impressed with the total breadth of their offering.</li>
+</ul>
+<h3>Summary</h3>
+<p>I am going to be spending a lot of time on the Azure stack(s) in the coming weeks. The current offering is still the first <span class="caps">CTP</span>, but you can not ignore the total breadth of their offering (and there is still a lot more coming). There are still a couple of things in the Amazon offering (<span class="caps">EBS</span>) which I find appealing and do not appear to be on the short term Azure roadmap, so going to market with a solution which leverages both of them is also something I am also going to consider.</p>
+<p><strong>Update</strong>: I have already gotten some emails and comments about other independent solutions. If I have left off your favorite solution, please leave a comment explaining your service and how it differs from the three I already listed. Feel free to go into full scale sales mode. :)</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Nov 25, 2008 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#amazon">amazon</a>,
+  	  
+  	    <a href="/tags/#appengine">appengine</a>,
+  	  
+  	    <a href="/tags/#azure">azure</a>,
+  	  
+  	    <a href="/tags/#cloud-computing">cloud-computing</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/saying-goodbye-to-the-non-essential/" title="Saying Goodbye to the Non-Essential">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/ebhcc/" title="eBay Bloggers Holiday Charity Challenge">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:19 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

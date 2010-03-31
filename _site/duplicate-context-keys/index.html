@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : Duplicate Context Keys </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151903" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151903" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/1000-characters/" title="Azure Local Storage &ndash; 1000 Characters" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/25-things/" title="25 Things I Didn't Want to Know About You" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>Duplicate Context Keys</h1>
+  <div class="entry">
+  	<p>Overall, I am still digging <a href="http://www.microsoft.com/azure/default.mspx">Azure</a>, but as I am working through some new things, I keep bumping into little gotchas. Hopefully folks find them helpful. This one is not likely Azure&#8217;s fault, I simply stumbled into it why working on my pet Azure project.</p>
+<p><strong><em>The context is already tracking the entity.</em></strong></p>
+<p>One of the things I have been doing early on in my pet Azure project is working through a couple different data storage scenarios. Since creating/querying/managing tables is very simple, I have tried to take the approach of separating larger/heavier properties which are not frequently used into their own tables. To tie it all together, the entities stored in each table have the same <a href="http://scottw.com/code/azure-table-storage-key-conventions/">PartitionKey and RowKey</a>. This of course is not a requirement, but it makes managing them much easier since I can make some very simple assumptions.</p>
+<p>One of the things the Azure team shipped in their samples was a very helpful StorageClient library which makes working with Azure storage very easy. They even went as far as creating a base Entity object (TableEntity) which provides the necessary PartitionKey and RowKey columns as well as the DataServiceKey attribute.</p>
+<p>So with this, I am able to quickly create my entities, create a simple DataService context wrapper and attempt to insert my entities. To keep things simple, I add my two entities to my context and before I reach the Save line an exception stating &#8220;<em>The context is already tracking the entity</em>&#8221; is thrown.</p>
+<p>After a little unhelpful time in Google, my only guess is the context tracking is based on my PartitionKey + RowKey + the base type they are defined on. So in my case, since all my entities derive from TableEntity the DataService sees them as a duplicate. The fix is pretty simple, just don&#8217;t use the TableEntity class or create a new context for each insert<sup class="footnote" id="fnr1"><a href="#fn1">1</a></sup>. However, this still sounds like a bug to me.</p>
+<p><sup class="footnote" id="fnr1"><a href="#fn1">1</a></sup> Of course since transactions in Azure are only at the row level, there really isn&#8217;t much benefit to batching up the requests, but it feels cleaner to me and gives me something else to write about. :)</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Feb 02, 2009 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#dataservice">dataservice</a>,
+  	  
+  	    <a href="/tags/#azure">azure</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/1000-characters/" title="Azure Local Storage &ndash; 1000 Characters">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/25-things/" title="25 Things I Didn't Want to Know About You">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:19 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

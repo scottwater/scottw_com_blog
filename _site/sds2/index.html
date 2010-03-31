@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : SDS &ndash; Take 2 </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151905" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151905" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/readability/" title="Readability First" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/silverlight-mix09/" title="Silverlight &ndash; Eye Opening Moment" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>SDS &ndash; Take 2</h1>
+  <div class="entry">
+  	<p>It looks like the <span class="caps">SDS</span> team has decided to <a href="http://blogs.msdn.com/ssds/archive/2009/03/10/9469228.aspx">refocus there short term goals</a> away from a RESTful schemaless entity based approach and towards a more relational database with baked in cloud scale.</p>
+<blockquote>
+<p><em>&#8220;&#8230;the universal feedback we received from our <span class="caps">TAP</span> partners and other early adopters was the need for a relational database delivered as a service. This was extremely valuable feedback and drove us to more aggressively investigate ways in which we could deliver these features. As a result of that work and based on the progress we&#8217;ve since made in the product team, we are announcing that <span class="caps">SDS</span> will deliver full relational database capabilities as a service.&#8221;</em></p>
+</blockquote>
+<p>Some folks like <a href="http://www.amundsen.com/blog/archives/974">Mike Amdendson are less thrilled</a> with this decision and change. Personally, I am OK with it and I think it could be a smart move on Microsoft&#8217;s part. Here is my reasoning:</p>
+<ol>
+	<li>Truly using cloud storage means an application rewrite for most existing applications. This is mitigated by loose coupling, separation of concerns, and the like, but the reality is very few applications will easily port to cloud storage. Rewriting applications is very risky and rarely produces the desired results.</li>
+	<li>There are already others offering the RESTful schemaless approach such as Amazon&#8217;s SimpleDB and local options such as CouchDB (which I guess could be hosted on EC2). I doubt this was part of their reasoning, but I personally love to see companies solve problems in different ways instead of simply providing their own. (See Microsoft Velocity as another excellent example).</li>
+	<li>Better transition. This plays into #1 as well. One of things I have mentioned over and over when speaking about Azure is while you do get to leverage your existing skill set (<span class="caps">ASP</span>.Net/C#/etc) how you use them is very different. Even if schemaless data stores are the future, short term there are a lot of applications and organizations which could benefit from an easy way to cloud scale a relational database today.</li>
+	<li>Azure table storage could be adjusted/upgraded to support some of the previous <span class="caps">SDS</span> feature set. I know they ultimately had two very different goals, but if Microsoft could add some secondary indexes and sorting capabilities I could see it solving 80% of the what <span class="caps">SDS</span> does today.</li>
+</ol>
+<p>The <span class="caps">SDS</span> blog post goes on to state,</p>
+<blockquote>
+<p><em>&#8220;Developers will be able to very easily provision themselves a logical server and database and begin developing against it immediately using the existing tools and technologies that they are accustomed to. We are providing an experience where a developer can take an existing application and just change the connection string to point it to the cloud and have it just work.&#8221;</em></p>
+</blockquote>
+<p>This is a very ambitious goal which is further complicated by their desire to bring it to market in 2009. Again, even if it is just a short term fix, I am looking forward to it.</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Mar 12, 2009 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#sds">sds</a>,
+  	  
+  	    <a href="/tags/#azure">azure</a>,
+  	  
+  	    <a href="/tags/#cloud-computing">cloud-computing</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/readability/" title="Readability First">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/silverlight-mix09/" title="Silverlight &ndash; Eye Opening Moment">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:19 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

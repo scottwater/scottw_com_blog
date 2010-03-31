@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : Microsoft Cloud Data Options </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151902" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151902" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/multiple-work-roles-on-azure/" title="Multiple Work Roles on Azure" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/nyc-code-camp-understanding-data-storage-options-in-the-cloud/" title="NYC Code Camp - Understanding Data Storage Options in the Cloud" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>Microsoft Cloud Data Options</h1>
+  <div class="entry">
+  	<p>I mentioned previously that there is a lot to the <a href="http://scottw.com/software/cloud-options/">Microsoft cloud story</a>, in particular, around data.</p>
+<p>Hopefully, this helps clear some things up.</p>
+<h3>Core Options</h3>
+<p>Data storage is provided by two distinct services, <a href="http://www.microsoft.com/azure/sql.mspx"><span class="caps">SQL</span> Data Services</a> and <a href="http://www.microsoft.com/azure/windowsazure.mspx">Azure Storage</a>.</p>
+<h4><span class="caps">SQL</span> Data Services (<span class="caps">SDS</span>)</h4>
+<p><span class="caps">SDS</span> provides a cloud scalable set of web-based services enabling you to store store structured, semi-structured, and unstructured data. With each passing release of <span class="caps">SDS</span> you can expect more (where applicable) feature parity with <span class="caps">SQL</span> Server proper. Today it provides basic query and crud functions and will hopefully add query aggregates (count, sum, etc) in a release soon.</p>
+<h4>Azure Storage</h4>
+<p>Azure storage comes in three flavors; Tables, Blobs, and Queues.</p>
+<p>Tables is designed to support a near infinite number of rows. However, unlike <span class="caps">SDS</span> they will only provide a very limited <span class="caps">API</span> for querying. All records in a table must use a 2 &#8220;column&#8221; composite key consisting of a <em>partition key</em> and a <em>row key</em>. Choosing the proper key extremely important with tables. Azure will store items with the same partition key (close) together. In addition, it will seek to optimize access to hot data by the partition key. Anytime you execute a query without a partition key, a full table scan will be required.</p>
+<p>Blobs provide as the name implies, storage for files.</p>
+<p>Queues, again as the name implies queues are well&#8230;queues. Messages in a queue need to be 8kb or less and (at least during the <span class="caps">CTP</span>) any message which exists in the queue for more than 2 weeks will be automatically deleted. The Queue <span class="caps">API</span> will ensure that a single message is returned to a single caller for a designated amount of time. If the message is not deleted with in a designated amount of time the message will be re-queued.</p>
+<h3>What, when, where, why?</h3>
+<ul>
+	<li>Both options provide blob storage. However, the <span class="caps">SDS</span> blob functionality is very simple. Files can be a max of 100mb. On the Azure side of things, files can theoretically be of any size. However, anything over 4mb must be inserted in blocks using the blocklist <span class="caps">API</span>. I would expect to see a lot more innovations/options on the Azure side of things.</li>
+</ul>
+<ul>
+	<li>If you need to query your data, use multiple sorts, and/or joins, <span class="caps">SDS</span> is what you are looking for.</li>
+	<li>If you need to have related objects exist in a list that you may or may not use and in memory ordering/filtering is a viable option, Azure table storage is for you.</li>
+	<li>While these are separate services, I fully expect most applications will leverage both of them (as well as .<span class="caps">NET</span> Services).</li>
+	<li>Neither Azure tables or <span class="caps">SDS</span> provide query aggregates at the moment (count, sum, etc). These are on the roadmap for <span class="caps">SDS</span> and I would expect you will not see them anytime soon in Azure.</li>
+	<li>Queues are built on tables. Not sure why that is helpful, but I found it interesting.</li>
+</ul>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Dec 22, 2008 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#azure">azure</a>,
+  	  
+  	    <a href="/tags/#sds">sds</a>,
+  	  
+  	    <a href="/tags/#cloud-computing">cloud-computing</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/multiple-work-roles-on-azure/" title="Multiple Work Roles on Azure">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/nyc-code-camp-understanding-data-storage-options-in-the-cloud/" title="NYC Code Camp - Understanding Data Storage Options in the Cloud">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:19 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

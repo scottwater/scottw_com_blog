@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : Velocity - Microsoft Distributed Cache </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151854" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151854" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/wwdc-2008/" title="WWDC 2008 Wishlist" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/velocity-setup/" title="Setting Up Velocity (Distributed Cache)" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>Velocity - Microsoft Distributed Cache</h1>
+  <div class="entry">
+  	<p>A couple of days ago, I was chatting with <a href="http://sqladvice.com/blogs/dpenton/default.aspx">David, I have not blogged since 2004, Penton</a> about the lack of a built in distributed caching solution for .<span class="caps">NET</span>. There are a couple of really good third party tools available (more posts coming soon) but since caching adds such a huge boost in performance (if used correctly) it is really struck me as odd that the folks in Redmond had not yet addressed this issue on their own (I do not need a Microsoft certified solution to every problem, but since that is their style, it seemed to odd to be missing one here).</p>
+<p>However, while I was catching up on what had been announced at Tech-Ed I came across a <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=B24C3708-EEFF-4055-A867-19B5851E7CD2&amp;amp;displaylang=en">mention of Velocity</a>.</p>
+<blockquote>
+<p>&#8220;Velocity&#8221; is a distributed in-memory application cache platform for developing scalable, available, and high-performance applications. Using &#8220;Velocity,&#8221; applications can store any serializable <span class="caps">CLR</span> object without concern for where the object gets stored because data is cached across multiple computers. &quot;Velocity allows copies of data to be stored across the cache cluster, protecting data against failures. It can be configured to run as a service accessed over the network or can be run embedded with the distributed application. &#8220;Velocity&#8221; includes an <span class="caps">ASP</span>.<span class="caps">NET</span> session provider object enabling storage of <span class="caps">ASP</span>.<span class="caps">NET</span> session objects in the distributed cache without having to write to databases, which increases the performance and scalability of <span class="caps">ASP</span>.<span class="caps">NET</span> applications.   As I mentioned before, there are a couple pre-existing tools:</p>
+</blockquote>
+<ul>
+	<li><a href="http://www.danga.com/memcached/">Memcached</a> &#8211; The granddaddy of them all. Simple, used everywhere (I mean, <span class="caps">EVERYWHERE</span>), and free.</li>
+	<li><a href="http://www.scaleoutsoftware.com/">ScaleOut</a> &#8211; Robust, fault tolerant distributed caching</li>
+	<li><a href="http://www.alachisoft.com/ncache/">NCache</a> &#8211; similar to ScaleOut but with a very annoying developer licensing model</li>
+	<li><a href="http://www.sharedcache.com/cms/homepage.aspx">SharedCache</a> &#8211; Open source managed code distributed caching</li>
+</ul>
+<p>There is an interesting distinction between these tools. One on hand you have Memcached which treats the cache as something you should never rely on. It is there to help but you should always assume it is going to fail on you and even more importantly (to Memcached) you should accept that as a fact. If you read the <a href="http://www.socialtext.net/memcached/index.cgi?faq">Memcached <span class="caps">FAQ</span></a> you can almost here the author laughing when talking about fault tolerance. On the other side of the fence you have features like replication and high availability. It is just a <span class="caps">CPT</span>, but it looks like Velocity wants to be in the latter group.</p>
+<p>I am still on the fence about which type of solution is most ideal. At first, I was in favor of the &#8220;high availability&#8221; group, but as I read up more on memcached their simplicity really started to grow on me. As with most other things, it will probably vary according to your applications needs.</p>
+<p>I am planning on posting some sample code and patterns we are thinking about soon. So far, in light testing, I like Velocity and I will certainly write about it some more.</p>
+<p>Anyone else in the .<span class="caps">NET</span> world using distributed caching? What is your tool of choice? Any tools I am missing?</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Jun 04, 2008 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#velocity">velocity</a>,
+  	  
+  	    <a href="/tags/#cache">cache</a>,
+  	  
+  	    <a href="/tags/#memcached">memcached</a>,
+  	  
+  	    <a href="/tags/#scaleout">scaleout</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/wwdc-2008/" title="WWDC 2008 Wishlist">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/velocity-setup/" title="Setting Up Velocity (Distributed Cache)">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:18 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

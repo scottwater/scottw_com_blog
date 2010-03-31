@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : jQuery Makes Me Smile </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151905" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151905" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/mvc-ms-pl/" title="ASP.NET MVC 1.0 Now Available Under MS-PL" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/service-applications-in-the-cloud/" title="Service Applications in the Cloud" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>jQuery Makes Me Smile</h1>
+  <div class="entry">
+  	<p>Quick disclaimer: I am not the kind of person you should be taking JavaScript advice from. However, I did want to share something started out messy and as I applied some jQuery goodness just kept getting simpler.</p>
+<h3>The setup:</h3>
+<p>I have been hacking away on a small application/prototype. In the standard view, the first N characters of a piece of content are displayed. If I the user wants more content, I link/button is included which toggles to the full view. If the content is relatively small, the full content is displayed. Here is my spark partial view:</p>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;var</span> <span class="na">content =</span><span class="s">&quot;note.FormatContentForWeb()&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;post&quot;</span> <span class="na">id=</span><span class="s">&quot;Note-${note.Id}&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;entry&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;test</span> <span class="na">if=</span><span class="s">&quot;content.Length &gt; 200&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;Closed-${note.Id}&quot;</span><span class="nt">&gt;</span>
+        ${note.TruncateSafely(content,200)}...
+        <span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;javascript:void();&quot;</span> <span class="na">onclick=</span><span class="s">&quot;javascript:ToggleNoteViewState(&#39;${note.Id}&#39;); return false;&quot;</span><span class="nt">&gt;</span>Show More<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;display:none;&quot;</span> <span class="na">id=</span><span class="s">&quot;Open-${note.Id}&quot;</span><span class="nt">&gt;</span>
+        ${content}
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;javascript:void();&quot;</span> <span class="na">onclick=</span><span class="s">&quot;javascript:ToggleNoteViewState(&#39;${note.Id}&#39;); return false;&quot;</span><span class="nt">&gt;</span>Show Less<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;else/&gt;</span>
+        ${content}
+    <span class="nt">&lt;/test&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;postmetadata2&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/notes/note/${note.Id}&quot;</span><span class="nt">&gt;</span>#<span class="nt">&lt;/a&gt;</span> <span class="nt">&lt;em&gt;</span>saved ${note.FormatCreatedDateForWeb()}<span class="nt">&lt;/em&gt;</span>
+    [<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;javascript:void();&quot;</span> <span class="na">onclick=</span><span class="s">&quot;javascript:ArchiveNote(&#39;${note.Id}&#39;); return false;&quot;</span><span class="nt">&gt;</span>Archive<span class="nt">&lt;/a&gt;</span>] |
+    [<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;javascript:void();&quot;</span> <span class="na">onclick=</span><span class="s">&quot;javascript:DeleteNote(&#39;${note.Id}&#39;); return false;&quot;</span><span class="nt">&gt;</span>Delete<span class="nt">&lt;/a&gt;</span>]
+  <span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div><h3>The problem:</h3>
+<p>Clicking on the link is awkward and really doesn&#8217;t flow with rest of the page. It is sometimes there and sometimes not.</p>
+<h3>Solution:</h3>
+<p>Not sure if I will keep this long term, but I decided to delete the links and wire up a double click event. DoubleClick anywhere in the &#8220;Closed&#8221; div above and it toggles itself and the &#8220;Open&#8221; div.</p>
+<p>Here is where it starts to get interesting. What would have normally been 10, 20, maybe even 30 lines of (horrific) JavaScript to parse the <span class="caps">DOM</span>, wire up the events, etc, essentially gets truncated down to two lines:</p>
+<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>  
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div[id ^=&#39;Closed&#39;]&quot;</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;dblclick&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span><span class="nx">ToggleNoteViewState</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">7</span><span class="p">));});</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div[id ^=&#39;Open&#39;]&quot;</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;dblclick&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span><span class="nx">ToggleNoteViewState</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">5</span><span class="p">));});</span>  
+<span class="p">});</span>
+</code></pre>
+</div><p>This leverages the &#8220;starts with&#8221; selector and binds a double click event to everything it finds. Then for good measure does the opposite on the next line.</p>
+<p>Again, there are probably cleaner ways to do this, but for someone with hacker grade JavaScript skills this really brings a smile to my face (not to mention it took all of 10 minutes with <a href="http://jquery.com">jQuery.com</a> and Google).</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Apr 02, 2009 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#jquery">jquery</a>,
+  	  
+  	    <a href="/tags/#spark">spark</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/mvc-ms-pl/" title="ASP.NET MVC 1.0 Now Available Under MS-PL">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/service-applications-in-the-cloud/" title="Service Applications in the Cloud">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:19 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

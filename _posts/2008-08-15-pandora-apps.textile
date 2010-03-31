@@ -17,8 +17,6 @@ h3. Tools
 
 "OpenPandora":http://openpandora.googlepages.com/ - This is a very nice (free) application which sits in your windows task bar. It has a slew of nice additional features such as Windows Messenger integration.
 
-!http://openpandora.googlepages.com/openpandora.jpg!
-
 "PandoraJam":http://bitcartel.com/pandorajam/ - A commercial (cheap $15) application for OS X. Notable features in streaming to Airport Express, growl integration, a recording option (doubt this is legal :), and some Mac style.
 
 !http://scottw.com/images/wlw/GreatPandoraApplications_87A0/pandora_3.png(pandorajam)!

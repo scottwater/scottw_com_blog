@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : Qizmt &ndash; MapReduce On Windows </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151907" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151907" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/thinking-different/" title="Thinking Different" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/netnewswire-2/" title="Google Reader on an iPhone" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>Qizmt &ndash; MapReduce On Windows</h1>
+  <div class="entry">
+  	<p>A very interesting <a href="http://www.myspace.com/pressroom?url=/article_display.cfm?article_id=1075">announcement by the folks at MySpace</a>:</p>
+<blockquote>
+<p><em>Today, we are open-sourcing Qizmt, an internally developed framework for distributed computation created by the Data Mining team here at MySpace. Qizmt can be used for many operations that require processing large amounts of data such as collaborative filtering for recommendations and analytics.</em></p>
+</blockquote>
+<p>Contrary to what many of the <a href="http://www.techmeme.com/090915/p87#a090915p87">tech pundits are reporting</a>, this is not a recommendation engine. It is an implementation of <a href="http://en.wikipedia.org/wiki/MapReduce">MapReduce</a> written for windows.</p>
+<p>This opens up a nice set of options which are generally not available to developers on Windows. Heck, even <a href="http://bing.com">bing</a> <a href="http://ostatic.com/blog/powerset-leveraging-open-source-hadoop-powers-microsofts-bing">appears to leverage</a> <a href="http://hadoop.apache.org/">Hadoop</a>.</p>
+<p>The release is listed as Alpha, but contains a nice set of features:</p>
+<ul>
+	<li>Rapidly develop mapreducer jobs in C#.Net</li>
+	<li>Easy Do-It-Yourself Installer</li>
+	<li>Built-in <span class="caps">IDE</span>/Debugger</li>
+	<li>Automatically colors heap allocations in red</li>
+	<li>Autocomplete for rapid mapreducer development</li>
+	<li>Step through and debug mapreducer jobs directly on target cluster</li>
+	<li>From any machine in a cluster:</li>
+	<li>Edit mapreducer jobs</li>
+	<li>Debug mapreducer jobs</li>
+	<li>Execute mapreducer jobs</li>
+	<li>Administer mapreducer jobs</li>
+	<li>Delta-only exchange option for Mapreduce jobs</li>
+	<li>Configurable data-redundancy/machine level failover</li>
+	<li>Easily add machines to a cluster to increase processing power and capacity</li>
+	<li><span class="caps">CAC</span> (Cluster Assembly Cache) for exposing .Net DLLs to mapreduce jobs</li>
+	<li>Three kinds of jobs</li>
+	<li>Mapreduce &#8211; Set-based logic on large amounts of data</li>
+	<li>Remote &#8211; For problems that don&#8217;t fit into the mapreducer mold</li>
+	<li>Local &#8211; For orchestrating a pipeline of Mapreducer and Remote jobs</li>
+	<li>Three ways to exhange data durring mapreduce</li>
+	<li>Sorted &#8211; key/value pairs are evenly sorted accross the cluster</li>
+	<li>Grouped &#8211; like key/value pairs make their way to same reducer but not sorted</li>
+	<li>Hashsorted &#8211; super fast way to sort random data</li>
+</ul>
+<p>You can <a href="http://code.google.com/p/qizmt/">grab the code</a> from Google Code.</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Sep 15, 2009 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#myspace">myspace</a>,
+  	  
+  	    <a href="/tags/#mapreduce">mapreduce</a>,
+  	  
+  	    <a href="/tags/#oss">oss</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/thinking-different/" title="Thinking Different">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/netnewswire-2/" title="Google Reader on an iPhone">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:19 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

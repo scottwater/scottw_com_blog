@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : Quick Tips For ASP.Net - Part One </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151846" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151846" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/mavericks-at-work/" title="Mavericks at Work" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/the-best-firefox-extensions/" title="The Best FireFox Extensions" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>Quick Tips For ASP.Net - Part One</h1>
+  <div class="entry">
+  	<p>Just about everyone has been to a session on <span class="caps">ASP</span>.Net best practices, read a book or 10 on the subject, and possibly even a couple of blog posts or <span class="caps">MSDN</span> articles.  This post is <span class="caps">NOT</span> one of them. It is simply a quick list of tips and suggestions for making your <span class="caps">ASP</span>.Net application a little better.</p>
+<p>I jotted down the tips below over the course of the morning. It is by no means exhaustive and I hope to publish another set of tips or two shortly. If you have any other suggestions/tips, please list them below. If you are not the kind of person who likes to comment on a blog, please drop me a line at <a href="mailto:scottwater@gmail.com">scottwater@gmail.com</a>. I will either add them below or create another post and list them. I am also working on a set of caching tips, so if you have any of them, there will be a specific post related to caching.</p>
+<p>Tip: <strong id="dropdown">Do not use the AutoPostBack attribute on the DropDownList control to simply redirect to another page.</strong></p>
+<p>There are probably cases when this might make sense, but for the most part it is overkill. Using the autopostback for a redirect requires extra roundtrip to the server. First the autopostback returns to the server and processes everything up to the event handling the postback. Next a Response.Redirect is issued which goes back to the client requesting the client use another page. So you end up with two separate requests + processing just to get a user to another page.</p>
+<p>Using the onchange event of the select element, we can do this all on the client. In the sample below, I am simply redirecting to the current page with an updated querystring element. Your logic will vary, but in the case below, I am avoiding the zero index.</p>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;asp:DropDownList</span> <span class="na">runat=</span><span class="s">&quot;Server&quot;</span> <span class="na">ID =</span><span class="err"> </span><span class="s">&quot;dropdown&quot;</span> <span class="na">onchange =</span><span class="err"> </span><span class="s">&quot;if(this.selectedIndex &amp;gt; 0) { window.location = window.location.pathname + &#39;?t=&#39; + this[this.selectedIndex].value;}&quot;</span> <span class="nt">/&gt;</span>;
+</code></pre>
+</div><p>Tip: <strong id="nolabel">Never use the <span class="caps">ASP</span>.Net Label control.</strong></p>
+<p>Ever is a strong word, but except for some quick and dirty style hacks you should never ever use this control. Any text is rendered inside a span control which is usually unnecessary and complicates any <span class="caps">CSS</span> styling you may be trying to use. In most cases, you can replace the Label with a Literal and achieve the same results.</p>
+<p>Tip: <strong id="repeater">Use the <span class="caps">ASP</span>.Net Repeater instead of DataList, DataGrid, and DataView controls</strong></p>
+<p>The Repeater is the single most powerful control shipped in <span class="caps">ASP</span>.<span class="caps">NET</span>. It is versatile and lightweight. There are times (especially prototyping) when the other databound controls make sense to use, but they generate a lot of extra markup and generally complicate the page with all of their events and styling. Using the Repeater, you may write a little more code up front, but you will be rewarded in the long run.</p>
+<p>Tip: <strong id="cachetime">Understand how to effectively use caching.</strong></p>
+<p>By now, most <span class="caps">ASP</span>.<span class="caps">NET</span> developers know about the Cache. Most examples show the virtue of caching for hours at a time. Very little data that is worth the effort to display on a web page requires caching for this long. The main reasons for caching are performance related. Memory in <span class="caps">ASP</span>.<span class="caps">NET</span> is still a very limited resource. Do not waste it by caching anything more than a couple of minutes unless it is very expensive to regenerate.</p>
+<p>Tip: <strong id="memory">Always set a memory threshold for your AppPool.</strong></p>
+<p>A related tip would be to first understand the total memory available on your box: how many sites are there, is <span class="caps">SQL</span> running locally? Is there anything else on this box which will consistently use Memory?</p>
+<p>In most cases, you should never set the available memory for an AppPool above 800mb&#8217;s unless you can also set the 3/gb switch (then you can use about 1200mb).  Allowing memory to go unchecked or set about 800mb can bring even a moderately sized site to it&#8217;s knees once too much memory is used.</p>
+<p>Tip: <strong id="appoffline">Use AppOffline.htm for updates</strong></p>
+<p>If you are making any changes to files in your bin directory, always use the AppOffline.htm file. It is very likely that while you uploading (or copy &amp; pasting) your updates, users will see an error message. It is much better to show them one that you purposely created and can explain the situation vs. the built in <span class="caps">ASP</span>.<span class="caps">NET</span> error pages (or even your own customError page).  In addition, this will help prevent the locking .dll issue that is not supposed to exist anyway.</p>
+<p>Tip: <strong id="pagevalid">Always check Page.IsValid in your button&#8217;s EventHandler.</strong></p>
+<p>Just because you are using <span class="caps">ASP</span>.Net validation controls, do not assume the page could not be submitted with invalid data.</p>
+<p>Also, just because you hide a control, do not assume buttons/textboxes/etc on it are not submit-able. It is perfectly fine to hide a control that a user should not access, but with very little code (or using a third party tool) users can easily make an HttpPost with any data they choose.</p>
+<p>Tip: <strong id="permaredirect">When redirects are permanent, use a 301 status code.</strong></p>
+<p>This use to be a little more manual, but with <span class="caps">ASP</span>.<span class="caps">NET</span> 2.0, it is even easier:</p>
+<div class="highlight"><pre><code class="csharp"><span class="n">Response</span><span class="p">.</span><span class="n">RedirectLocation</span> <span class="p">=</span> <span class="s">&quot;http://site.com/newlink.aspx&quot;</span><span class="p">;</span>
+<span class="n">Response</span><span class="p">.</span><span class="n">End</span><span class="p">();</span>
+</code></pre>
+</div><p>Tip: <strong id="toabsolute">To create fully qualified URLs, use the new VirtualPath class.</strong></p>
+<div class="highlight"><pre><code class="csharp"><span class="kt">string</span> <span class="n">relativePath</span> <span class="p">=</span> <span class="s">&quot;~/somefolder/test/123.aspx&quot;</span>
+<span class="n">Uri</span> <span class="n">newUri</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Uri</span><span class="p">(</span><span class="n">Request</span><span class="p">.</span><span class="n">Url</span><span class="p">,</span> <span class="n">VirtualPathUtility</span><span class="p">.</span><span class="n">ToAbsolute</span><span class="p">(</span><span class="n">relativePath</span><span class="p">));</span>
+</code></pre>
+</div><p>Again, please add any other suggestions below. I am looking forward to reading them.</p>
+<p><strong>Update</strong>: It looks like <a href="http://haacked.com/archive/2007/02/15/ASP.NET_Tip_-_Use_The_Label_Control_Correctly.aspx">there is a case for using the Label control</a> as an html label element (for accessibility). I was unaware of this functionality and will call it out better in another tip installment. Thanks <a href="http://haacked.com">Phil</a> and <a href="http://dustyd.net/">Dusty</a>!</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Feb 15, 2007 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#aspnet">aspnet</a>,
+  	  
+  	    <a href="/tags/#asp-net-tips">asp-net-tips</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/mavericks-at-work/" title="Mavericks at Work">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/the-best-firefox-extensions/" title="The Best FireFox Extensions">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:18 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

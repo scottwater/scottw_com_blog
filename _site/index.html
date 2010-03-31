@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : My Spot on the Interwebs </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151912" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151912" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          
+<div class="post">
+
+  <h2 id="/setting-a-tab-title-in-terminal"><a href="/setting-a-tab-title-in-terminal/" rel="bookmark" title="Setting A Tab Title in Terminal">Setting A Tab Title in Terminal</a></h2>
+
+  <div class="entry">
+     <p>I have been spending a lot more time in terminal recently. I routinely find myself having more tabs open than I can keep track of.</p>
+<p>I then end up forgetting what&#8217;s open and end up opening even more tabs which just make the problem worse.</p>
+<p>I finally got tired of this and <a href="http://twitter.com/scottw/status/9900627749">posted a quick question on Twitter</a>. While waiting for a twitter response, I figured I would finally checkout <a href="http://superuser.com">SuperUser</a> which of course <a href="http://superuser.com/questions/105499/change-terminal-title-in-osx">had the answer</a>.</p>
+<p>You just need to execute the following command:</p>
+<div class="highlight"><pre><code class="bash"><span class="nb">echo</span> -n -e <span class="s2">&quot;\033]0;YOUR TAB TITLE HERE\007&quot;</span>
+</code></pre>
+</div><p>Since there is no way I will remember that command (and who should) I wrapped it in a function that I can put in my .bash_profile.</p>
+<div class="highlight"><pre><code class="bash"><span class="k">function </span>title<span class="o">(){</span>
+	<span class="nb">echo</span> -n -e <span class="s2">&quot;\033]0;$1\007&quot;</span>
+<span class="o">}</span>
+</code></pre>
+</div><p>Now, in any tab, I just need to execute:</p>
+<div class="highlight"><pre><code class="bash">title <span class="s1">&#39;My Tab Title&#39;</span>
+</code></pre>
+</div>
+  </div>
+
+  <p class="postmetadata2">
+  	Posted on Mar 02, 2010 
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#terminal">terminal</a>,
+  	  
+  	    <a href="/tags/#bash">bash</a>,
+  	  
+  	    <a href="/tags/#zsh">zsh</a>,
+  	  
+  	    <a href="/tags/#osx">osx</a>
+  	  
+  	
+  </p>
+
+</div>
+
+<div class="post">
+
+  <h2 id="/sinatra"><a href="/sinatra/" rel="bookmark" title="Singing With Sinatra">Singing With Sinatra</a></h2>
+
+  <div class="entry">
+     <p>I attended a couple Ruby sessions at <a href="http://scottw.com/code/codemash-2010/">CodeMash</a> this year which really piqued my interest level in Ruby.</p>
+<p>For many people (especially web developers) when you hear about Ruby they think Ruby on Rails. While Rails is an impressive framework, there are some other interesting options available. One of them that recently caught my attention (and admiration) is called <a href="http://www.sinatrarb.com/">Sinatra</a>.</p>
+<blockquote>
+<p><em>Sinatra is a <span class="caps">DSL</span> for quickly creating web applications in Ruby with minimal effort.</em></p>
+</blockquote>
+<p>Sinatra is a drop dead simple way to create a small site, blog, service, or even a prototype. Here is all it takes to serve a web request with Sinatra:</p>
+<div class="highlight"><pre><code class="ruby"><span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span> 
+<span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span> 
+<span class="n">get</span> <span class="s1">&#39;/hi&#39;</span> <span class="k">do</span> 
+  <span class="s2">&quot;Hello World!&quot;</span> 
+<span class="k">end</span>
+</code></pre>
+</div><p>While the code above returns the UI inline, there is full support for templates, layouts, and much more.</p>
+<p>If you are new to Ruby and want to see what you can do with the language with almost no effort, Sinatra is a great place to start.</p>
+<p>I have been hacking around on it for a couple of days and decided to write a simple plugin. While I am sure I will cringe at this code a couple of months from now, I figured I would post it see if it is useful to others.</p>
+<p>Goal:<br />
+Ensure urls served by the application are consistent by requiring no trailing slash and requiring all urls to be lower cased. If either one of these conditions are not met, the plugin will do a 301 redirect to the proper url.</p>
+<p>Here is the actual plugin:</p>
+<div class="highlight"><pre><code class="ruby"><span class="nb">require</span> <span class="s1">&#39;sinatra/base&#39;</span>
+ 
+<span class="k">module</span> <span class="nn">Sinatra</span>
+  <span class="k">module</span> <span class="nn">ConsistentUrls</span>
+    
+    <span class="k">def</span> <span class="nf">validate_url_requests</span><span class="p">()</span>
+      <span class="n">before</span> <span class="p">{</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">downcase</span>
+        <span class="n">path_to_redirect</span> <span class="o">=</span> <span class="kp">nil</span>
+ 
+        <span class="c1">#if the path ends in &#39;/&#39; remove it</span>
+        <span class="n">path_to_redirect</span> <span class="o">=</span>  <span class="n">path</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="o">-</span><span class="mi">2</span><span class="o">]</span> <span class="k">if</span><span class="sr"> /.+\/$/</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+ 
+        <span class="c1">#if the original path was not lower case. NOTE: we lowercase this above to minimize steps</span>
+        <span class="n">path_to_redirect</span> <span class="o">=</span> <span class="n">path</span> <span class="k">if</span> <span class="o">!</span><span class="n">path_to_redirect</span> <span class="o">&amp;&amp;</span>  <span class="n">path</span> <span class="o">!=</span> <span class="n">request</span><span class="o">.</span><span class="n">path</span>
+ 
+        <span class="c1">#if we need to redirect, build a query_string</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">path_to_redirect</span><span class="p">)</span>
+          <span class="n">query_string</span> <span class="o">=</span>  <span class="n">hash_to_querystring</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+          <span class="n">path_to_redirect</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="s2">&quot;?&quot;</span> <span class="o">+</span> <span class="n">query_string</span><span class="p">)</span> <span class="k">if</span> <span class="n">query_string</span>
+        <span class="k">end</span>
+ 
+        <span class="n">redirect</span> <span class="n">path_to_redirect</span><span class="p">,</span> <span class="mi">301</span> <span class="k">if</span> <span class="n">path_to_redirect</span>
+      <span class="p">}</span>
+    <span class="k">end</span>
+    
+    <span class="c1">#borrowed from http://justanothercoder.wordpress.com/2009/04/24/converting-a-hash-to-a-query-string-in-ruby/</span>
+    <span class="k">def</span> <span class="nf">hash_to_querystring</span><span class="p">(</span><span class="nb">hash</span><span class="p">)</span>
+      <span class="nb">hash</span><span class="o">.</span><span class="n">keys</span><span class="o">.</span><span class="n">inject</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">query_string</span><span class="p">,</span> <span class="n">key</span><span class="o">|</span>
+        <span class="n">query_string</span> <span class="o">&lt;&lt;</span> <span class="s1">&#39;&amp;&#39;</span> <span class="k">unless</span> <span class="n">key</span> <span class="o">==</span> <span class="nb">hash</span><span class="o">.</span><span class="n">keys</span><span class="o">.</span><span class="n">first</span>
+        <span class="n">query_string</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="no">URI</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">to_s</span><span class="p">)</span><span class="si">}</span><span class="s2">=</span><span class="si">#{</span><span class="no">URI</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="nb">hash</span><span class="o">[</span><span class="n">key</span><span class="o">]</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+      <span class="k">end</span>
+    
+    <span class="k">end</span>
+  
+  <span class="k">end</span>
+ 
+  <span class="n">register</span> <span class="no">ConsistentUrls</span>
+<span class="k">end</span>
+</code></pre>
+</div><p>A minimal application skeleton. The key line is the validate_url_requests which is what invokes the plugin.</p>
+<div class="highlight"><pre><code class="ruby"><span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;consistenturls&#39;</span>
+ 
+<span class="c1">#plugin </span>
+<span class="n">validate_url_requests</span>
+ 
+<span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
+   <span class="s2">&quot;Hello World&quot;</span>
+<span class="k">end</span>
+ 
+<span class="n">get</span> <span class="sr">%r{(.+)}</span> <span class="k">do</span> <span class="o">|</span><span class="n">catch_all</span><span class="o">|</span>
+    <span class="s2">&quot;I am the catch all </span><span class="si">#{</span><span class="n">catch_all</span><span class="si">}#{</span><span class="n">request</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">end</span>
+ 
+<span class="n">not_found</span> <span class="k">do</span>
+  <span class="s2">&quot;The path </span><span class="si">#{</span><span class="n">request</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2"> does not exist&quot;</span>
+<span class="k">end</span>
+</code></pre>
+</div><p>A set of tests.</p>
+<div class="highlight"><pre><code class="ruby"><span class="nb">require</span> <span class="s1">&#39;demo_app&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;test/unit&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;rack/test&#39;</span>
+ 
+<span class="n">set</span> <span class="ss">:environment</span><span class="p">,</span> <span class="ss">:test</span>
+ 
+<span class="k">class</span> <span class="nc">ConsistentUrlsTests</span> <span class="o">&lt;</span> <span class="no">Test</span><span class="o">::</span><span class="no">Unit</span><span class="o">::</span><span class="no">TestCase</span>
+  <span class="kp">include</span> <span class="no">Rack</span><span class="o">::</span><span class="no">Test</span><span class="o">::</span><span class="no">Methods</span>
+ 
+  <span class="k">def</span> <span class="nf">app</span>
+    <span class="vi">@app</span> <span class="o">||</span> <span class="no">Sinatra</span><span class="o">::</span><span class="no">Application</span>
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nf">test_urls_with_trailing_slashes_will_be_redirected</span>
+    <span class="n">execute_url_test</span><span class="p">(</span><span class="s1">&#39;/some-random-url/&#39;</span><span class="p">,</span> <span class="s1">&#39;/some-random-url&#39;</span><span class="p">)</span>
+    <span class="n">execute_url_test</span><span class="p">(</span><span class="s1">&#39;/some-random-url/second-path/&#39;</span><span class="p">,</span> <span class="s1">&#39;/some-random-url/second-path&#39;</span><span class="p">)</span>  
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nf">test_urls_with_trailing_slashes_and_querystrings_will_be_redirected</span>
+    <span class="n">execute_url_test</span><span class="p">(</span><span class="s1">&#39;/some-random-url/?abc=123&#39;</span><span class="p">,</span> <span class="s1">&#39;/some-random-url?abc=123&#39;</span><span class="p">)</span>
+    <span class="n">execute_url_test</span><span class="p">(</span><span class="s1">&#39;/some-random-URL/?abc=123&amp;z=abc&#39;</span><span class="p">,</span> <span class="s1">&#39;/some-random-url?abc=123&amp;z=abc&#39;</span><span class="p">)</span>
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nf">test_case_sensitive_url_will_be_redirected</span>
+    <span class="n">execute_url_test</span><span class="p">(</span><span class="s1">&#39;/CAPS-LOCK-ROCKS&#39;</span><span class="p">,</span> <span class="s1">&#39;/caps-lock-rocks&#39;</span><span class="p">)</span>
+  <span class="k">end</span> 
+  
+  <span class="k">def</span> <span class="nf">test_case_sensitive_url_with_trailing_slash_will_be_redirected</span>
+    <span class="n">execute_url_test</span><span class="p">(</span><span class="s1">&#39;/CAPS-LOCK-ROCKS/&#39;</span><span class="p">,</span> <span class="s1">&#39;/caps-lock-rocks&#39;</span><span class="p">)</span>
+  <span class="k">end</span> 
+  
+  <span class="k">def</span> <span class="nf">test_case_sensitive_url_with_query_string_will_be_redirected</span>
+    <span class="n">execute_url_test</span><span class="p">(</span><span class="s1">&#39;/CAPS-LOCK-ROCKS?abc=123&amp;def=HIJ&#39;</span><span class="p">,</span> <span class="s1">&#39;/caps-lock-rocks?abc=123&amp;def=HIJ&#39;</span><span class="p">)</span>
+    <span class="n">execute_url_test</span><span class="p">(</span><span class="s1">&#39;/CAPS-LOCK-ROCKS/ROCKS/It/ROCKs/?abc=123&amp;def=HIJ&#39;</span><span class="p">,</span> <span class="s1">&#39;/caps-lock-rocks/rocks/it/rocks?abc=123&amp;def=HIJ&#39;</span><span class="p">)</span>
+  <span class="k">end</span> 
+  
+  <span class="k">def</span> <span class="nf">execute_url_test</span><span class="p">(</span><span class="n">url_to_test</span><span class="p">,</span> <span class="n">expected_redirect</span><span class="p">)</span>
+    <span class="n">get</span> <span class="n">url_to_test</span>
+    <span class="n">follow_redirect!</span>
+    <span class="n">assert_equal</span> <span class="n">last_request</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="s1">&#39;http://example.org&#39;</span> <span class="o">+</span> <span class="n">expected_redirect</span>
+  <span class="k">end</span>
+  
+<span class="k">end</span>
+</code></pre>
+</div><p>Getting started:</p>
+<p>Setup steps for Sinatra can be <a href="http://github.com/sinatra/sinatra">found here</a>.</p>
+<p>Two things to note.</p>
+<p>1. To run the tests, you will need to get <a href="http://github.com/brynary/rack-test">rack-test</a>. I mistakenly assumed this part of Rack which tripped me up a bit.</p>
+<p>2. You need to grab <a href="http://rtomayko.github.com/shotgun/">Shotgun</a> if you want to have the site reloaded anytime you make a change. This requirement was apparently something that changed recently. It is documented nicely on the Sinatra site, but seems to catch people off guard.</p>
+  </div>
+
+  <p class="postmetadata2">
+  	Posted on Feb 17, 2010 
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#ruby">ruby</a>,
+  	  
+  	    <a href="/tags/#sinatra">sinatra</a>
+  	  
+  	
+  </p>
+
+</div>
+
+<div class="post">
+
+  <h2 id="/one-less-step"><a href="/one-less-step/" rel="bookmark" title="One Less Step">One Less Step</a></h2>
+
+  <div class="entry">
+     <p>Every step a user must take provides a chance for failure and frustration.</p>
+<p>Compare these two shipping confirmation emails from 1-800-Flowers and Zappos.</p>
+<p><strong>1-800-Flowers</strong></p>
+<p><img src="http://scottw.com/images/wlw/OneLessStep_8C64/1800Flowers_a404a639-a632-4bcb-b2e7-734bc152e196.jpg" title="1800 Flowers" alt="1800 Flowers" /></p>
+<p><strong>Zappos</strong></p>
+<p><img src="http://scottw.com/images/wlw/OneLessStep_8C64/zappos_bda0db96-1cdb-405c-9876-2c29610543ad.jpg" title="Zappos" alt="Zappos" /></p>
+<p>1-800-Flowers actually says, &#8220;2 easy steps&#8221;.</p>
+<p>However, what they are not counting on:</p>
+<ol>
+	<li>The tracking code is 18 characters. While more savvy computer users will simply copy and paste, many will try to manually enter the 18 characters. Those that do copy and paste will usually need to highlight the text, go to the edit menu select copy&#8230; in short, they are usually not going to use control+C and then control+V.</li>
+	<li>The <span class="caps">UPS</span> website is stuck in the mid-90&#8217;s and requires you to first pick your country. Don&#8217;t every make the wrong choice here (and of course this adds another step).</li>
+	<li>Users will need to switch back and forth between their email app/screen/tab and the <span class="caps">USP</span> screen.</li>
+</ol>
+<p>The funny thing about this is 1-800-Flowers actually has other links in the confirmation email, including one to <span class="caps">UPS</span>. They just don&#8217;t link to the one that really matters.</p>
+  </div>
+
+  <p class="postmetadata2">
+  	Posted on Feb 10, 2010 
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#ux">ux</a>,
+  	  
+  	    <a href="/tags/#simplicity">simplicity</a>
+  	  
+  	
+  </p>
+
+</div>
+
+<div class="post">
+
+  <h2 id="/nhprof-vs-sql-profiler"><a href="/nhprof-vs-sql-profiler/" rel="bookmark" title="NHProf vs. SQL Profiler">NHProf vs. SQL Profiler</a></h2>
+
+  <div class="entry">
+     <p><a href="http://nhprof.com/">NHProf</a> is a profiling tool for <a href="https://www.hibernate.org/343.html">NHibernate</a>.</p>
+<blockquote>
+<p><em>NHibernate Profiler is a real-time visual debugger allowing a development team to gain valuable insight and perspective into their usage of NHibernate.</em></p>
+</blockquote>
+<p>What really jumped out at me after using it for just a couple of minutes is how much more useful it is for developers than <span class="caps">SQL</span> Profiler (assuming you are using NHibernate).</p>
+<p>First a couple of screen shots that really tell the whole story:</p>
+<p>NHProf</p>
+<p><img src="http://scottw.com/images/wlw/11289ed9fb3a_7C7A/nhprof_1.png" title="NHProf Screenshot" alt="NHProf Screenshot" /></p>
+<p><span class="caps">SQL</span> Server Profiler</p>
+<p><img src="http://scottw.com/images/wlw/11289ed9fb3a_7C7A/SQL_Profiler.png" title="Sql Profiler Crappy Screenshot" alt="Sql Profiler Crappy Screenshot" /></p>
+<p>Which one of the two screen shots cares about the user?</p>
+<p>Seriously, if you had to use of these tools daily; would you choose the one that throws up on the screen or the one which tries to make your life easier?</p>
+<p>Obviously there is quite a bit more to <span class="caps">SQL</span> profiler, but for the things a developer would care about on a daily basis, you cannot beat the following:</p>
+<ol>
+	<li>Results grouped by session. NHibernate cheats by encouraging a single session to be used per page request, but either way it is a very useful way to view what is happening per request.</li>
+	<li>Details about the number of records returned per query.</li>
+	<li>Alerts and Tips pointing you performance improvements</li>
+</ol>
+<p>So far, NHProf has been a huge help in understanding how NHibernate translates mappings and queries requests into my object model.</p>
+<p>It also makes we wonder why this level of information is not available out of the box via <span class="caps">SQL</span> Profiler, but well&#8230;nevermind.</p>
+  </div>
+
+  <p class="postmetadata2">
+  	Posted on Feb 09, 2010 
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#nhiberate">nhiberate</a>,
+  	  
+  	    <a href="/tags/#nhprof">nhprof</a>,
+  	  
+  	    <a href="/tags/#sql-server">sql-server</a>
+  	  
+  	
+  </p>
+
+</div>
+
+<div class="post">
+
+  <h2 id="/a-tough-interview"><a href="/a-tough-interview/" rel="bookmark" title="A Tough Interview">A Tough Interview</a></h2>
+
+  <div class="entry">
+     <p>I have had a couple tough interviews&#8230;</p>
+<p>For the record, <a href="http://www.cnn.com/2010/WORLD/americas/02/01/bogota.bulletproof.tailor/index.html?hpt=C1">he is referring to to a gun</a>.</p>
+<p><img src="http://scottw.com/images/wlw/AToughInterview_B09A/Your_Job_3.jpg" alt="" /></p>
+  </div>
+
+  <p class="postmetadata2">
+  	Posted on Feb 03, 2010 
+  </p>
+
+</div>
+
+
+<div id="more">
+  <h3>Want to see more? Check out the <a href="/archive/">archive</a> or browse by <a href="/tags/">tags</a></h3>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:19 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

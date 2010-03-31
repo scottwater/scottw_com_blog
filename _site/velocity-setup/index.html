@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : Setting Up Velocity (Distributed Cache) </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <link rel="stylesheet" type="text/css" href="/css/default.css?20100331151854" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css?20100331151854" media="screen" />
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/velocity/" title="Velocity - Microsoft Distributed Cache" /> 
+      
+      
+      <link rel="next" href="http://scottw.com/simpletemplate/" title="SimpleTemplate" /> 
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about/">about</a></li>
+          <li><a href="/archive/">archives</a></li>
+          <li><a href="/tags/">tags</a></li>
+          <li><a href="/search/">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>Setting Up Velocity (Distributed Cache)</h1>
+  <div class="entry">
+  	<p>As I previously wrote, <a href="http://scottw.com/code/velocity/">Velocity is Microsoft&#8217;s entry into Distributed Caching</a>. It is currently in its first public <span class="caps">CTP</span>, so there are certainly going to be some rough spots. The documentation is pretty good, but setting it up and using it the first time required some trial and error. Here is a quick overview on getting it Velocity setup and and using the <span class="caps">API</span>.</p>
+<p>First, grab the <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=B24C3708-EEFF-4055-A867-19B5851E7CD2&amp;amp;displaylang=en"><span class="caps">CTP</span> bits</a> and run the <span class="caps">MSI</span>.</p>
+<p>As part of the install process, it is going to ask you to create a cache host configuration. I just created a folder called cache and named it Sample:</p>
+<p><img src="http://scottw.com/images/wlw/SettingUpVelocityDistributedCache_7024/captured_Image.png_3.png" alt="" /></p>
+<p>Next, execute the Velocity administration tool (should be a short-cut on your desktop). This is a command line tool. Type &#8220;start cluster&#8221; to get things going.</p>
+<p><img src="http://scottw.com/images/wlw/SettingUpVelocityDistributedCache_7024/d2192ed2-8977-416c-a748-deafb6611487.png" alt="" /></p>
+<p>Next, create a new VS.<span class="caps">NET</span> 2008 project and add references to following .dlls from the Program Files\Microsoft Distributed Cache folder: CacheBaseLibrary.dll, ClientLibrary.dll, FabricCommon.dll, CASBase.dll, and CASClient.dll.</p>
+<p>You will also need to add an app.config (or web.config) file to your project with the following (you can get this from the docs as well). You will also need to update the name attribute under dacheClient/hosts/host to include your machine name. The setup summary documentation was not clear about this.</p>
+<div class="highlight"><pre><code class="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;configSections&gt;</span>
+        <span class="nt">&lt;section</span> <span class="na">name=</span><span class="s">&quot;dcacheClient&quot;</span>
+                 <span class="na">type=</span><span class="s">&quot;System.Configuration.IgnoreSectionHandler&quot;</span>
+                 <span class="na">allowLocation=</span><span class="s">&quot;true&quot;</span> <span class="na">allowDefinition=</span><span class="s">&quot;Everywhere&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;section</span> <span class="na">name=</span><span class="s">&quot;fabric&quot;</span>
+      <span class="na">type=</span><span class="s">&quot;System.Fabric.Common.ConfigFile, FabricCommon&quot;</span>
+      <span class="na">allowLocation=</span><span class="s">&quot;true&quot;</span> <span class="na">allowDefinition=</span><span class="s">&quot;Everywhere&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/configSections&gt;</span>
+    <span class="nt">&lt;dcacheClient</span> <span class="na">deployment=</span><span class="s">&quot;simple&quot;</span> <span class="na">localCache=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;hosts&gt;</span>
+            <span class="c">&lt;!--List of hosts --&gt;</span>
+            <span class="nt">&lt;host</span> <span class="na">name=</span><span class="s">&quot;YOUR_MACHINE_NAME_HERE&quot;</span>
+                  <span class="na">cachePort=</span><span class="s">&quot;22233&quot;</span>
+                  <span class="na">cacheHostName=</span><span class="s">&quot;DistributedCacheService&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/hosts&gt;</span>
+    <span class="nt">&lt;/dcacheClient&gt;</span>
+    <span class="nt">&lt;fabric&gt;</span>
+        <span class="nt">&lt;section</span> <span class="na">name=</span><span class="s">&quot;logging&quot;</span> <span class="na">path=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;collection</span> <span class="na">name=</span><span class="s">&quot;sinks&quot;</span> <span class="na">collectionType=</span><span class="s">&quot;list&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;customType</span>
+                  <span class="na">className=</span><span class="s">&quot;System.Fabric.Common.EventLogger,FabricCommon&quot;</span>
+                  <span class="na">sinkName=</span><span class="s">&quot;System.Fabric.Common.ConsoleSink,FabricCommon&quot;</span>
+                  <span class="na">sinkParam=</span><span class="s">&quot;&quot;</span> <span class="na">defaultLevel=</span><span class="s">&quot;-1&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;customType</span>
+                  <span class="na">className=</span><span class="s">&quot;System.Fabric.Common.EventLogger,FabricCommon&quot;</span> 
+                  <span class="na">sinkName=</span><span class="s">&quot;System.Fabric.Common.FileEventSink,FabricCommon&quot;</span>
+                  <span class="na">sinkParam=</span><span class="s">&quot;CacheClientLog&quot;</span> <span class="na">defaultLevel=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;customType</span>
+                  <span class="na">className=</span><span class="s">&quot;System.Fabric.Common.EventLogger,FabricCommon&quot;</span>
+                  <span class="na">sinkName=</span><span class="s">&quot;System.Data.Caching.ETWSink, CacheBaseLibrary&quot;</span>
+                  <span class="na">sinkParam=</span><span class="s">&quot;&quot;</span> <span class="na">defaultLevel=</span><span class="s">&quot;-1&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/collection&gt;</span>
+        <span class="nt">&lt;/section&gt;</span>
+    <span class="nt">&lt;/fabric&gt;</span>
+ 
+<span class="nt">&lt;/configuration&gt;</span>
+</code></pre>
+</div><p>Now, we are just about ready to finally write some code. But before we proceed, there is one more thing we need to look up, the name of the cache. This is the part the tripped me up the most.</p>
+<p>The basic example in the documentation looks like this:</p>
+<div class="highlight"><pre><code class="csharp"><span class="k">using</span> <span class="nn">System.Data.Caching</span><span class="p">;</span>
+ 
+<span class="n">CacheFactory</span> <span class="n">CacheCluster1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">CacheFactory</span><span class="p">();</span>
+<span class="n">Cache</span> <span class="n">Cache1</span> <span class="p">=</span> <span class="n">CacheCluster1</span><span class="p">.</span><span class="n">GetCache</span><span class="p">(</span><span class="s">&quot;Cache1&quot;</span><span class="p">);</span>
+<span class="n">Cache1</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;cachedStringKey1&quot;</span><span class="p">,</span><span class="s">&quot;This string will be stored in cache&quot;</span><span class="p">);</span>
+</code></pre>
+</div><p>I had wrongfully assumed the cacheCluster1.GetCache(&#8220;Cache1&#8221;) call was referencing the name attribute we set above. This was concerning for a couple of reasons:</p>
+<ol>
+	<li>It did not work. :)</li>
+	<li>I didn&#8217;t like the idea of having to reference a specific machine.</li>
+</ol>
+<p>The good news is #2 is not the case and reading through some of the documentation helped clear this up. The parameter that passed in GetCache is the name of the cache we are requesting. This is necessary since each host can support multiple caches.</p>
+<p>It turns out the default cache name is &#8220;default&#8221; (go figure). To find this value you need to go back to admin command line tool and enter &#8220;list cache&#8221;</p>
+<p><img src="http://scottw.com/images/wlw/SettingUpVelocityDistributedCache_7024/cef7e6cf-5b3b-4d61-bbfc-c0c13597b1b1.png" alt="" /></p>
+<p>It also turns out, there is a static helper method which will supply the default cache name for you, so out of the box you can just ignore it (same goes for Region).</p>
+<p>All the objects we need to access are in the System.Data.Caching namespace.</p>
+<p>Here is the quick sample code:</p>
+<div class="highlight"><pre><code class="csharp"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Data.Caching</span><span class="p">;</span>
+ 
+<span class="k">namespace</span> <span class="nn">CacheDemo</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">var</span> <span class="n">cf</span> <span class="p">=</span> <span class="k">new</span> <span class="n">CacheFactory</span><span class="p">();</span>
+            <span class="n">var</span> <span class="n">cache</span> <span class="p">=</span> <span class="n">cf</span><span class="p">.</span><span class="n">GetCache</span><span class="p">(</span><span class="n">Cache</span><span class="p">.</span><span class="n">DefaultCache</span><span class="p">);</span>
+            
+            <span class="n">var</span> <span class="n">s</span> <span class="p">=</span> <span class="n">cache</span><span class="p">[</span><span class="s">&quot;sample&quot;</span><span class="p">]</span> <span class="k">as</span> <span class="n">Sample</span><span class="p">;</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">s</span> <span class="p">==</span> <span class="k">null</span><span class="p">);</span>
+ 
+            <span class="n">s</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Sample</span><span class="p">()</span> <span class="p">{</span><span class="n">Test</span> <span class="p">=</span> <span class="s">&quot;Hello World&quot;</span><span class="p">};</span>
+            <span class="n">cache</span><span class="p">.</span><span class="n">Put</span><span class="p">(</span><span class="s">&quot;sample&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+ 
+            <span class="n">s</span> <span class="p">=</span> <span class="n">cache</span><span class="p">[</span><span class="s">&quot;sample&quot;</span><span class="p">]</span> <span class="k">as</span> <span class="n">Sample</span><span class="p">;</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">s</span> <span class="p">==</span> <span class="k">null</span><span class="p">);</span>
+ 
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">s</span> <span class="p">!=</span> <span class="k">null</span> <span class="p">?</span> <span class="n">s</span><span class="p">.</span><span class="n">Test</span> <span class="p">:</span> <span class="s">&quot;I am null&quot;</span><span class="p">);</span> 
+            <span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="na"> </span>
+<span class="na">    [Serializable]</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Sample</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Test</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div><p>In the code above, we create a new instance of the CacheFactory and then get a reference to the default cache. From there, it should look very similar to using the HttpCache with one exception, cache.Put. Similar to <a href="http://www.danga.com/memcached/">Memecached</a>, Velocity supports the concept of Add&#8217;s and Put&#8217;s. The biggest difference between the two is Add will throw an exception if the given key already exists. If you use Put and the key does not exist, the object will be added. On the other hand, if the key already exists, Put will replace the object with he newer one.</p>
+<p>There is a lot more to Velocity than what I covered above. Just browsing the <span class="caps">API</span> there appears to be options for locking and versioning objects as well. As I previously mentioned, I am <a href="http://scottw.com/code/velocity/">on the fence</a> if this is a good thing, especially for the types of sites and applications I tend to build. But if you need this kind of object management, Velocity might fit the bill for you.</p>
+<p>Feel free to leave a comment if I missed a step or you need more clarification.</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Jun 04, 2008 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags/#velocity">velocity</a>,
+  	  
+  	    <a href="/tags/#cache">cache</a>,
+  	  
+  	    <a href="/tags/#memcached">memcached</a>
+  	  
+  	
+  </p>
+</div>
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/velocity/" title="Velocity - Microsoft Distributed Cache">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+      <a href="/simpletemplate/" title="SimpleTemplate">Next &rarr;</a>
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Last generated by <a href="http://jekyllrb.com">Jekyll</a> March 31, 2010 at 03:18 PM</p>
+        </div>
+      
+      </div>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,17 @@
+---
+layout: default
+title: Ah crap
+---
+
+<h2>Crap!</h2>
+
+<p>Sorry, the link you are looking for is missing, broken, or has been removed for being lame (this is the most likely reason).</p>
+
+<p>Here is a list of my most recent 10 posts:</p>
+
+<ol>
+{% for post in site.posts limit:10 %}
+<li id="{{post.id}}"><a href="{{post.url}}" rel="bookmark" title="{{post.title}}">{{post.title}}</a></li>
+{% endfor %}
+</ol>
+<p>If that is not enough, please feel free to check out the full <a href="/archive/">archive</a> or view all of my posts by <a href="/tags/">tag</a>.
