@@ -7,7 +7,7 @@ rawDate: "11/6/2008 1:56:52 PM"
 tags: [quotes, cs, telligent, ning, video]
 ---
 
-!http://scottw.com/images/WindowsLiveWriter/FollowtheChefs_C21E/outinspire_3.jpg!:http://headrush.typepad.com/creating_passionate_users/2007/04/my_favorite_gra.html
+!http://scottw.com/images/wlw/FollowtheChefs_C21E/outinspire_3.jpg!:http://headrush.typepad.com/creating_passionate_users/2007/04/my_favorite_gra.html
 
 With all the news about a crappy economy, I found the "video below by Jason Fried":http://network.businessofsoftware.org/video/2352433:Video:2016 of "37Signals":http://37signals.com very interesting.
 

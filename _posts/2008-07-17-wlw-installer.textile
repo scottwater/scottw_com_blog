@@ -9,7 +9,7 @@ tags: [wlw]
 
 I was trying to install Windows Live Writer on a new windows box and was greeted with something I thought had been put to rest many years ago.
 
-!http://scottw.com/images/WindowsLiveWriter/InstallingWindowsLiveWelcomeBacktothe90s_C410/windows_live_writer_installer_3.png(windows live writer installer)!
+!http://scottw.com/images/wlw/InstallingWindowsLiveWelcomeBacktothe90s_C410/windows_live_writer_installer_3.png(windows live writer installer)!
 
 What's wrong here?
 

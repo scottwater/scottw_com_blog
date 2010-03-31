@@ -16,7 +16,7 @@ I have been using the demo version of a couple of weeks and I have to say that w
 
 Since I do not have anything interesting to share, I grabbed a nice example off of the Basamiq site.
 
-!http://scottw.com/images/WindowsLiveWriter/Balsamiq_14788/mytube_aaeca152-55da-44fa-9793-b126868dfc93.gif(my tube picture)!
+!http://scottw.com/images/wlw/Balsamiq_14788/mytube_aaeca152-55da-44fa-9793-b126868dfc93.gif(my tube picture)!
 
 Here are the basics:
 

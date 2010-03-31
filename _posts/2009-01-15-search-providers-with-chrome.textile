@@ -16,18 +16,18 @@ First, what do you have to do to add a new provider? For many sites just visit i
 
 Next, go "wrench" > Options > Select "Manage" next to default Search.
 
-!http://scottw.com/images/WindowsLiveWriter/SearchProviderswithChrome_5234/image_3.png(Google Chrome Options)!
+!http://scottw.com/images/wlw/SearchProviderswithChrome_5234/image_3.png(Google Chrome Options)!
 
 On the Manage screen you will see the search providers Chrome understands and a Keyword associated to them. The keyword defaults to the domain name, but can easy be changed to enable quicker searches.
 
-!http://scottw.com/images/WindowsLiveWriter/SearchProviderswithChrome_5234/image_9.png(Search Engines)!
+!http://scottw.com/images/wlw/SearchProviderswithChrome_5234/image_9.png(Search Engines)!
 
 Here is the edit screen.
 
-!http://scottw.com/images/WindowsLiveWriter/SearchProviderswithChrome_5234/image_8.png(Edit Search Engine)!
+!http://scottw.com/images/wlw/SearchProviderswithChrome_5234/image_8.png(Edit Search Engine)!
 
 What does this all mean? It means than on this computer, if I enter "st" + space in the menu bar, I can easily execute a search against twitter. Throw in a quick cntrl+L to get to the menu bar and my hands never leave the keyboard.
 
-!http://scottw.com/images/WindowsLiveWriter/SearchProviderswithChrome_5234/image_82265801-5b5c-4b67-95cd-6d91f4a39772.png!
+!http://scottw.com/images/wlw/SearchProviderswithChrome_5234/image_82265801-5b5c-4b67-95cd-6d91f4a39772.png!
 
 Also note, if for whatever reason, Chrome does not discover your provider/site, you can also manually enter one and assign your own keyword shortcut. Nice!

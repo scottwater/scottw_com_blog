@@ -16,6 +16,6 @@ _If each program tries to do this at the same time, you soon notice the slow dow
 
 _Startup Delayer allows you to setup how many seconds after Windows has started, to load each program._
 
-!http://scottw.com/images/WindowsLiveWriter/StartUpDelayer_7B30/ss_startdelay_9f21f168-e71d-4aad-94e7-422e7514a62b.jpg(Startup Delayer)!
+!http://scottw.com/images/wlw/StartUpDelayer_7B30/ss_startdelay_9f21f168-e71d-4aad-94e7-422e7514a62b.jpg(Startup Delayer)!
 
 Every time I reboot, I have wait for Tokbox, Skype, Live Messenger, and about 10 other things to get out of the way so I can get back to work. Using StartUp Delayer rebooting is now much less frustrating. I definitely recommend you check it out.

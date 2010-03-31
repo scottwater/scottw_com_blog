@@ -8,7 +8,7 @@ tags: [graffiti]
 ---
 
 
-!http://scottw.com/images/WindowsLiveWriter/GraffitiCMSRoadMap_7F3F/graffiti-logo-270907_3_064a3319-6555-46ce-816e-c8ce6cb034d0.png!
+!http://scottw.com/images/wlw/GraffitiCMSRoadMap_7F3F/graffiti-logo-270907_3_064a3319-6555-46ce-816e-c8ce6cb034d0.png!
 
 We finally got an updated version of the "Graffiti roadmap up on the site":http://graffiticms.com/blog/graffiti-roadmap-now-available/. There are some very noticeable updates and reprioritization. We ("Telligent":http://telligent.com) have some lofty goals with "Graffiti":http://graffiticms.com, but we came to the conclusion that we need to focus some more time on the basics before we start muddying the waters with features such as forums.
 

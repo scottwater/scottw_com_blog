@@ -14,7 +14,7 @@ I do not think they are listed according to rank, but number two in his list is 
 
 It is very easy to use, relatively quick, supports multiple sites, and has a nice variety of plugins. However, by far its best feature is media support, especially images. Drag an image onto the editing surface and from there you can resize it, link to the original, add a drop shadow, and much more. Once you are finished, just click publish and the images will be sent to your server.
 
-!http://scottw.com/images/WindowsLiveWriter/WindowsLiveWriter_891B/image_thumb.png!
+!http://scottw.com/images/wlw/WindowsLiveWriter_891B/image_thumb.png!
 
 There are some other tools which do similar things, but none of them seem to do mix all these great image features with a pretty good WYWIWYG editor.
 

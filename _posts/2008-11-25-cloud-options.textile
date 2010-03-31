@@ -14,7 +14,7 @@ Here is an overview and some quick opinions of what each service offers.
 
 h3. "Amazon (AWS)":http://aws.amazon.com/
 
-!http://scottw.com/images/WindowsLiveWriter/MicrosoftCloudvs.GoogleAmazon_9AC7/logo_aws_3.gif!
+!http://scottw.com/images/wlw/MicrosoftCloudvs.GoogleAmazon_9AC7/logo_aws_3.gif!
 
 While they did not invent the notion of cloud computing, they are certainly the thought leader here and have an impressive offering.
 
@@ -37,7 +37,7 @@ h4. Overview &amp; Thoughts
 
 h3. "Google (AppEngine)":http://code.google.com/appengine/
 
-!http://scottw.com/images/WindowsLiveWriter/MicrosoftCloudvs.GoogleAmazon_9AC7/appengine_lowres_3.jpg!
+!http://scottw.com/images/wlw/MicrosoftCloudvs.GoogleAmazon_9AC7/appengine_lowres_3.jpg!
 
 Like everything else Google, they took a very simple approach called AppEngine.
 
@@ -59,7 +59,7 @@ h4. Overview &amp; Thoughts
 
 h3. "Microsoft (Windows Azure)":http://www.microsoft.com/azure/default.mspx
 
-!http://scottw.com/images/WindowsLiveWriter/MicrosoftCloudvs.GoogleAmazon_9AC7/image_a0893aea-deb2-446b-a277-d6de97bc1aac.png!
+!http://scottw.com/images/wlw/MicrosoftCloudvs.GoogleAmazon_9AC7/image_a0893aea-deb2-446b-a277-d6de97bc1aac.png!
 
 In typical Microsoft fashion, they are trying to cover all possible bases.
 

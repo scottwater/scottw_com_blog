@@ -21,7 +21,7 @@ h3. Tools
 
 "PandoraJam":http://bitcartel.com/pandorajam/ - A commercial (cheap $15) application for OS X. Notable features in streaming to Airport Express, growl integration, a recording option (doubt this is legal :), and some Mac style.
 
-!http://scottw.com/images/WindowsLiveWriter/GreatPandoraApplications_87A0/pandora_3.png(pandorajam)!
+!http://scottw.com/images/wlw/GreatPandoraApplications_87A0/pandora_3.png(pandorajam)!
 
 "iPhone":http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=284035177&amp;mt=8 - The Pandora iPhone application gives iTunes remote a serious run for most useful iPhone application to date. It is very simple, but does the job surprising well over 3g.
 

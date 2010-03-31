@@ -8,7 +8,7 @@ tags: [yahoo, boss, rest]
 ---
 
 
-!http://scottw.com/images/WindowsLiveWriter/YahooSearchBOSSCImplementation_7620/image_3.png!:http://developer.yahoo.com/search/boss/
+!http://scottw.com/images/wlw/YahooSearchBOSSCImplementation_7620/image_3.png!:http://developer.yahoo.com/search/boss/
 
 I saw some mentions about "Yahoo's Boss":http://developer.yahoo.com/search/boss/ a couple weeks ago, but I didn't have time until recently to try it out for myself.
 

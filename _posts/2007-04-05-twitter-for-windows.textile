@@ -23,7 +23,7 @@ Tonight I tried three of them:
 # "Twitteroo":http://www.freakitude.com/2007/03/19/twitteroo-twitter-client-for-windows/ - Installed easily and posted as expected. However, it seemed to get stuck fetching recent updates so I moved on.
 # "TwitBox":http://www.winextra.com/2007/04/02/twitbox-053-bug-squasher-release/ - Very simple to use tool, no install required, see details below.
 
-!http://scottw.com/images/sw_Images/blog/WindowsLiveWriter/TwitterForWindows_14898/twitbox6.png!:http://www.winextra.com/2007/04/02/twitbox-053-bug-squasher-release/
+!http://scottw.com/images/wlw/TwitterForWindows_14898/twitbox6.png!:http://www.winextra.com/2007/04/02/twitbox-053-bug-squasher-release/
 
 It looks like I am going to stick with TwitBox. It is super easy to use, seems to do a good job of keeping itself updated, and has some very helpful keyboard shortcuts. So far, the only thing that is missing is some kind of "TinyUrl":http://tinyurl.com integration.
 

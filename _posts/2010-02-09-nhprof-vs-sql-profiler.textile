@@ -18,11 +18,11 @@ First a couple of screen shots that really tell the whole story:
 
 NHProf
 
-!http://scottw.com/images/WindowsLiveWriter/11289ed9fb3a_7C7A/nhprof_1.png(NHProf Screenshot)!
+!http://scottw.com/images/wlw/11289ed9fb3a_7C7A/nhprof_1.png(NHProf Screenshot)!
 
 SQL Server Profiler
 
-!http://scottw.com/images/WindowsLiveWriter/11289ed9fb3a_7C7A/SQL_Profiler.png(Sql Profiler Crappy Screenshot)!
+!http://scottw.com/images/wlw/11289ed9fb3a_7C7A/SQL_Profiler.png(Sql Profiler Crappy Screenshot)!
 
 Which one of the two screen shots cares about the user?
 

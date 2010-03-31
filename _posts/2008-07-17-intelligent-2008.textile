@@ -8,7 +8,7 @@ tags: [telligent, events, cs]
 ---
 
 
-!http://scottw.com/images/WindowsLiveWriter/in.telligent2008_13118/hero-dallas-skyline_1efe5925-58c0-406f-a2b7-afc7c9ffe607.png(in.telligent 2008)!:http://in.telligent.com
+!http://scottw.com/images/wlw/in.telligent2008_13118/hero-dallas-skyline_1efe5925-58c0-406f-a2b7-afc7c9ffe607.png(in.telligent 2008)!:http://in.telligent.com
 
 Registration is now open for "in.telligent":http://in.telligent.com 2008 which will be take place October 20 to October 22 in Dallas, Texas. This is the evolution of the what we called the CSDC (Community Server Developers Conference) last year.
 

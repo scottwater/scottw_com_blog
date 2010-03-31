@@ -13,11 +13,11 @@ Compare these two shipping confirmation emails from 1-800-Flowers and Zappos.
 
 *1-800-Flowers*
 
-!http://scottw.com/images/WindowsLiveWriter/OneLessStep_8C64/1800Flowers_a404a639-a632-4bcb-b2e7-734bc152e196.jpg(1800 Flowers)!
+!http://scottw.com/images/wlw/OneLessStep_8C64/1800Flowers_a404a639-a632-4bcb-b2e7-734bc152e196.jpg(1800 Flowers)!
 
 *Zappos*
 
-!http://scottw.com/images/WindowsLiveWriter/OneLessStep_8C64/zappos_bda0db96-1cdb-405c-9876-2c29610543ad.jpg(Zappos)!
+!http://scottw.com/images/wlw/OneLessStep_8C64/zappos_bda0db96-1cdb-405c-9876-2c29610543ad.jpg(Zappos)!
 
 1-800-Flowers actually says, "2 easy steps".
 

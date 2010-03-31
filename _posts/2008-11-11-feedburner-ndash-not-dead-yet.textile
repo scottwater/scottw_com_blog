@@ -8,7 +8,7 @@ tags: [google, feedburner, rss, adsense]
 ---
 
 
-!http://scottw.com/images/WindowsLiveWriter/FeedBurnerNotDeadYet_743D/feedburner_logo_55h_3.gif!:http://feedburner.com
+!http://scottw.com/images/wlw/FeedBurnerNotDeadYet_743D/feedburner_logo_55h_3.gif!:http://feedburner.com
 
 Maybe "FeedBurner":http://feedburner.com isn't dead after all. I received the following email this morning:
 

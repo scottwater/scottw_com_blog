@@ -16,7 +16,7 @@ We have been using "BaseCamp":http://basecamphq.com/ to manage "Graffiti":http:/
 
 Yesterday "Jason":http://jasona.net signed us up for a commercial account. I do not see us making much use of the integrated version control (although SVN does rock!), but so far the rest of the tool has been really helpful.
 
-!http://scottw.com/images/WindowsLiveWriter/UnfuddleBaseCampForDevelopers_DE34/tickets.big_3.jpg(tickets)!
+!http://scottw.com/images/wlw/UnfuddleBaseCampForDevelopers_DE34/tickets.big_3.jpg(tickets)!
 
 The things I like best so far:
 

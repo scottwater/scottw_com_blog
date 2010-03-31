@@ -8,7 +8,7 @@ tags: [easy-things, cloud, dropbox]
 ---
 
 
-!http://scottw.com/images/WindowsLiveWriter/Dropbox_8B6B/dropbox_b42f2bf2-3b8a-4515-bbc9-e7d041cf7b39.png(dropbox)!:https://www.getdropbox.com/
+!http://scottw.com/images/wlw/Dropbox_8B6B/dropbox_b42f2bf2-3b8a-4515-bbc9-e7d041cf7b39.png(dropbox)!:https://www.getdropbox.com/
 
 "Dropbox":https://www.getdropbox.com/ is a super simple way to share files across multiple computers (PC or Mac) as well as with friends and family.
 

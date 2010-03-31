@@ -7,7 +7,7 @@ rawDate: "9/23/2008 10:11:20 AM"
 tags: [telligent, intel-capital]
 ---
 
-!http://scottw.com/images/WindowsLiveWriter/IntelCapitalinvests20MinTelligent_552/intel_eefcf2d2-07d5-4789-9372-4aceeb3fd121.png!
+!http://scottw.com/images/wlw/IntelCapitalinvests20MinTelligent_552/intel_eefcf2d2-07d5-4789-9372-4aceeb3fd121.png!
 
 Today is the "official announcement":http://telligent.com/news-and-events/news/intel-capital-to-acquire-20-million-stake-in-telligent/ of a very big next step in the life of "Telligent":http://telligent.com.
 

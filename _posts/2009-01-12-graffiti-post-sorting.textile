@@ -18,7 +18,7 @@ The good news is Graffiti does make it easy to choose a couple of other sorting 
 
 If you click edit on a category, you will see the following options:
 
-!http://scottw.com/images/WindowsLiveWriter/HowtoSortPostsinGraffitibyCategory_4E3C/image_3.png(Graffiti Post Sort Options)!
+!http://scottw.com/images/wlw/HowtoSortPostsinGraffitibyCategory_4E3C/image_3.png(Graffiti Post Sort Options)!
 
 The options should be fairly straight forward. There is even an option for "Custom Sorting" which takes you to another screen and allows you to drag and drop the sort order to your hearts content.
 

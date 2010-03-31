@@ -10,7 +10,7 @@ tags: [air, twitter, google-analytics]
 
 I am really starting to dig some "AIR":http://labs.adobe.com/technologies/air/ based applications.
 
-!http://scottw.com/images/WindowsLiveWriter/StartingtoDigAIR_B659/adobe_air_225x50_3.jpg!
+!http://scottw.com/images/wlw/StartingtoDigAIR_B659/adobe_air_225x50_3.jpg!
 
 In particular:
 

@@ -7,7 +7,7 @@ rawDate: "11/13/2008 10:42:27 AM"
 tags: [azure, scale, pdc, quote]
 ---
 
-!http://scottw.com/images/WindowsLiveWriter/ApologyBasedComputing_968E/image_3.png!
+!http://scottw.com/images/wlw/ApologyBasedComputing_968E/image_3.png!
 
 I was watching Max Feingold's "PDC":https://sessions.microsoftpdc.com/public/timeline.aspx talk, "_Designing Your Application to Scale_":http://channel9.msdn.com/pdc2008/BB54/ and one particular quote really stuck out to me.
 

@@ -20,7 +20,7 @@ The "list of differences":http://msdn.microsoft.com/en-us/library/dd179405.aspx:
 
 I read the list above a numerous times when I was trying to track down my "table keys issue":http://scottw.com/code/azure-table-storage-key-conventions/ and thankfully #5 "String properties in the local Table services are limited to 1,000 characters" sunk in because the exception thrown when this happens is very unhelpful.
 
-!http://scottw.com/images/WindowsLiveWriter/AzureLocalStorage1000Characters_12A84/image_thumb.png(Azure Local Storage 1000 Characters)!:http://scottw.com/images/WindowsLiveWriter/AzureLocalStorage1000Characters_12A84/image_2.png
+!http://scottw.com/images/wlw/AzureLocalStorage1000Characters_12A84/image_thumb.png(Azure Local Storage 1000 Characters)!:http://scottw.com/images/wlw/AzureLocalStorage1000Characters_12A84/image_2.png
 
 Granted it is still pre-beta, so I am sure the error message will improve.
 

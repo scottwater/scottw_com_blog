@@ -10,7 +10,7 @@ tags: [codemash, events]
 
 I had the opportunity this year to attend "CodeMash":http://codemash.org/ 2010.
 
-!http://scottw.com/images/WindowsLiveWriter/CodeMash2010_BADB/codemash_bc127d19-e19e-4067-a5ed-bbdc846e2ef6.png(codemash logo)!:http://codemash.org
+!http://scottw.com/images/wlw/CodeMash2010_BADB/codemash_bc127d19-e19e-4067-a5ed-bbdc846e2ef6.png(codemash logo)!:http://codemash.org
 
 For those of you unfamiliar with CodeMash:
 

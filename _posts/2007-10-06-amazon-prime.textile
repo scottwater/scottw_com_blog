@@ -8,7 +8,7 @@ tags: [amazon]
 ---
 
 
-!http://scottw.com/images/WindowsLiveWriter/AmazonPrime_7E2C/amazonprime_3.png(Amazon Prime)!
+!http://scottw.com/images/wlw/AmazonPrime_7E2C/amazonprime_3.png(Amazon Prime)!
 
 Much to the chagrin of my wife, after the Emily was born I signed up for "Amazon Prime":http://www.amazon.com/gp/subs/primeclub/signup/main.html. For $79/year Amazon will ship just about everything to you second day and will overnight items for around $3.99 (although some items like books are usually $1.99). She did not like the idea of paying $79 for shipping for the year, but I knew that with a baby in the house getting out to pick up non-essentials was going to be a real hassle.
 

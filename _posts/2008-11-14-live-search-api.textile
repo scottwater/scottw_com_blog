@@ -8,7 +8,7 @@ tags: [live, search, graffiti]
 ---
 
 
-!http://scottw.com/images/WindowsLiveWriter/LiveSearchAPISilkRoad_6B4B/image_3.png!
+!http://scottw.com/images/wlw/LiveSearchAPISilkRoad_6B4B/image_3.png!
 
 Yesterday, Microsoft announced the release of "Live Search services "Silk Road":http://search.live.com/developers.
 

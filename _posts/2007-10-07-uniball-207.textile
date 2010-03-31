@@ -6,7 +6,7 @@ graffitiID: "12"
 rawDate: "10/7/2007 11:06:56 PM"
 ---
 
-!http://scottw.com/images/WindowsLiveWriter/Uniball207_14506/lg_207_3.jpg!
+!http://scottw.com/images/wlw/Uniball207_14506/lg_207_3.jpg!
 
 I just saw a commercial for the "Uniball 207":http://www.uniball-na.com/main.taf?p=2,2,3 which claims it can help prevent check fraud by "Helps prevent check washing". I am not big on the pen market (ok, I actually know nothing except Mont Blanc's are expensive), but this is an interesting pen marketing technique (fear).
 

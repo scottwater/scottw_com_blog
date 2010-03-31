@@ -8,7 +8,7 @@ tags: [google, lively, economy]
 ---
 
 
-!http://scottw.com/images/WindowsLiveWriter/SayingGoodbyetotheNonEssential_3A41/corner_logo_3.gif!
+!http://scottw.com/images/wlw/SayingGoodbyetotheNonEssential_3A41/corner_logo_3.gif!
 
 I expect we will be hearing many "announcements like this from Google":http://googleblog.blogspot.com/2008/11/lively-no-more.html and many others in the coming weeks and months.
 

@@ -10,7 +10,7 @@ tags: [design, books, graffiti]
 
 James Avery wrote a post, ""Modals or No more popups":http://dotavery.com/blog/archive/2007/10/08/149425.aspx" inquiring about modal solutions. I really do not have an opinion on the different options :), but his post reminded me of a rule set for myself while working on "Graffiti":http://graffiticms.com/: *Never use Popups unless they are absolutely positively needed*.
 
-!http://scottw.com/images/WindowsLiveWriter/DitchAnythingModal_13BEB/areyousure_6.png(Sucky modal with an X through it)!
+!http://scottw.com/images/wlw/DitchAnythingModal_13BEB/areyousure_6.png(Sucky modal with an X through it)!
 
 This rule was influenced by "Robert Hoekman's":http://www.rhjr.net/ excellent, "_"designing the obvious":http://www.amazon.com/exec/obidos/redirect?path=ASIN/032145345X&amp;link_code=as2&amp;camp=1789&amp;tag=scottwater-20&amp;creative=9325_".
 

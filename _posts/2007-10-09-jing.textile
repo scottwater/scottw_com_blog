@@ -8,7 +8,7 @@ tags: [jing, techsmith, easy-things]
 ---
 
 
-!http://scottw.com/images/WindowsLiveWriter/Jing_1180A/jing_thumb.png(Jing)!
+!http://scottw.com/images/wlw/Jing_1180A/jing_thumb.png(Jing)!
 
 Here is another one of those great ""easy things":http://scottw.com/tags/easy-things/" I love so much.
 

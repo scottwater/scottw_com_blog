@@ -12,7 +12,7 @@ I have been slumming it this week in Hawaii working with a "Telligent Community"
 
 This morning, a new (to me?) feature of Windows 7 caught my eye.
 
-!http://scottw.com/images/WindowsLiveWriter/Windows7HotelRoomNotification_BB2B/win7hotel_4.png(Windows 7 Hotel Notification)!
+!http://scottw.com/images/wlw/Windows7HotelRoomNotification_BB2B/win7hotel_4.png(Windows 7 Hotel Notification)!
 
 Like most hotels, the one I am staying in requires you enable internet access daily. The message above is essentially telling me that while I appear to be connected to the internet, I probably need to take some kind of action if I want to actually do something.
 

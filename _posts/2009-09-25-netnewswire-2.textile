@@ -22,11 +22,11 @@ Here is what it does really well:
 
 "*Instapaper*":http://instapaper.com- the Instapaper integration is flawless. Even better, if you do click a link from with in a post, you can add that specific page to Instapaper as well.
 
-!http://scottw.com/images/WindowsLiveWriter/GoogleReaderonaniPhone_847C/SendToInstapaper_101df7d4-e105-4d6a-967c-c322bdaee552.png(SendToInstapaper)!
+!http://scottw.com/images/wlw/GoogleReaderonaniPhone_847C/SendToInstapaper_101df7d4-e105-4d6a-967c-c322bdaee552.png(SendToInstapaper)!
 
 "*Twitter*":http://twitter.com/scottw - the twitter integration is almost flawless as well. However, I would love to use bit.ly instead of TinyUrl.
 
-!http://scottw.com/images/WindowsLiveWriter/GoogleReaderonaniPhone_847C/sendtotwitter_4dfa000b-5f83-4018-aaae-9e4428d569b0.jpg(sendtotwitter)!
+!http://scottw.com/images/wlw/GoogleReaderonaniPhone_847C/sendtotwitter_4dfa000b-5f83-4018-aaae-9e4428d569b0.jpg(sendtotwitter)!
 
 *Navigation* - very easy to move around, quick access to the next unread feed
 
