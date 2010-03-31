@@ -13,11 +13,11 @@ First, grab the "CTP bits":http://www.microsoft.com/downloads/details.aspx?Famil
 
 As part of the install process, it is going to ask you to create a cache host configuration. I just created a folder called cache and named it Sample:
 
-!http://scottw.com/images/WindowsLiveWriter/SettingUpVelocityDistributedCache_7024/captured_Image.png_3.png(captured_Image.png)!
+!http://scottw.com/images/WindowsLiveWriter/SettingUpVelocityDistributedCache_7024/captured_Image.png_3.png!
 
 Next, execute the Velocity administration tool (should be a short-cut on your desktop). This is a command line tool. Type "start cluster" to get things going.
 
-!http://scottw.com/images/WindowsLiveWriter/SettingUpVelocityDistributedCache_7024/captured_Image.png%5B10%5D_d2192ed2-8977-416c-a748-deafb6611487.png!
+!http://scottw.com/images/WindowsLiveWriter/SettingUpVelocityDistributedCache_7024/d2192ed2-8977-416c-a748-deafb6611487.png!
 
 Next, create a new VS.NET 2008 project and add references to following .dlls from the Program Files\Microsoft Distributed Cache folder: CacheBaseLibrary.dll, ClientLibrary.dll, FabricCommon.dll, CASBase.dll, and CASClient.dll.
 
@@ -92,7 +92,7 @@ The good news is #2 is not the case and reading through some of the documentatio
 
 It turns out the default cache name is "default" (go figure). To find this value you need to go back to admin command line tool and enter "list cache"
 
-!http://scottw.com/images/WindowsLiveWriter/SettingUpVelocityDistributedCache_7024/captured_Image.png%5B12%5D_cef7e6cf-5b3b-4d61-bbfc-c0c13597b1b1.png!
+!http://scottw.com/images/WindowsLiveWriter/SettingUpVelocityDistributedCache_7024/cef7e6cf-5b3b-4d61-bbfc-c0c13597b1b1.png!
 
 It also turns out, there is a static helper method which will supply the default cache name for you, so out of the box you can just ignore it (same goes for Region).
 

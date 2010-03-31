@@ -74,7 +74,7 @@ Tip: *(#usercontrols)Declare your User Controls*
 
 This tip is very similar to the custom server controls except for a slightly different syntax.
 
-!http://scottw.com/images/sw_Images/blog/WindowsLiveWriter/ASP.NetQuickTipsWeb.config_6CE7/usercontrols_thumb%5B1%5D.png!:http://scottw.com/images/sw_Images/blog/WindowsLiveWriter/ASP.NetQuickTipsWeb.config_6CE7/usercontrols%5B3%5D.png
+!http://scottw.com/images/sw_Images/blog/WindowsLiveWriter/ASP.NetQuickTipsWeb.config_6CE7/usercontrols_thumb.png!
 
 Tip: *(#configSource)Know when to use configSource attribute*
 
@@ -96,7 +96,7 @@ Instead of configuring a path and type in the HttpHandlers section, simply add a
 
 There are still times when you need to use the web.config method (a single handler for multiple paths, a different handler by verb, etc), but in most cases such as serving RSS or handling images you can very easily use the ASHX file.
 
-In addition, you do not have to put the code inline. You can still place your handler code in a compiled assembly and then use ASHX file to wire it up. This makes it much easier to move a file around, use a rewriting engine like "UrlRewriter.Net":http://urlrewriter.net/, or even an "Isapi Filter":http://scottwater.com/blog/archive/tags/isapi+filters/ since your web.config does not have to be changed when path is updated. We use this approach quite a bit in Community Server.
+In addition, you do not have to put the code inline. You can still place your handler code in a compiled assembly and then use ASHX file to wire it up. This makes it much easier to move a file around, use a rewriting engine like "UrlRewriter.Net":http://urlrewriter.net/, or even an "Isapi Filter":http://scottw.com/blog/archive/tags/isapi+filters/ since your web.config does not have to be changed when path is updated. We use this approach quite a bit in Community Server.
 
 &lt;%@ WebHandler Language="C#" Class="CommunityServer.Blogs.Components.WeblogRssHandler" %&gt;
 

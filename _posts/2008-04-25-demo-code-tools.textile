@@ -10,7 +10,7 @@ tags: [linqpad, snippetcompiler, tools, easy-things]
 
 Did you ever just want to test a quick piece of code? Prove an idea? Or even just wanted to see the name of a property to answer an email/forum/support request? Here are a couple of *free tools* which can make it very easy and convenient.
 
-I have been a "long time fan":http://scottwater.com/blog/search/snippet/ of "Jeff Key's":http://weblogs.asp.net/jkey/default.aspx "Snippet Compiler":http://www.sliver.com/dotnet/SnippetCompiler/. I guess I missed the announcement, but it looks like there was a nice update in December.
+I have been a long time fan of "Jeff Key's":http://weblogs.asp.net/jkey/default.aspx "Snippet Compiler":http://www.sliver.com/dotnet/SnippetCompiler/. I guess I missed the announcement, but it looks like there was a nice update in December.
 
 !http://scottw.com/images/WindowsLiveWriter/DemoCode_14B05/SnippetCompiler_3.png(SnippetCompiler)!
 

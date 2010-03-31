@@ -10,7 +10,7 @@ tags: [nvelocity, open-source, mvc, castle, graffiti, cs]
 
 "NVelocity":http://www.castleproject.org/others/nvelocity/index.html[1] is a .NET port of the "Velocity":http://velocity.apache.org/engine/releases/velocity-1.5/index.html open source template engine. I have used NVelocity quite a few times over the last couple of years.
 
-* "CSBTL":http://scottwater.com/blog/pages/csbtl/ - this project never went public, but basically it removed the need to understand web forums and complicated server controls for building Community Server blog themes.
+* "CSBTL":http://scottw.com/blog/pages/csbtl/ - this project never went public, but basically it removed the need to understand web forums and complicated server controls for building Community Server blog themes.
 * "Graffiti":http://graffiticms.com/ - Graffiti supports a very simple theming model which enables building new themes with no knowledge of web forms and/or ASP.Net
 
 While you have more options using aspx pages, I generally prefer the simplicity of doing web pages via NVelocity. There are no complicated server controls, complete control over the markup, simple extensibility, and no need to jump between contexts when iterating over a list.

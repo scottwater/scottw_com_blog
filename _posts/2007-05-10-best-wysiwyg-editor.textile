@@ -12,6 +12,6 @@ I am on the market for a new WYSIWYG editor. By far the most important feature i
 
 So far, my personal favorite is the "pages" editor found in Google Groups. It does the really important things and has a very small foot print. I really wish this is part of their web tool kit.
 
-!http://scottwater.com/images/sw_Images/blog/WindowsLiveWriter/YourFavoriteWYSIWYGEditor_15C4/google_editor_thumb%5B3%5D.png!
+!http://scottw.com/images/sw_Images/blog/WindowsLiveWriter/YourFavoriteWYSIWYGEditor_15C4/google_editor_thumb.png!
 
 Do you have any suggestions? Has anyone seen something like the Google Group editor?

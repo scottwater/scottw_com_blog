@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-      <title>Scott Watermasysk : {{ page.title }} </title>
+      <title>{{ site.title }} : {{ page.title }} </title>
       <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
       <meta name="robots" content="{{page.robots}}" /> 
       <link rel="stylesheet" type="text/css" href="/css/default.css?{{site.time | date: "%Y%m%d%H%M%S"}}" media="screen" />
@@ -22,41 +22,42 @@
     </div>
 
     <div id="page">
+      
       <div id="header">
         <div id="blogname">
-          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <h2 class="siteTitle"><a href="/" title="{{site.title}}">{{site.title}}</a></h2>
           <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
         </div>
       </div>
 
       <div id="wrapper">
+        
         <div id="content">
           {{content}}
         </div>
 
         <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            {% include aboutme.html %}
+          </div> 
+          <div class="sidelist"> 
+            {% include ads.html %}
+          </div>
+        </div>
 
-
-  			<div class="sidelist"> 
-            <a href="http://www.twitter.com/scottw"><img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/></a>
-        </div> 
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212;
+          </p>
+          <p>Last generated {{site.time | date: "%B %d, %Y at %I:%M %p"}}</p>
+        </div>
       
-        <div class="sidelist"> 
-          {% include aboutme.html %}
-      </div> 
-
-      <div class="sidelist"> 
-        {% include ads.html %}
       </div>
-
-    </div>
-
-    <div id="footer">
-      <p>
-        &copy; Scott Watermasysk &#8212;
-      </p>
-      <p>Last generated {{site.time | date: "%B %d, %Y at %I:%M %p"}}</p>
-        
     </div>
   </body>
 </html>

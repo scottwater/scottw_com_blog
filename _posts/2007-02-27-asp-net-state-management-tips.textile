@@ -108,4 +108,4 @@ bq. Control state is essentially another state repository whose contents is prop
 
 As always, I am eager to hear your feedback, additions, and suggestions. I am working on a separate post with tips on the most important state management option, caching, which is why I avoided the topic here.
 
-FYI, this is part three of a continuing series of ASP.Net Tips. If you found this post helpful, you may want to check out the other posts in the series: "General ASP.Net Tips":http://scottwater.com/blog/archive/quick-tips-for-asp-net-part-one/ and "Web.config Tips":http://scottwater.com/blog/archive/asp-net-web-config-tips-part-two/.
+FYI, this is part three of a continuing series of ASP.Net Tips. If you found this post helpful, you may want to check out the other posts in the series: "General ASP.Net Tips":http://scottw.com/blog/archive/quick-tips-for-asp-net-part-one/ and "Web.config Tips":http://scottw.com/blog/archive/asp-net-web-config-tips-part-two/.

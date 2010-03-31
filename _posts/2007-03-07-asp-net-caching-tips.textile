@@ -8,7 +8,7 @@ tags: [aspnet, asp-net-tips]
 ---
 
 
-This is part four in the "ASP.Net tips series":http://scottwater.com/blog/archive/tags/asp.net+tips/. In particular, this is a follow-up to, ""ASP.Net Quick Tips - State Management":http://scottwater.com/blog/archive/asp-net-state-management-tips/" which focuses exclusively on caching.
+This is part four in the "ASP.Net tips series":http://scottw.com/blog/archive/tags/asp.net+tips/. In particular, this is a follow-up to, ""ASP.Net Quick Tips - State Management":http://scottw.com/blog/archive/asp-net-state-management-tips/" which focuses exclusively on caching.
 
 Caching:
 
