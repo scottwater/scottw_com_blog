@@ -23,13 +23,13 @@ If you have question or two or just need some more information, please feel free
 
 h2. What about this site? 
 
-This site is currently powered by "Jekyll":http://jekyllrb.com, hosted by "Heroku":http://heroku.com by using "Rack-Jekyll":http://github.com/bry4n/rack-jekyll. 
+This site is currently generate by "Jekyll":http://jekyllrb.com, hosted by "Heroku":http://heroku.com via "Rack-Jekyll":http://github.com/bry4n/rack-jekyll. 
 
 With so many ways to easily communicate these days it is very easy to over think the question, "where and what to blog?". This is something I have given way too much thought to over the last 7 years or so. 
 
 Here is my current plan: 
 
-# Post about code, specific uses of software/tools, business, books, etc go on "this site":http://scottw.com. 
+# Post about code, specific uses of software/tools, business, books, etc go on "ScottW.com":http://scottw.com. 
 # Post which are about news, trends, other sites, job opportunities, etc will go on my "Tumblr":http://tumblr.com blog "ScottW.me":http://scottw.me. 
 
 Again, this is probably over thinking, but it feels like the right mix for me.
