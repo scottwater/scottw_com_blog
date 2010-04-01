@@ -5,3 +5,4 @@ baseUrl: http://scottw.com
 author: Scott Watermasysk
 title: Scott Watermasysk
 feedurl: http://feeds.simpable.com/simpable
+exclude: [lib, config.ru, Rakefile]
