@@ -45,7 +45,6 @@ module Rack
         full_path = ::File.expand_path(@path + path_info)
         body = content(full_path)
         time = ::File.mtime(full_path).httpdate
-        #request.env['HTTP_IF_MODIFIED_SINCE']
         if time == request.env['HTTP_IF_MODIFIED_SINCE']
           [304, {'Last-Modified' => time}, []]
         else
