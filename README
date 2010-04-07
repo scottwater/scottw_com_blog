@@ -1,12 +1,12 @@
-This is the personal blog of Scott Watermasysk. 
+This is the personal blog of [Scott Watermasysk](http://scottw.com). 
 
-It is built with Jekyll and is currently hosted on Heroku with the help of Rack-Jekyll*.
+It is built with [Jekyll](http://jekyllrb.com) and is currently hosted on [Heroku](http://heroku.com) with the help of [Rack-Jekyll](http://github.com/bry4n/rack-jekyll).
 
 Building this site was made possible by the awesomeness of Jekyll and following folks for posting their Jekyll sites to Github:
 
-J
-A
-T
+* [John Duff](http://jduff.github.com/) ([github](http://github.com/jduff/jduff.github.com))
+* [Alex Payne](http://al3x.net/) ([github](http://github.com/al3x/al3x.github.com))
+* [Tate Johnson](http://tatey.com) ([github](http://github.com/tatey/tatey.com))
 
 At times it might be hard to see it in my mangled markup, but I borrowed pits and pieces form each of their sites to make this work.
 
