@@ -1,13 +1,37 @@
+h1. About
+
 This is the personal blog of [Scott Watermasysk](http://scottw.com). 
 
-It is built with [Jekyll](http://jekyllrb.com) and is currently hosted on [Heroku](http://heroku.com) with the help of [Rack-Jekyll](http://github.com/bry4n/rack-jekyll).
+It is built with "Jekyll":http://jekyllrb.com and is currently hosted on "Heroku":http://heroku.com with the help of "Rack-Jekyll":http://github.com/bry4n/rack-jekyll.
 
 Building this site was made possible by the awesomeness of Jekyll and following folks for posting their Jekyll sites to Github:
 
-* [John Duff](http://jduff.github.com/) ([github](http://github.com/jduff/jduff.github.com))
-* [Alex Payne](http://al3x.net/) ([github](http://github.com/al3x/al3x.github.com))
-* [Tate Johnson](http://tatey.com) ([github](http://github.com/tatey/tatey.com))
+* "John Duff":http://jduff.github.com/ ("github":http://github.com/jduff/jduff.github.com)
+* "Alex Payne":http://al3x.net/) ("github":http://github.com/al3x/al3x.github.com)
+* "Tate Johnson":http://tatey.com) ("github":http://github.com/tatey/tatey.com)
 
 At times it might be hard to see it in my mangled markup, but I borrowed pits and pieces form each of their sites to make this work.
 
 All the content/etc is released under Creative Commons. I do ask that you don't repost verbatim and in the event you too want a drab looking site, feel free to fork it. :)
+
+h1. License
+
+All original textual content is licensed under the "Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 United States License":http://creativecommons.org/licenses/by-nc-nd/3.0/us/.
+
+All code is licensed under the "Apache License, Version 2.0":http://www.apache.org/licenses/LICENSE-2.0.html, reproduced below:
+
+<blockquote>
+Copyright 2010 Scott Watermasysk
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+"http://www.apache.org/licenses/LICENSE-2.0":http://www.apache.org/licenses/LICENSE-2.0.html
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</blockquote>
