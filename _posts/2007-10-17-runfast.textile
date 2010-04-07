@@ -8,7 +8,7 @@ tags: [easy-things, runfast]
 ---
 
 
-Today's ""easy things":http://scottw.com/tags/easy-things/" is a killer little utility called "RunFast":http://www.idiogensoftware.com/runfast/index.htm.
+Today's ""easy things":http://scottw.com/tags#easy-things" is a killer little utility called "RunFast":http://www.idiogensoftware.com/runfast/index.htm.
 
 !http://scottw.com/images/wlw/RunFast_8D0C/runfast_3.png(RunFAST)!
 

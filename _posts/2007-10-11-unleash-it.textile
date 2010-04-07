@@ -8,7 +8,7 @@ tags: [easy-things, unleash-it]
 ---
 
 
-I am going to try to make ""easy things":http://scottw.com/tags/easy-things/" a recurring theme here.
+I am going to try to make ""easy things":http://scottw.com/tags#easy-things" a recurring theme here.
 
 Today's "easy thing", is "Unleash It":http://www.eworldui.net/UnleashIt/.
 

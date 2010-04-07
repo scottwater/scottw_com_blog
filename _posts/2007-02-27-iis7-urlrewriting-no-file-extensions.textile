@@ -15,7 +15,7 @@ Talking about allowing an HttpModule to execute on all requests, without the hav
 # It will work on any IIS 7.0 machine. You don't need an administrator to enable anything on the remote host. It will also work in medium trust shared hosting scenarios.
 # We'll also be shipping a Microsoft supported URL-Rewriting module in the IIS7 RTM timeframe that will be available for free as well that you'll be able to use on IIS7, and which will provide nice support for advanced re-writing scenarios for all content on your web-server.
 
-As I have said quite a few times recently, I have been "enjoying using an isapi filter":http://scottw.com/blog/archive/tags/isapi+filters/, but from as a product developer, it would be great to have this type of functionality available out of the box. I really hope they enable a lot of the same great functionally found in current filters and not the boring unusable urlrewriting tools which shipped with ASP.Net 2.0 (I am talking about the web.config option and not context.rewritepath).
+As I have said quite a few times recently, I have been "enjoying using an isapi filter":http://scottw.com/tags#isapi-filters, but from as a product developer, it would be great to have this type of functionality available out of the box. I really hope they enable a lot of the same great functionally found in current filters and not the boring unusable urlrewriting tools which shipped with ASP.Net 2.0 (I am talking about the web.config option and not context.rewritepath).
 
 IIS7 is looking better each day.
 

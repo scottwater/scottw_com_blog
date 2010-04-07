@@ -14,7 +14,7 @@ As I previously noted, I have been "increasingly frustrated with using my MBP":h
 
 *Sexy* - I am writing this post on a Dell Latitude D630. It is a solid machine, but even if you hate Apple, you have to admit the MBP is a beautiful piece of hardware. However, I did see a new Latitude E series last week and Dell has made a major jump forward. If you are looking to buy a new Windows laptop, at least on appearance I would highly recommend you check out the E series.
 
-"*Evernote*":http://evernote.com - "Evernote is an extremely useful tool":http://scottw.com/tags/evernote/ which I have written about quite a bit. Although I do prefer the GUI for the OS X version, the integration story is way better on Windows. You can send clippings directly from the browser and Outlook directly to the Evernote.
+"*Evernote*":http://evernote.com - "Evernote is an extremely useful tool":http://scottw.com/tags#evernote which I have written about quite a bit. Although I do prefer the GUI for the OS X version, the integration story is way better on Windows. You can send clippings directly from the browser and Outlook directly to the Evernote.
 
 "*Live Writer*":http://writer.live.com/ - By far the best blogging client at any price point Windows or OS X. The Wave 3 beta version is a bit flaky, but it is still very useful.
 

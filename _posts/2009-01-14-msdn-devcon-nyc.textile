@@ -8,7 +8,7 @@ tags: [community, speaking, sds, data-services]
 ---
 
 
-Continuing on this "years speaking circuit":http://scottw.com/tags/speaking/ I will be giving a talk next Tuesday at the "NYC edition":http://www.msdndevcon.com/Pages/start.aspx of the "MSDN DevCon":http://www.msdndevcon.com/Pages/start.aspx.
+Continuing on this "years speaking circuit":http://scottw.com/tags#speaking I will be giving a talk next Tuesday at the "NYC edition":http://www.msdndevcon.com/Pages/start.aspx of the "MSDN DevCon":http://www.msdndevcon.com/Pages/start.aspx.
 
 The session I am giving, "_Developing Applications Using Microsoft SQL Data Services_" which focus on leveraging data services both remotely and with SDS.
 
