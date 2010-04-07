@@ -12,6 +12,22 @@ Building this site was made possible by the awesomeness of Jekyll and following 
 
 At times it might be hard to see it in my mangled markup, but I borrowed pits and pieces form each of their sites to make this work.
 
+h1. Setup
+
+Besides installing Jekyll and its dependencies, you will need both rack-jekyll and rack-rewrite.
+
+  gem install rack-jekyll
+  gem install rack-rewrite
+  
+To run it locally, you will also need something like shotgun to serve the app. 
+
+  gem install shotgun
+  
+Once shotgun is install, you can do:
+
+  shotgun config.ru
+
+
 h1. License
 
 All original textual content is licensed under the "Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 United States License":http://creativecommons.org/licenses/by-nc-nd/3.0/us/.
