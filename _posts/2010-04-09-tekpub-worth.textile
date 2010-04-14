@@ -1,6 +1,6 @@
 ---
 title: Is Tekpub (or PeepCode) Worth the Money?
-date: 09/04/2010 10:01 AM
+date: 04/09/2010 10:01 AM
 permalink: /tekpub
 tags: [tekpub, peepcode]
 layout: post

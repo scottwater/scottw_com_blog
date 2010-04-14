@@ -4,7 +4,7 @@ task :new do
   slug = sluggit title
   
   #could be .yaml here, but I wan to control the order
-  post = "---\nlayout: post\ntitle: #{title}\ndate: #{Time.now.strftime("%d/%m/%Y %I:%M %p")}\npermalink: /#{slug}\ntags: [ ]\n---\n\nOnce upon a time..."
+  post = "---\nlayout: post\ntitle: #{title}\ndate: #{Time.now.strftime("%m/%d/%Y %I:%M %p")}\npermalink: /#{slug}\ntags: [ ]\n---\n\nOnce upon a time..."
   
   path = "#{Dir.pwd}/_posts/#{Time.now.strftime("%Y-%m-%d-")}#{slug}.textile"
     

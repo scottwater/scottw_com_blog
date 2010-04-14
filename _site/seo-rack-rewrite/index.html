@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : SEO with Rack-Rewrite </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <meta name="google-site-verification" content="cp4DJ22wBHgD7CU8Q8Qt6RzE-RBvt_Bs3P36V5sFVgI" />
+      <link rel="stylesheet" type="text/css" href="/css/default.css" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css" media="screen" />
+      
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/tekpub" title="Is Tekpub (or PeepCode) Worth the Money?" /> 
+      
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about">about</a></li>
+          <li><a href="/archive">archives</a></li>
+          <li><a href="/tags">tags</a></li>
+          <li><a href="/search">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>SEO with Rack-Rewrite</h1>
+  <div class="entry">
+  	<p>I am still very much in the camp of <a href="http://scottw.com/best-seo-advice">write good</a> (and consistent) content first and let <span class="caps">SEO</span> handle itself. However, that does not mean you should not keep an eye out for fundamental problems which can cause bad search engine results.</p>
+<p>One of these problems I believe every developer of public web sites needs to be mindful of is duplicate content. Duplicate content causes quite a few problems:</p>
+<ul>
+	<li>You may appear to be a spammer in the &#8220;eyes&#8221; of a search engine</li>
+	<li>Links may appear to be directed at two or more urls</li>
+	<li>Your content may have to compete with itself</li>
+</ul>
+<p>I have long been a fan of <a href="http://scottw.com/tags#sapi-rewrite">ISAPI_Rewrite</a> for <span class="caps">IIS</span> to help manage and control some of these problems (which is in turn heavily influenced by mod_rewrite). However, since I have moved this site to Heroku, I needed to find another solution.</p>
+<p>Thankfully, due to the awesomeness of <a href="http://rack.rubyforge.org/">Rack</a> and middleware, I found a component called <a href="http://github.com/jtrupiano/rack-rewrite">Rack-Rewrite</a> and I was able to leverage it with just a couple of minutes effort.</p>
+<blockquote>
+<p>A web server agnostic rack middleware for defining and applying rewrite rules. In many cases you can get away with Rack::Rewrite instead of writing Apache mod_rewrite rules.</p>
+</blockquote>
+<p>I am already using a customized Rack application, <a href="http://github.com/bry4n/rack-jekyll">Rack-Jekyll</a>, to power this site, so plugging in Rack-Rewrite was just as simple as adding a couple of lines to my rackup file.</p>
+<p>Here are the full contents of my config.ru</p>
+<div class="highlight"><pre><code class="ruby"><span class="nb">require</span> <span class="s2">&quot;rack/jekyll&quot;</span>
+<span class="nb">require</span> <span class="s2">&quot;rack-rewrite&quot;</span>
+
+<span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;RACK_ENV&#39;</span><span class="o">]</span> <span class="o">||=</span> <span class="s1">&#39;development&#39;</span>
+<span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;SITE_URL&#39;</span><span class="o">]</span> <span class="o">||=</span> <span class="s1">&#39;scottw.com&#39;</span>
+
+<span class="n">use</span> <span class="no">Rack</span><span class="o">::</span><span class="no">Rewrite</span> <span class="k">do</span>
+
+    <span class="n">r301</span> <span class="sr">%r{.*}</span><span class="p">,</span> <span class="s2">&quot;http://</span><span class="si">#{</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;SITE_URL&#39;</span><span class="o">]</span><span class="si">}</span><span class="s2">$&amp;&quot;</span><span class="p">,</span> <span class="ss">:if</span> <span class="o">=&gt;</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span> <span class="p">{</span><span class="o">|</span><span class="n">rack_env</span><span class="o">|</span>
+        <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;RACK_ENV&#39;</span><span class="o">]</span> <span class="o">==</span> <span class="s1">&#39;production&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">rack_env</span><span class="o">[</span><span class="s1">&#39;SERVER_NAME&#39;</span><span class="o">]</span> <span class="o">!=</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;SITE_URL&#39;</span><span class="o">]</span>
+      <span class="p">}</span>    
+
+    <span class="n">r301</span> <span class="sr">%r{^(.+)/$}</span><span class="p">,</span> <span class="s1">&#39;$1&#39;</span>
+  <span class="k">end</span>
+
+<span class="n">run</span> <span class="no">Rack</span><span class="o">::</span><span class="no">Jekyll</span><span class="o">.</span><span class="n">new</span>
+</code></pre>
+</div><p>The two rules I am running on this site ensure that only scottw.com (no www.) is used and that no links end in a &#8220;/&#8221;. The first is particularly important since Heroku issues you a custom url as well.</p>
+<p>What is really interesting about Rack-Rewrite is the ability to execute code as part of your rewrites. This enables a lot of flexibility (such as ignoring some rewrites when running in development mode).</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Apr 14, 2010 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags#ruby">ruby</a>,
+  	  
+  	    <a href="/tags#rack">rack</a>
+  	  
+  	
+  </p>
+</div>
+
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/tekpub" title="Is Tekpub (or PeepCode) Worth the Money?">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+
+<div class="feedback">
+  <p>
+    If you have any comments or questions about this post, please feel free to <a href="http://scottw.me/ask">ask them on Tumblr</a> or ping me on <a href="http://twitter.com/scottw">ping me on Twitter</a>.
+    </p>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Generated by <a href="http://jekyllrb.com">Jekyll</a>, powered by <a href="http://github.com/bry4n/rack-jekyll">Rack-Jekyll</a>, and hosted by <a href="http://heroku.com">Heroku</a></p>
+        </div>
+      
+      </div>
+    </div>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-65729-10']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>

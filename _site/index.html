@@ -42,6 +42,59 @@
           
 <div class="post">
 
+  <h2 id="/seo-rack-rewrite"><a href="/seo-rack-rewrite" rel="bookmark" title="SEO with Rack-Rewrite">SEO with Rack-Rewrite</a></h2>
+
+  <div class="entry">
+     <p>I am still very much in the camp of <a href="http://scottw.com/best-seo-advice">write good</a> (and consistent) content first and let <span class="caps">SEO</span> handle itself. However, that does not mean you should not keep an eye out for fundamental problems which can cause bad search engine results.</p>
+<p>One of these problems I believe every developer of public web sites needs to be mindful of is duplicate content. Duplicate content causes quite a few problems:</p>
+<ul>
+	<li>You may appear to be a spammer in the &#8220;eyes&#8221; of a search engine</li>
+	<li>Links may appear to be directed at two or more urls</li>
+	<li>Your content may have to compete with itself</li>
+</ul>
+<p>I have long been a fan of <a href="http://scottw.com/tags#sapi-rewrite">ISAPI_Rewrite</a> for <span class="caps">IIS</span> to help manage and control some of these problems (which is in turn heavily influenced by mod_rewrite). However, since I have moved this site to Heroku, I needed to find another solution.</p>
+<p>Thankfully, due to the awesomeness of <a href="http://rack.rubyforge.org/">Rack</a> and middleware, I found a component called <a href="http://github.com/jtrupiano/rack-rewrite">Rack-Rewrite</a> and I was able to leverage it with just a couple of minutes effort.</p>
+<blockquote>
+<p>A web server agnostic rack middleware for defining and applying rewrite rules. In many cases you can get away with Rack::Rewrite instead of writing Apache mod_rewrite rules.</p>
+</blockquote>
+<p>I am already using a customized Rack application, <a href="http://github.com/bry4n/rack-jekyll">Rack-Jekyll</a>, to power this site, so plugging in Rack-Rewrite was just as simple as adding a couple of lines to my rackup file.</p>
+<p>Here are the full contents of my config.ru</p>
+<div class="highlight"><pre><code class="ruby"><span class="nb">require</span> <span class="s2">&quot;rack/jekyll&quot;</span>
+<span class="nb">require</span> <span class="s2">&quot;rack-rewrite&quot;</span>
+
+<span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;RACK_ENV&#39;</span><span class="o">]</span> <span class="o">||=</span> <span class="s1">&#39;development&#39;</span>
+<span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;SITE_URL&#39;</span><span class="o">]</span> <span class="o">||=</span> <span class="s1">&#39;scottw.com&#39;</span>
+
+<span class="n">use</span> <span class="no">Rack</span><span class="o">::</span><span class="no">Rewrite</span> <span class="k">do</span>
+
+    <span class="n">r301</span> <span class="sr">%r{.*}</span><span class="p">,</span> <span class="s2">&quot;http://</span><span class="si">#{</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;SITE_URL&#39;</span><span class="o">]</span><span class="si">}</span><span class="s2">$&amp;&quot;</span><span class="p">,</span> <span class="ss">:if</span> <span class="o">=&gt;</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span> <span class="p">{</span><span class="o">|</span><span class="n">rack_env</span><span class="o">|</span>
+        <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;RACK_ENV&#39;</span><span class="o">]</span> <span class="o">==</span> <span class="s1">&#39;production&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">rack_env</span><span class="o">[</span><span class="s1">&#39;SERVER_NAME&#39;</span><span class="o">]</span> <span class="o">!=</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;SITE_URL&#39;</span><span class="o">]</span>
+      <span class="p">}</span>    
+
+    <span class="n">r301</span> <span class="sr">%r{^(.+)/$}</span><span class="p">,</span> <span class="s1">&#39;$1&#39;</span>
+  <span class="k">end</span>
+
+<span class="n">run</span> <span class="no">Rack</span><span class="o">::</span><span class="no">Jekyll</span><span class="o">.</span><span class="n">new</span>
+</code></pre>
+</div><p>The two rules I am running on this site ensure that only scottw.com (no www.) is used and that no links end in a &#8220;/&#8221;. The first is particularly important since Heroku issues you a custom url as well.</p>
+<p>What is really interesting about Rack-Rewrite is the ability to execute code as part of your rewrites. This enables a lot of flexibility (such as ignoring some rewrites when running in development mode).</p>
+  </div>
+
+  <p class="postmetadata2">
+  	Posted on Apr 14, 2010 
+  	  and tagged as 
+  	  
+  	    <a href="/tags#ruby">ruby</a>,
+  	  
+  	    <a href="/tags#rack">rack</a>
+  	  
+  	
+  </p>
+
+</div>
+
+<div class="post">
+
   <h2 id="/tekpub-worth"><a href="/tekpub" rel="bookmark" title="Is Tekpub (or PeepCode) Worth the Money?">Is Tekpub (or PeepCode) Worth the Money?</a></h2>
 
   <div class="entry">
@@ -53,7 +106,7 @@
   </div>
 
   <p class="postmetadata2">
-  	Posted on Sep 04, 2010 
+  	Posted on Apr 09, 2010 
   	  and tagged as 
   	  
   	    <a href="/tags#tekpub">tekpub</a>,
@@ -268,40 +321,6 @@ Ensure urls served by the application are consistent by requiring no trailing sl
   	    <a href="/tags#ruby">ruby</a>,
   	  
   	    <a href="/tags#sinatra">sinatra</a>
-  	  
-  	
-  </p>
-
-</div>
-
-<div class="post">
-
-  <h2 id="/one-less-step"><a href="/one-less-step" rel="bookmark" title="One Less Step">One Less Step</a></h2>
-
-  <div class="entry">
-     <p>Every step a user must take provides a chance for failure and frustration.</p>
-<p>Compare these two shipping confirmation emails from 1-800-Flowers and Zappos.</p>
-<p><strong>1-800-Flowers</strong></p>
-<p><img src="http://scottw.com/images/wlw/OneLessStep_8C64/1800Flowers_a404a639-a632-4bcb-b2e7-734bc152e196.jpg" title="1800 Flowers" alt="1800 Flowers" /></p>
-<p><strong>Zappos</strong></p>
-<p><img src="http://scottw.com/images/wlw/OneLessStep_8C64/zappos_bda0db96-1cdb-405c-9876-2c29610543ad.jpg" title="Zappos" alt="Zappos" /></p>
-<p>1-800-Flowers actually says, &#8220;2 easy steps&#8221;.</p>
-<p>However, what they are not counting on:</p>
-<ol>
-	<li>The tracking code is 18 characters. While more savvy computer users will simply copy and paste, many will try to manually enter the 18 characters. Those that do copy and paste will usually need to highlight the text, go to the edit menu select copy&#8230; in short, they are usually not going to use control+C and then control+V.</li>
-	<li>The <span class="caps">UPS</span> website is stuck in the mid-90&#8217;s and requires you to first pick your country. Don&#8217;t every make the wrong choice here (and of course this adds another step).</li>
-	<li>Users will need to switch back and forth between their email app/screen/tab and the <span class="caps">USP</span> screen.</li>
-</ol>
-<p>The funny thing about this is 1-800-Flowers actually has other links in the confirmation email, including one to <span class="caps">UPS</span>. They just don&#8217;t link to the one that really matters.</p>
-  </div>
-
-  <p class="postmetadata2">
-  	Posted on Feb 10, 2010 
-  	  and tagged as 
-  	  
-  	    <a href="/tags#ux">ux</a>,
-  	  
-  	    <a href="/tags#simplicity">simplicity</a>
   	  
   	
   </p>
