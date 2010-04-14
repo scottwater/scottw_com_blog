@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Posts by Tag"
-permalink: /tags/
+permalink: /tags
 robots: "noindex,follow"
 ---
 
@@ -9,7 +9,7 @@ robots: "noindex,follow"
 
 <div id="archive">
 {% for tag in site.tags %}
-<h3 class="archiveset" id='{{tag[0]}}'>{{tag[0]}}</h3>
+<h3 class="archiveset" id="{{tag[0]}}">{{tag[0]}}</h3>
   {% for post in tag[1] %}
     <div class="archive-link"><a href="{{ post.url }}">{{ post.title }}</a></div>
   {% endfor %}

@@ -596,3 +596,14 @@ text-align:center;
 	background-color: #e6e3d7;
         text-decoration: none;
 	}
+
+
+.feedback {
+    background-color: rgb(255, 255, 204);
+    padding:2px;
+    margin-top: 10px;
+}
+
+.feedback p {
+    margin:5px;
+}
