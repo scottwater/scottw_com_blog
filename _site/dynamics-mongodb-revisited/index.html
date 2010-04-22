@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Scott Watermasysk : Dynamics and MongoDB Revisited </title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="robots" content="index,follow" /> 
+      <meta name="google-site-verification" content="cp4DJ22wBHgD7CU8Q8Qt6RzE-RBvt_Bs3P36V5sFVgI" />
+      <link rel="stylesheet" type="text/css" href="/css/default.css" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/css/syntax.css" media="screen" />
+      
+      <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/seo-rack-rewrite" title="SEO with Rack-Rewrite" /> 
+      
+      
+  </head>
+
+  <body>
+    <div id="top">
+      <div id="topbar">
+        <ul class="topmenu">
+          <li><a href="/about">about</a></li>
+          <li><a href="/archive">archives</a></li>
+          <li><a href="/tags">tags</a></li>
+          <li><a href="/search">search</a></li>
+          <li class="rss"><a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rssfeed" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="page">
+      
+      <div id="header">
+        <div id="blogname">
+          <h2 class="siteTitle"><a href="/" title="Scott Watermasysk">Scott Watermasysk</a></h2>
+          <p class="tagLine">&nbsp;&nbsp;Learning new things daily</p>
+        </div>
+      </div>
+
+      <div id="wrapper">
+        
+        <div id="content">
+          <div class="post">
+  <h1>Dynamics and MongoDB Revisited</h1>
+  <div class="entry">
+  	<p>A couple of months ago I wrote about wiring up <a href="http://scottw.com/mongodb-dynamics">C# 4.0 dynamics with MongoDB</a>. At the time, I opened up the <a href="http://github.com/samus/mongodb-csharp">MongoDB-CSharp</a> library and modified a bit of the code.</p>
+<p>For obvious reasons this was not a good long term solution. In what appeared to be moment of clarity a couple of days ago, I decided to try to use extension methods and add dynamics on top of MongoDB-CSharp.</p>
+<p>To the credit of the MongoDB-CSharp team, getting the basic functionality up and running was very simple. However, in the end it turns out that two compiler hacks (extension methods and dynamics) do not make a right. :)</p>
+<p>Once in place, the code to use it looks something like this:</p>
+<div class="highlight"><pre><code class="csharp"><span class="k">using</span> <span class="p">(</span><span class="n">var</span> <span class="n">m</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Mongo</span><span class="p">())</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">db</span> <span class="p">=</span> <span class="n">m</span><span class="p">[</span><span class="s">&quot;mongocsharp&quot;</span><span class="p">];</span>
+    
+    <span class="c1">//ext method to get our &quot;special&quot; collection</span>
+    <span class="n">var</span> <span class="n">col</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">GetDynoCollection</span><span class="p">(</span><span class="s">&quot;sample&quot;</span><span class="p">);</span> 
+    <span class="n">m</span><span class="p">.</span><span class="n">Connect</span><span class="p">();</span>
+
+    <span class="c1">//dynamic object to store our data</span>
+    <span class="n">dynamic</span> <span class="n">newDoc</span> <span class="p">=</span> <span class="k">new</span> <span class="n">DynoDocument</span><span class="p">();</span>
+    <span class="n">newDoc</span><span class="p">.</span><span class="n">title</span> <span class="p">=</span> <span class="s">&quot;Dyno Collections&quot;</span><span class="p">;</span>
+    <span class="n">newDoc</span><span class="p">.</span><span class="n">slug</span> <span class="p">=</span> <span class="s">&quot;dyno&quot;</span><span class="p">;</span>
+
+    <span class="n">col</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="n">newDoc</span><span class="p">);</span>
+
+    <span class="n">dynamic</span> <span class="n">query</span> <span class="p">=</span> <span class="k">new</span> <span class="n">DynoDocument</span><span class="p">();</span> 
+    <span class="n">query</span><span class="p">.</span><span class="n">slug</span> <span class="p">=</span> <span class="s">&quot;dyno&quot;</span>
+    <span class="n">dynamic</span> <span class="n">result</span> <span class="p">=</span> <span class="n">col</span><span class="p">.</span><span class="n">FindOne</span><span class="p">(</span><span class="n">query</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">title</span><span class="p">);</span>
+
+    <span class="n">m</span><span class="p">.</span><span class="n">Disconnect</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+</div><p>While it works, it still feels too awkward to be useful <span class="caps">IMO</span>. Normally, this I would just delete something like this, but I am trying to let less code die on my machine, so I published it all as a GitHub gist: <a href="http://gist.github.com/374418">DynoMongo</a>.</p>
+<p>After working on this, I have come to the following conclusions:</p>
+<ol>
+	<li>MongoDB-CSharp provides adequate flexibility on a schema if I need it in .<span class="caps">NET</span>. Mix in Automapper and a helper or two you are all set.</li>
+	<li><a href="http://github.com/atheken/NoRM">Norm</a> provides more structure if that is a requirementl</li>
+	<li>Dynamics are really just a parlor trick. If I want the flexibility of a dynamic language, using C# is a mistake.</li>
+	<li>I should probably try to do something similar in IronRuby, but with all the excellent MongoDB Ruby libraries out there, I am not sure it is even worth the thought.</li>
+</ol>
+<p>Anyway, if someone feels this is interesting or useful, feel free to grab the gist, <a href="http://gist.github.com/374418">DynoMongo</a>, and run with it.</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Apr 22, 2010 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags#mongodb">mongodb</a>,
+  	  
+  	    <a href="/tags#dynamics">dynamics</a>,
+  	  
+  	    <a href="/tags#csharp">csharp</a>
+  	  
+  	
+  </p>
+</div>
+
+
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/seo-rack-rewrite" title="SEO with Rack-Rewrite">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
+
+<div class="feedback">
+  <p>
+    If you have any comments or questions about this post, please feel free to <a href="http://scottw.me/ask">ask them on Tumblr</a> or ping me on <a href="http://twitter.com/scottw">ping me on Twitter</a>.
+    </p>
+</div>
+        </div>
+
+        <div id="sidebar">
+  			  <div class="sidelist"> 
+            <a href="http://www.twitter.com/scottw">
+              <img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"/>
+            </a>
+          </div> 
+          <div class="sidelist"> 
+            <h3>About</h3> 
+  <p> 
+    This is the personal site of <a href="/about/">Scott Watermasysk</a>.<br /><br />
+    <img src="/images/scottw.jpg" alt="Scott Watermasysk" title="Picture of the very funny, handsome, smart, and talented Scott Watermasysk" />
+    </p> 
+    <p> 
+Feel free to <a href="mailto:scottwater+blog@gmail.com">drop me a line</a> and if you like what are reading, please consider <a href="http://feeds.simpable.com/simpable">subscribing</a> to my rss feed <a href="http://feeds.simpable.com/simpable"><img src="/images/rss.gif" alt="rss feed" /></a>.
+    </p>
+          </div> 
+          <div class="sidelist"> 
+            <div id="lqdmad"> 
+  <div id="lqdmrd"> 
+    <a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...
+  </div> 
+  <p class="dmAdText"> 
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a> 
+    <script type="text/javascript"> 
+    <!-- 
+    lqm_channel=1;
+    lqm_publisher=225;
+    lqm_zone=1;
+    lqm_format=20;
+    //-->
+    </script> 
+    <script type="text/javascript" src="http://a.lakequincy.com/s.js"></script> 
+  </p> 
+</div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            &copy; Scott Watermasysk &#8212 2006-2010
+          </p>
+          <p>Generated by <a href="http://jekyllrb.com">Jekyll</a>, powered by <a href="http://github.com/bry4n/rack-jekyll">Rack-Jekyll</a>, and hosted by <a href="http://heroku.com">Heroku</a></p>
+        </div>
+      
+      </div>
+    </div>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-65729-10']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>
