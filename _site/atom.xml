@@ -4,7 +4,7 @@
  <title>Scott Watermasysk</title>
  <link href="http://scottw.com/atom.xml" rel="self"/>
  <link href="http://scottw.com/"/>
- <updated>2010-05-01T08:14:01-04:00</updated>
+ <updated>2010-05-05T13:50:30-05:00</updated>
  <id>http://scottw.com/</id>
  <author>
    <name>Scott Watermasysk</name>
@@ -110,7 +110,7 @@
  <entry>
    <title>.Text Lives (sort of)</title>
    <link href="http://scottw.com/dottext-lives"/>
-   <updated>2010-04-07T00:00:00-04:00</updated>
+   <updated>2010-04-07T00:00:00-05:00</updated>
    <id>http://scottw.com/dottext-lives</id>
    <content type="html">&lt;p&gt;If you are seeing this post, it means you are visiting my new home on the Intertubes &amp;#8211; &lt;a href=&quot;http://scottw.com&quot;&gt;ScottW.com&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;I have owned ScottW.com for a while, so I figured it was time to actually put it to use. Since I was going to make a change, I figured I would take the time to clean some things up and simplify the site.&lt;/p&gt;
@@ -126,7 +126,7 @@
  <entry>
    <title>Setting A Tab Title in Terminal</title>
    <link href="http://scottw.com/setting-a-tab-title-in-terminal"/>
-   <updated>2010-03-02T00:00:00-05:00</updated>
+   <updated>2010-03-02T00:00:00-06:00</updated>
    <id>http://scottw.com/setting-a-tab-title-in-terminal</id>
    <content type="html">&lt;p&gt;I have been spending a lot more time in terminal recently. I routinely find myself having more tabs open than I can keep track of.&lt;/p&gt;
 &lt;p&gt;I then end up forgetting what&amp;#8217;s open and end up opening even more tabs which just make the problem worse.&lt;/p&gt;
@@ -148,7 +148,7 @@
  <entry>
    <title>Singing With Sinatra</title>
    <link href="http://scottw.com/sinatra"/>
-   <updated>2010-02-17T00:00:00-05:00</updated>
+   <updated>2010-02-17T00:00:00-06:00</updated>
    <id>http://scottw.com/sinatra</id>
    <content type="html">&lt;p&gt;I attended a couple Ruby sessions at &lt;a href=&quot;http://scottw.com/code/codemash-2010/&quot;&gt;CodeMash&lt;/a&gt; this year which really piqued my interest level in Ruby.&lt;/p&gt;
 &lt;p&gt;For many people (especially web developers) when you hear about Ruby they think Ruby on Rails. While Rails is an impressive framework, there are some other interesting options available. One of them that recently caught my attention (and admiration) is called &lt;a href=&quot;http://www.sinatrarb.com/&quot;&gt;Sinatra&lt;/a&gt;.&lt;/p&gt;
@@ -283,7 +283,7 @@ Ensure urls served by the application are consistent by requiring no trailing sl
  <entry>
    <title>One Less Step</title>
    <link href="http://scottw.com/one-less-step"/>
-   <updated>2010-02-10T00:00:00-05:00</updated>
+   <updated>2010-02-10T00:00:00-06:00</updated>
    <id>http://scottw.com/one-less-step</id>
    <content type="html">&lt;p&gt;Every step a user must take provides a chance for failure and frustration.&lt;/p&gt;
 &lt;p&gt;Compare these two shipping confirmation emails from 1-800-Flowers and Zappos.&lt;/p&gt;
@@ -304,7 +304,7 @@ Ensure urls served by the application are consistent by requiring no trailing sl
  <entry>
    <title>NHProf vs. SQL Profiler</title>
    <link href="http://scottw.com/nhprof-vs-sql-profiler"/>
-   <updated>2010-02-09T00:00:00-05:00</updated>
+   <updated>2010-02-09T00:00:00-06:00</updated>
    <id>http://scottw.com/nhprof-vs-sql-profiler</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;http://nhprof.com/&quot;&gt;NHProf&lt;/a&gt; is a profiling tool for &lt;a href=&quot;https://www.hibernate.org/343.html&quot;&gt;NHibernate&lt;/a&gt;.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -331,7 +331,7 @@ Ensure urls served by the application are consistent by requiring no trailing sl
  <entry>
    <title>A Tough Interview</title>
    <link href="http://scottw.com/a-tough-interview"/>
-   <updated>2010-02-03T00:00:00-05:00</updated>
+   <updated>2010-02-03T00:00:00-06:00</updated>
    <id>http://scottw.com/a-tough-interview</id>
    <content type="html">&lt;p&gt;I have had a couple tough interviews&amp;#8230;&lt;/p&gt;
 &lt;p&gt;For the record, &lt;a href=&quot;http://www.cnn.com/2010/WORLD/americas/02/01/bogota.bulletproof.tailor/index.html?hpt=C1&quot;&gt;he is referring to to a gun&lt;/a&gt;.&lt;/p&gt;
@@ -341,7 +341,7 @@ Ensure urls served by the application are consistent by requiring no trailing sl
  <entry>
    <title>MongoDB and C# Dynamics</title>
    <link href="http://scottw.com/mongodb-dynamics"/>
-   <updated>2010-02-01T00:00:00-05:00</updated>
+   <updated>2010-02-01T00:00:00-06:00</updated>
    <id>http://scottw.com/mongodb-dynamics</id>
    <content type="html">&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Please see my follow up post, &lt;a href=&quot;http://scottw.com/dynamics-mongodb-revisited&quot;&gt;Dynamics and MongoDB Revisited&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;I am a big fan of &lt;a href=&quot;http://www.mongodb.org&quot;&gt;MongoDB&lt;/a&gt;.&lt;/p&gt;
