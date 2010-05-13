@@ -4,13 +4,33 @@
  <title>Scott Watermasysk</title>
  <link href="http://scottw.com/atom.xml" rel="self"/>
  <link href="http://scottw.com/"/>
- <updated>2010-05-05T13:50:30-05:00</updated>
+ <updated>2010-05-13T12:33:34-04:00</updated>
  <id>http://scottw.com/</id>
  <author>
    <name>Scott Watermasysk</name>
    <email>scottwater@gmail.com</email>
  </author>
  
+ 
+ <entry>
+   <title>OData</title>
+   <link href="http://scottw.com/odata"/>
+   <updated>Liquid error: undefined method `xmlschema' for "05/13/2010 11:31 AM":String</updated>
+   <id>http://scottw.com/odata</id>
+   <content type="html">&lt;p&gt;Yesterday, I made the trip into &lt;span class=&quot;caps&quot;&gt;NYC&lt;/span&gt; to added the &lt;a href=&quot;http://www.odata.org/roadshow&quot;&gt;OData Roadshow&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For those who have not looked into &lt;a href=&quot;http://www.odata.org/&quot;&gt;OData&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The Open Data Protocol (OData) is a Web protocol for querying and updating data that provides a way to unlock your data and free it from silos that exist in applications today. OData does this by applying and building upon Web technologies such as &lt;span class=&quot;caps&quot;&gt;HTTP&lt;/span&gt;, Atom Publishing Protocol (AtomPub) and &lt;span class=&quot;caps&quot;&gt;JSON&lt;/span&gt; to provide access to information from a variety of applications, services, and stores.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+	&lt;li&gt;I personally do not feel it is truly RESTful, but I am willing to give up some of the tenants of &lt;span class=&quot;caps&quot;&gt;REST&lt;/span&gt; in order to gain consistency.&lt;/li&gt;
+	&lt;li&gt;While the protocol specification states it is read and write, I would be 99% of implementations will be read only. In fact, in the 5 hours of content covered by Microsoft, there were zero examples of updates.&lt;/li&gt;
+	&lt;li&gt;If you are using a Linq to &amp;#8220;Your Data Access&amp;#8221; technology adding OData at a high level will be simple. If you are not using one, I expect this as quite a bit of work.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Overall, I really like the concept. Simple conventions for querying and representing data. &lt;span class=&quot;caps&quot;&gt;IMO&lt;/span&gt;, this is the kind of stuff Microsoft should be doing more of (instead of silverlight/windows phone/etc). Couple with their data market (Dallas). I would expect to see much more data becoming available via OData.&lt;/p&gt;
+&lt;p&gt;On a side note, if the OData Roadshow is coming through your town, I would highly recommend checking it out.&lt;/p&gt;
+&lt;p&gt;Finally, for a walk through on setting up your own OData service, check out Hanselman&amp;#8217;s &lt;a href=&quot;http://www.hanselman.com/blog/CreatingAnODataAPIForStackOverflowIncludingXMLAndJSONIn30Minutes.aspx&quot;&gt;OData For StackOverflow&lt;/a&gt; post.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Dynamics and MongoDB Revisited</title>
@@ -110,7 +130,7 @@
  <entry>
    <title>.Text Lives (sort of)</title>
    <link href="http://scottw.com/dottext-lives"/>
-   <updated>2010-04-07T00:00:00-05:00</updated>
+   <updated>2010-04-07T00:00:00-04:00</updated>
    <id>http://scottw.com/dottext-lives</id>
    <content type="html">&lt;p&gt;If you are seeing this post, it means you are visiting my new home on the Intertubes &amp;#8211; &lt;a href=&quot;http://scottw.com&quot;&gt;ScottW.com&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;I have owned ScottW.com for a while, so I figured it was time to actually put it to use. Since I was going to make a change, I figured I would take the time to clean some things up and simplify the site.&lt;/p&gt;
@@ -126,7 +146,7 @@
  <entry>
    <title>Setting A Tab Title in Terminal</title>
    <link href="http://scottw.com/setting-a-tab-title-in-terminal"/>
-   <updated>2010-03-02T00:00:00-06:00</updated>
+   <updated>2010-03-02T00:00:00-05:00</updated>
    <id>http://scottw.com/setting-a-tab-title-in-terminal</id>
    <content type="html">&lt;p&gt;I have been spending a lot more time in terminal recently. I routinely find myself having more tabs open than I can keep track of.&lt;/p&gt;
 &lt;p&gt;I then end up forgetting what&amp;#8217;s open and end up opening even more tabs which just make the problem worse.&lt;/p&gt;
@@ -148,7 +168,7 @@
  <entry>
    <title>Singing With Sinatra</title>
    <link href="http://scottw.com/sinatra"/>
-   <updated>2010-02-17T00:00:00-06:00</updated>
+   <updated>2010-02-17T00:00:00-05:00</updated>
    <id>http://scottw.com/sinatra</id>
    <content type="html">&lt;p&gt;I attended a couple Ruby sessions at &lt;a href=&quot;http://scottw.com/code/codemash-2010/&quot;&gt;CodeMash&lt;/a&gt; this year which really piqued my interest level in Ruby.&lt;/p&gt;
 &lt;p&gt;For many people (especially web developers) when you hear about Ruby they think Ruby on Rails. While Rails is an impressive framework, there are some other interesting options available. One of them that recently caught my attention (and admiration) is called &lt;a href=&quot;http://www.sinatrarb.com/&quot;&gt;Sinatra&lt;/a&gt;.&lt;/p&gt;
@@ -283,7 +303,7 @@ Ensure urls served by the application are consistent by requiring no trailing sl
  <entry>
    <title>One Less Step</title>
    <link href="http://scottw.com/one-less-step"/>
-   <updated>2010-02-10T00:00:00-06:00</updated>
+   <updated>2010-02-10T00:00:00-05:00</updated>
    <id>http://scottw.com/one-less-step</id>
    <content type="html">&lt;p&gt;Every step a user must take provides a chance for failure and frustration.&lt;/p&gt;
 &lt;p&gt;Compare these two shipping confirmation emails from 1-800-Flowers and Zappos.&lt;/p&gt;
@@ -304,7 +324,7 @@ Ensure urls served by the application are consistent by requiring no trailing sl
  <entry>
    <title>NHProf vs. SQL Profiler</title>
    <link href="http://scottw.com/nhprof-vs-sql-profiler"/>
-   <updated>2010-02-09T00:00:00-06:00</updated>
+   <updated>2010-02-09T00:00:00-05:00</updated>
    <id>http://scottw.com/nhprof-vs-sql-profiler</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;http://nhprof.com/&quot;&gt;NHProf&lt;/a&gt; is a profiling tool for &lt;a href=&quot;https://www.hibernate.org/343.html&quot;&gt;NHibernate&lt;/a&gt;.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -331,82 +351,11 @@ Ensure urls served by the application are consistent by requiring no trailing sl
  <entry>
    <title>A Tough Interview</title>
    <link href="http://scottw.com/a-tough-interview"/>
-   <updated>2010-02-03T00:00:00-06:00</updated>
+   <updated>2010-02-03T00:00:00-05:00</updated>
    <id>http://scottw.com/a-tough-interview</id>
    <content type="html">&lt;p&gt;I have had a couple tough interviews&amp;#8230;&lt;/p&gt;
 &lt;p&gt;For the record, &lt;a href=&quot;http://www.cnn.com/2010/WORLD/americas/02/01/bogota.bulletproof.tailor/index.html?hpt=C1&quot;&gt;he is referring to to a gun&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://scottw.com/images/wlw/AToughInterview_B09A/Your_Job_3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>MongoDB and C# Dynamics</title>
-   <link href="http://scottw.com/mongodb-dynamics"/>
-   <updated>2010-02-01T00:00:00-06:00</updated>
-   <id>http://scottw.com/mongodb-dynamics</id>
-   <content type="html">&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Please see my follow up post, &lt;a href=&quot;http://scottw.com/dynamics-mongodb-revisited&quot;&gt;Dynamics and MongoDB Revisited&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;I am a big fan of &lt;a href=&quot;http://www.mongodb.org&quot;&gt;MongoDB&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;There is a good C# driver called, &lt;a href=&quot;http://github.com/samus/mongodb-csharp&quot;&gt;MongoDB-CSharp&lt;/a&gt;. Unfortunately, because of the strongly typed nature of C#, the default implementation requires you to work with your data as a dictionary. This has an unfortunate side effect of some ugly code and a quite a bit of casting.&lt;/p&gt;
-&lt;p&gt;Given a choice of working with a dictionary vs &lt;span class=&quot;caps&quot;&gt;SQL&lt;/span&gt; I would choice a dictionary everyday. However, with C# 4.0&amp;#8217;s dynamics, we can make this much easier to work with.&lt;/p&gt;
-&lt;p&gt;The change in usage is minor, but I find it to be much more readable and productive.&lt;/p&gt;
-&lt;p&gt;Before:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;csharp&quot;&gt;&lt;span class=&quot;n&quot;&gt;Mongo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mongo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Mongo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;mongo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; 
-
-&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mongo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;blog&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;posts&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;Document&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Title&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Hello Mongo World&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Body&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;This is my first MongoDB post!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Published&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UtcNow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Tags&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;NoSQL&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;MongoDB&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;greatness&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Slug&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;mongo-post&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Insert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;Document&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;query&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Slug&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;mongo-post&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-
-&lt;span class=&quot;n&quot;&gt;Document&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mongo_post&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FindOne&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mongo_post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Title&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;published&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mongo_post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Published&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ToLocalTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Title: {0} local published time {1} &amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;published&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;&lt;p&gt;After:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;csharp&quot;&gt;&lt;span class=&quot;n&quot;&gt;Mongo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mongo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Mongo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;mongo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; 
-
-&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mongo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;blog&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;posts&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;dynamic&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Hello Mongo World&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Body&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;This is my first MongoDB post!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Published&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UtcNow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Tags&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;NoSQL&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;MongoDB&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;greatness&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Slug&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;mongo-post&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Insert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;dynamic&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;query&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Slug&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;mongo-post&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-
-&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mongo_post&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FindOne&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mongo_post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;published&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mongo_post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Published&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ToLocalTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Title: {0} local published time {1} &amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;published&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;&lt;p&gt;While the example is trivial, I think it is a good step forward.&lt;/p&gt;
-&lt;p&gt;I want to play around with a bit more before I try to figure out how to submit a patch or fork it.&lt;/p&gt;
-&lt;p&gt;In the mean time, if you want play with the code, download the source from &lt;a href=&quot;http://github.com&quot;&gt;github&lt;/a&gt;, and then swap out the &lt;a href=&quot;http://www.box.net/shared/knqqd9jn9k&quot;&gt;Document.cs class with this file&lt;/a&gt;.&lt;/p&gt;</content>
  </entry>
  
  

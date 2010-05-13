@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
+    <loc>http://scottw.com/odata</loc>
+    <lastmod>2010-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
     <loc>http://scottw.com/dynamics-mongodb-revisited</loc>
     <lastmod>2010-04-22</lastmod>
     <changefreq>monthly</changefreq>

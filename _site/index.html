@@ -42,6 +42,39 @@
           
 <div class="post">
 
+  <h2 id="/odata"><a href="/odata" rel="bookmark" title="OData">OData</a></h2>
+
+  <div class="entry">
+     <p>Yesterday, I made the trip into <span class="caps">NYC</span> to added the <a href="http://www.odata.org/roadshow">OData Roadshow</a>.</p>
+<p>For those who have not looked into <a href="http://www.odata.org/">OData</a>:</p>
+<blockquote>
+<p>The Open Data Protocol (OData) is a Web protocol for querying and updating data that provides a way to unlock your data and free it from silos that exist in applications today. OData does this by applying and building upon Web technologies such as <span class="caps">HTTP</span>, Atom Publishing Protocol (AtomPub) and <span class="caps">JSON</span> to provide access to information from a variety of applications, services, and stores.</p>
+</blockquote>
+<ul>
+	<li>I personally do not feel it is truly RESTful, but I am willing to give up some of the tenants of <span class="caps">REST</span> in order to gain consistency.</li>
+	<li>While the protocol specification states it is read and write, I would be 99% of implementations will be read only. In fact, in the 5 hours of content covered by Microsoft, there were zero examples of updates.</li>
+	<li>If you are using a Linq to &#8220;Your Data Access&#8221; technology adding OData at a high level will be simple. If you are not using one, I expect this as quite a bit of work.</li>
+</ul>
+<p>Overall, I really like the concept. Simple conventions for querying and representing data. <span class="caps">IMO</span>, this is the kind of stuff Microsoft should be doing more of (instead of silverlight/windows phone/etc). Couple with their data market (Dallas). I would expect to see much more data becoming available via OData.</p>
+<p>On a side note, if the OData Roadshow is coming through your town, I would highly recommend checking it out.</p>
+<p>Finally, for a walk through on setting up your own OData service, check out Hanselman&#8217;s <a href="http://www.hanselman.com/blog/CreatingAnODataAPIForStackOverflowIncludingXMLAndJSONIn30Minutes.aspx">OData For StackOverflow</a> post.</p>
+  </div>
+
+  <p class="postmetadata2">
+  	Posted on May 13, 2010 
+  	  and tagged as 
+  	  
+  	    <a href="/tags#odata">odata</a>,
+  	  
+  	    <a href="/tags#microsoft">microsoft</a>
+  	  
+  	
+  </p>
+
+</div>
+
+<div class="post">
+
   <h2 id="/dynamics-mongodb-revisited"><a href="/dynamics-mongodb-revisited" rel="bookmark" title="Dynamics and MongoDB Revisited">Dynamics and MongoDB Revisited</a></h2>
 
   <div class="entry">
@@ -194,45 +227,6 @@
 
   <p class="postmetadata2">
   	Posted on Apr 07, 2010 
-  </p>
-
-</div>
-
-<div class="post">
-
-  <h2 id="/setting-a-tab-title-in-terminal"><a href="/setting-a-tab-title-in-terminal" rel="bookmark" title="Setting A Tab Title in Terminal">Setting A Tab Title in Terminal</a></h2>
-
-  <div class="entry">
-     <p>I have been spending a lot more time in terminal recently. I routinely find myself having more tabs open than I can keep track of.</p>
-<p>I then end up forgetting what&#8217;s open and end up opening even more tabs which just make the problem worse.</p>
-<p>I finally got tired of this and <a href="http://twitter.com/scottw/status/9900627749">posted a quick question on Twitter</a>. While waiting for a twitter response, I figured I would finally checkout <a href="http://superuser.com">SuperUser</a> which of course <a href="http://superuser.com/questions/105499/change-terminal-title-in-osx">had the answer</a>.</p>
-<p>You just need to execute the following command:</p>
-<div class="highlight"><pre><code class="bash"><span class="nb">echo</span> -n -e <span class="s2">&quot;\033]0;YOUR TAB TITLE HERE\007&quot;</span>
-</code></pre>
-</div><p>Since there is no way I will remember that command (and who should) I wrapped it in a function that I can put in my .bash_profile.</p>
-<div class="highlight"><pre><code class="bash"><span class="k">function </span>title<span class="o">(){</span>
-	<span class="nb">echo</span> -n -e <span class="s2">&quot;\033]0;$1\007&quot;</span>
-<span class="o">}</span>
-</code></pre>
-</div><p>Now, in any tab, I just need to execute:</p>
-<div class="highlight"><pre><code class="bash">title <span class="s1">&#39;My Tab Title&#39;</span>
-</code></pre>
-</div>
-  </div>
-
-  <p class="postmetadata2">
-  	Posted on Mar 02, 2010 
-  	  and tagged as 
-  	  
-  	    <a href="/tags#terminal">terminal</a>,
-  	  
-  	    <a href="/tags#bash">bash</a>,
-  	  
-  	    <a href="/tags#zsh">zsh</a>,
-  	  
-  	    <a href="/tags#osx">osx</a>
-  	  
-  	
   </p>
 
 </div>
