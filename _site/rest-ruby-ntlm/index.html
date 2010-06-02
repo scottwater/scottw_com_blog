@@ -1,15 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-      <title>Scott Watermasysk : Ah crap </title>
+      <title>Scott Watermasysk : Accessing a Restful Service with Ruby via NTLM </title>
       <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-      <meta name="robots" content="" /> 
+      <meta name="robots" content="index,follow" /> 
       <meta name="google-site-verification" content="cp4DJ22wBHgD7CU8Q8Qt6RzE-RBvt_Bs3P36V5sFVgI" />
       <link rel="stylesheet" type="text/css" href="/css/default.css" media="screen" />
       <link rel="stylesheet" type="text/css" href="/css/syntax.css" media="screen" />
       
       <link href="http://feeds.simpable.com/simpable" type="application/atom+xml" rel="alternate" title="Scott Watermasysk" />
       <link rel="shortcut icon" href="/favicon.ico" />
+      
+        <link rel="prev" href="http://scottw.com/odata" title="OData" /> 
       
       
   </head>
@@ -39,36 +41,66 @@
       <div id="wrapper">
         
         <div id="content">
-          <h2>Crap!</h2>
+          <div class="post">
+  <h1>Accessing a Restful Service with Ruby via NTLM</h1>
+  <div class="entry">
+  	<p>I have been looking for an easy to use library for accessing a restful service which sits behind <span class="caps">NTLM</span> via Ruby for sometime now and had been largely unsuccessful until now!</p>
+<p>Last night after a bit more googling, I went back to twitter for help. <a href="http://twitter.com/grantc/status/15222076534">Grant Carpenter</a> put me on the right path with this:</p>
+<blockquote>
+<p>I had the ntlm part working by patching rubyntlm (and then modifying savon). next stop: wsdl impedance <a href="http://bit.ly/982btc">http://bit.ly/982btc</a></p>
+</blockquote>
+<p>The bitly link above points to a defunct project <a href="http://code.google.com/p/ruby-httpclient/">ruby-httpclient</a>. However, it appears to have been reborn as <a href="http://dev.ctor.org/http-access2">httpclient</a> with its source now hosted on <a href="http://github.com/nahi/httpclient">gitub</a>.</p>
+<p>Getting a sample up and running could not be easier.</p>
+<div class="highlight"><pre><code class="bash">gem install httpclient
+gem install rubyntlm
+</code></pre>
+</div><p>Note: If you are still doing <em>sudo gem install</em> and not using <span class="caps">RVM</span> you are really missing out.</p>
+<div class="highlight"><pre><code class="ruby"><span class="nb">require</span> <span class="s1">&#39;httpclient&#39;</span>
 
-<p>Sorry, the link you are looking for is missing, broken, or has been removed for being lame (this is the most likely reason).</p>
+<span class="n">domain</span> <span class="o">=</span> <span class="s1">&#39;http://mydomain.com&#39;</span>
+<span class="n">user</span> <span class="o">=</span> <span class="s1">&#39;username&#39;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;password&#39;</span>
+<span class="n">client</span> <span class="o">=</span> <span class="no">HTTPClient</span><span class="o">.</span><span class="n">new</span>
+<span class="n">client</span><span class="o">.</span><span class="n">set_auth</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">user</span><span class="p">,</span><span class="n">password</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">domain</span><span class="si">}</span><span class="s2">/my-path/service/something.json&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+</code></pre>
+</div><p>I have only been using the httpclient library for an hour or so, but so far the it appears to be very robust with built in support for just about everything Http.</p>
+  </div>
+  <p class="postmetadata2">
+  	Posted on Jun 02, 2010 
+  	
+  	  and tagged as 
+  	  
+  	    <a href="/tags#ntlm">ntlm</a>,
+  	  
+  	    <a href="/tags#ruby">ruby</a>,
+  	  
+  	    <a href="/tags#rest">rest</a>
+  	  
+  	
+  </p>
+</div>
 
-<p>Here is a list of my most recent 10 posts:</p>
 
-<ol>
+<div class="pagenavigation2">
+  <hr/>
+  <div class="previous">
+    
+      <a href="/odata" title="OData">&larr; Previous</a>
+    
+  </div>
+  <div class="next">
+    
+  </div>
+  <div class="clear flat">
+  </div>
+</div>
 
-<li id="/accessing-restful-service-via-ntlm"><a href="/rest-ruby-ntlm" rel="bookmark" title="Accessing a Restful Service with Ruby via NTLM">Accessing a Restful Service with Ruby via NTLM</a></li>
-
-<li id="/odata"><a href="/odata" rel="bookmark" title="OData">OData</a></li>
-
-<li id="/dynamics-mongodb-revisited"><a href="/dynamics-mongodb-revisited" rel="bookmark" title="Dynamics and MongoDB Revisited">Dynamics and MongoDB Revisited</a></li>
-
-<li id="/seo-rack-rewrite"><a href="/seo-rack-rewrite" rel="bookmark" title="SEO with Rack-Rewrite">SEO with Rack-Rewrite</a></li>
-
-<li id="/tekpub-worth"><a href="/tekpub" rel="bookmark" title="Is Tekpub (or PeepCode) Worth the Money?">Is Tekpub (or PeepCode) Worth the Money?</a></li>
-
-<li id="/dottext-lives"><a href="/dottext-lives" rel="bookmark" title=".Text Lives (sort of)">.Text Lives (sort of)</a></li>
-
-<li id="/setting-a-tab-title-in-terminal"><a href="/setting-a-tab-title-in-terminal" rel="bookmark" title="Setting A Tab Title in Terminal">Setting A Tab Title in Terminal</a></li>
-
-<li id="/sinatra"><a href="/sinatra" rel="bookmark" title="Singing With Sinatra">Singing With Sinatra</a></li>
-
-<li id="/one-less-step"><a href="/one-less-step" rel="bookmark" title="One Less Step">One Less Step</a></li>
-
-<li id="/nhprof-vs-sql-profiler"><a href="/nhprof-vs-sql-profiler" rel="bookmark" title="NHProf vs. SQL Profiler">NHProf vs. SQL Profiler</a></li>
-
-</ol>
-<p>If that is not enough, please feel free to <a href="/search">search</a>, check out the full <a href="/archive">archive</a> or view all of my posts by <a href="/tags">tag</a>.
+<div class="feedback">
+  <p>
+    If you have any comments or questions about this post, please feel free to <a href="http://scottw.me/ask">ask them on Tumblr</a> or ping me on <a href="http://twitter.com/scottw">ping me on Twitter</a>.
+    </p>
+</div>
         </div>
 
         <div id="sidebar">
