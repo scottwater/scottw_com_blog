@@ -44,7 +44,7 @@ a {
 h1 a {
 	color: #326ea1;
     font-weight: 100;
-	font: 24px Arial, 'Helvetica', Verdana, sans-serif;
+	font: 40px Arial, 'Helvetica', Verdana, sans-serif;
     margin: 0 0 0 0;
 	padding: 0 0 0 0;
 	text-decoration: none;
@@ -54,7 +54,7 @@ h1 a {
 h1 {
 	/*color: #326ea1;*/
     font-weight: 100;
-	font: 30px Arial, 'Helvetica', Verdana, sans-serif;
+	font: 40px Arial, 'Helvetica', Verdana, sans-serif;
     margin: 0 0 0 0;
 	padding: 0 0 0 0;
 	text-decoration: none;
@@ -162,8 +162,8 @@ small {
         background: transparent;
         overflow: hidden;
         color: #383d44;
-        height: 85px;
-	margin: 0 auto;
+
+	    margin: 0 auto;
         text-align: left;
 	padding: 0 0 0 0;
 }
